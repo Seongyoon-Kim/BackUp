@@ -1,0 +1,29 @@
+package com.test.java;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Practice {
+	
+	public static void main(String[] args)  {
+		
+		Calendar date = Calendar.getInstance();
+		
+		date.set(2015, 0, 31);
+		System.out.println(toString(date));
+		
+	}//main
+	
+	public static String toString(Calendar date) {
+		
+		return date.get(Calendar.YEAR) + "년 " + date.get(Calendar.MONTH) + "월 " + date.get(Calendar.DATE) + "일";
+		
+	}
+	
+}
+
+
+
+
+
+

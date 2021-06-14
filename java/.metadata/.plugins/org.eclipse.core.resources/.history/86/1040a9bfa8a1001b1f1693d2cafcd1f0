@@ -1,0 +1,68 @@
+package com.test.question.inheritance;
+
+public class Ex41_Inheritance {
+	
+	public static void main(String[] args) {
+		
+		//Ex41_Inheritance.java
+		
+		/*
+				  
+		상속, Inheritance
+		- 클래스 상속
+		- 클래스와 클래스 간에 구현 가능한 기술
+		- 부모 -> (재산) -> 자식
+		- 클래스 -> (멤버(변수, 메소드)) -> 클래스
+		
+		- 부모 클래스 -> 자식 클래스 //상속(Inheritance)
+		- 슈퍼 클래스 -> 서브 클래스
+		- 기본 클래스 -> 확장 클래스
+				  
+				  
+				  
+				  
+		*/
+		
+		
+		Child c = new Child();
+		System.out.println(c.a);
+		System.out.println(c.b);
+		
+		c.aaa();
+		
+		
+		
+	} //main
+
+} //Ex41_Inheritance
+
+
+//부모 클래스
+class Parent {
+	public int a = 10;
+	public int b = 20;
+	
+	public void aaa() {
+		System.out.println("AAA");
+	}
+}
+
+//자식 클래스
+class Child extends Parent { //Parent 클래스를 부모로 해서 상속을 받겠다.(Parent와 Child를 상속 관계로 만든다.)
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

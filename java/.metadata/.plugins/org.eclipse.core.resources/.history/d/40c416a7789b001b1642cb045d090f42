@@ -1,0 +1,12 @@
+package com.test.question.q12;
+
+public class Q013 {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("===============================================");
+		System.out.println("                     자판기");
+		System.out.println("===============================================");
+	}
+
+}

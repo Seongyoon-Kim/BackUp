@@ -1,0 +1,386 @@
+package lec08.jth.world;
+
+import java.util.Scanner;
+
+import lec08.jth.world.machine.SetInfo;
+
+public class PracticeMainMethod {
+	
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		SetInfo setInfo = new SetInfo();
+		
+		setInfo.setCompanyInfo();
+		
+		boolean loop = true;
+		
+		while (loop) {
+			
+			System.out.print("회사명 입력: ");
+			
+			String companyName = scanner.next();
+			
+			String upperCompanyName = companyName.toUpperCase();
+			
+			showCompanyName(scanner, companyName, upperCompanyName, setInfo);
+			
+			System.out.println("종료 하기를 원하신다면 1을 아니면 아무 숫자나 입력해주세요.");
+			
+			int result = scanner.nextInt();
+			
+			if (result == 1) {
+				
+				loop = false;
+				
+				System.out.println("프로그램을 종료하겠습니다.");
+				
+			}
+			
+		} // while
+		
+	} // main
+
+	public static void showDetailInformation(SetInfo setInfo, int kindCompany, int kindNumber) {
+		
+		switch(kindCompany) {
+		
+			case 1:
+			
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.hcc.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.hcc.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.hcc.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.hcc.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.hcc.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.hcc.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.hcc.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+			
+			case 2:
+				
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.lgChem.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.lgChem.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.lgChem.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.lgChem.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.lgChem.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.lgChem.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.lgChem.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+				
+			case 3:
+				
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.lotteChemical.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.lotteChemical.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.lotteChemical.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.lotteChemical.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.lotteChemical.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.lotteChemical.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.lotteChemical.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+			
+			case 4:
+				
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.lgElectronics.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.lgElectronics.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.lgElectronics.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.lgElectronics.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.lgElectronics.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.lgElectronics.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.lgElectronics.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+			
+			case 5:
+				
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.samElec.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.samElec.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.samElec.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.samElec.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.samElec.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.samElec.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.samElec.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+			
+			case 6:
+				
+				switch (kindNumber) {
+				
+				case 1:
+					System.out.println("회사명: " + setInfo.skhynix.getCompanyName());
+					break;
+					
+				case 2:
+					System.out.println("회사 주력 사업: " + setInfo.skhynix.getCompanyProperty());
+					break;
+					
+				case 3:
+					System.out.println("회사 위치: " + setInfo.skhynix.getHeadOfficeAddress());
+					break;
+					
+				case 4:
+					System.out.println("근무 인원: " + setInfo.skhynix.getTotalEmployee());
+					break;
+					
+				case 5:
+					System.out.println("매출액: " + setInfo.skhynix.getSalesAmount());
+					break;
+					
+				case 6:
+					System.out.println("자산액: " + setInfo.skhynix.getPropertyAmount());
+					break;
+					
+				case 7:
+					System.out.println("부채액: " + setInfo.skhynix.getDebtAmount());
+					break;
+					
+				default:
+					System.out.println("잘못된 번호입니다.");
+					break;
+			
+				}
+				
+			break;
+			
+			default :
+				
+				System.out.println("올바른 번호를 선택해주세요.");
+				break;
+		
+		} // switch outer
+		
+		
+	} // showDetailInformation
+
+	public static int selectInformationNumber(Scanner scanner, SetInfo setInfo) {
+		
+		System.out.println("어떤 정보를 원하세요?");
+		System.out.println("1. 회사명");
+		System.out.println("2. 회사 주력 사업");
+		System.out.println("3. 회사 위치");
+		System.out.println("4. 근무 인원");
+		System.out.println("5. 매출액");
+		System.out.println("6. 자산액");
+		System.out.println("7. 부채액");
+		
+		String informationNumber = scanner.next();
+		
+		int intInformationNumber = 0;
+		
+		try {
+			
+			intInformationNumber = Integer.parseInt(informationNumber);
+			
+		} catch (Exception e) {
+			
+			System.out.println("숫자만 입력해주셔야 합니다.");
+			
+		}
+		
+		return intInformationNumber;
+	}
+
+	public static void showCompanyName (Scanner scanner, String companyName, String upperCompanyName, SetInfo setInfo) {
+		
+		int kindCompany = 0;
+		int kindNumber = 0;
+		
+		if (upperCompanyName.contains("한화")) {
+			
+			System.out.println(companyName + "(을)를 선택하셨습니다.");
+			
+			kindCompany = 1;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		} else if (upperCompanyName.contains("lg화")) {
+			
+			System.out.println(companyName = "(을)를 선택하셨습니다.");
+			
+			kindCompany = 2;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		} else if (upperCompanyName.contains("롯데")) {
+			
+			System.out.println(companyName = "(을)를 선택하셨습니다.");
+			
+			kindCompany = 3;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		} else if (upperCompanyName.contains("lg전")) {
+			
+			System.out.println(companyName = "(을)를 선택하셨습니다.");
+			
+			kindCompany = 4;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		} else if (upperCompanyName.contains("삼성")) {
+			
+			System.out.println(companyName = "(을)를 선택하셨습니다.");
+			
+			kindCompany = 5;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		} else if (upperCompanyName.contains("sk")) {
+			
+			System.out.println(companyName = "(을)를 선택하셨습니다.");
+			
+			kindCompany = 6;
+			
+			kindNumber = selectInformationNumber(scanner, setInfo);
+			
+		}
+		
+		showDetailInformation(setInfo, kindCompany, kindNumber);
+		
+	} // showCompanyName
+
+} // PracticeMainMethod

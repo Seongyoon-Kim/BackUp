@@ -1,0 +1,9 @@
+package ver2_lec05.collectionframework03.samplecode08.main;
+
+import ver2_lec05.collectionframework03.samplecode08.service.impl.CallDataServiceImpl;
+
+public class MainMethod {
+	
+	
+
+}

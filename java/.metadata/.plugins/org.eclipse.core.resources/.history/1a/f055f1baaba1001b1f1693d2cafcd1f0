@@ -1,0 +1,34 @@
+package com.test.question.inheritance;
+
+import java.util.Random;
+
+public class Ex42_Inheritance {
+	
+	public static void main(String[] args) {
+		
+		//Ex42_Inheritance.java
+		
+		m1();
+		
+	}//main
+
+	private static void m1() {
+		
+		//상속 X
+		
+		//난수 생성기
+		//1. Math.Random()
+		//2. Random 클래스
+		
+		//pseudorandom numbers -> 의사난수 숫자들
+		Random rnd = new Random();
+		
+		for (int i = 0; i < 10; i++) {
+			
+			System.out.println(rnd.nextInt());
+			
+		}
+		
+	}
+
+}//Ex42_Inheritance

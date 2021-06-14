@@ -1,0 +1,21 @@
+package ver2_lec05.collectionframework03;
+
+import java.util.HashMap;
+
+public class Map07 {
+	
+	public static void main(String[] args) {
+		
+		HashMap hashMap = new HashMap();
+		
+		hashMap.put("국가1", "한국");
+		hashMap.put("국가2", "미국");
+		hashMap.put("국가3", "중국");
+		hashMap.put("국가4", "러시아");
+		hashMap.put("국가5", "일본");
+		
+		System.out.println(hashMap.toString());
+		
+	}
+
+}

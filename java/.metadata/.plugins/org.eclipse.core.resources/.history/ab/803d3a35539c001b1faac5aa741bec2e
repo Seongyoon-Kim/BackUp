@@ -1,0 +1,83 @@
+package com.test.java;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Practice {
+	
+		public static void main(String[] args) throws NumberFormatException, IOException {
+			
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			
+			int total = 0;
+			int year = 2021;
+			int month = 4;
+			int day = 13;
+			
+			for (int i=1; i<year; i++) {
+				if (isLeaf(i)) {
+					total += 366;
+				} else {
+					total += 365;
+				}
+			}
+			
+			for (int i=1; i<month; i++) {
+				switch (i) {
+					case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+						total += 31;
+						break;
+						
+					case 4: case 6: case 9: case 11:
+						total += 30;
+						break;
+						
+					case 2:
+						if (isLeaf(i)) {
+							total += 29;
+						} else {
+							total += 28;
+						}
+						break;
+				}
+			} // for
+			
+			total += day;
+			
+			String date = "";
+			
+			if (total % 7 == 0) {
+				date = "일요일";
+			} else if (total % 7 == 1) {
+				date = "월요일";
+			} else if (total % 7 == 2) {
+				date = "화요일";
+			} else if (total % 7 == 3) {
+				date = "수요일";
+			} else if (total % 7 == 4) {
+				date = "목요일";
+			} else if (total % 7 == 5) {
+				date = "금요일";
+			} else if (total % 7 == 6) {
+				date = "토요일";
+			}
+			
+			System.out.printf("%d년 %d월 %d일은 %d일째 되는 날입니다.", year, month, day, total);
+			System.out.printf("오늘은 %s입니다.", date);
+			
+			
+				
+	}//main
+		
+	public static boolean isLeaf(int n) {
+		
+		if ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+		
+}

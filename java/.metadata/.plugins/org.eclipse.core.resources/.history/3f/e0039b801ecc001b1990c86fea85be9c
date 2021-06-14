@@ -1,0 +1,26 @@
+package ver2_lec05.collectionframework03;
+
+import java.util.ArrayList;
+
+public class ArrayList03 {
+	
+	public static void main(String[] args) {
+		
+		ArrayList sampeList = new ArrayList();
+		
+		sampeList.add(1);
+		sampeList.add("한국");
+		sampeList.add(true);
+		
+		System.out.println(sampeList.toString());
+		
+		int sampleSize = sampeList.size();
+		
+		for (int x=0; x<sampleSize; x++) {
+			Object o = sampeList.get(x);
+			System.out.println("Object ::: " + o);
+		}
+		
+	}
+
+}

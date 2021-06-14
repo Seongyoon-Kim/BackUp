@@ -1,0 +1,13 @@
+127.0.0.1 - - [10/Jun/2021:09:40:01 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:02 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3338
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:02 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:08 +0900] "GET /ClientTest/ex19ok.JSP?data=HTML HTTP/1.1" 404 832
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:29 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3338
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:34 +0900] "GET /ClientTest/ex19ok.jsp?data=HTML HTTP/1.1" 200 219
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:09:40:41 +0900] "GET /ClientTest/ex19ok.jsp?data=%ED%99%8D%EA%B8%B8%EB%8F%99 HTTP/1.1" 200 224
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:08:19 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3619
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:11:13 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3664
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:14:22 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3693
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:14:28 +0900] "GET /ClientTest/ex19ok.jsp?data=java HTTP/1.1" 200 219
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:14:48 +0900] "GET /ClientTest/ex19_form.html HTTP/1.1" 200 3694
+0:0:0:0:0:0:0:1 - - [10/Jun/2021:10:14:59 +0900] "POST /ClientTest/ex19ok.jsp HTTP/1.1" 200 219

@@ -1,0 +1,40 @@
+package com.test.java;
+
+import java.util.Calendar;
+
+public class Dbms_project {
+	
+	public static void main(String[] args) {
+	
+		Calendar courseDate = Calendar.getInstance();
+		
+		courseDate.set(Calendar.YEAR, 2021);
+		courseDate.set(Calendar.MONTH, 3);
+		courseDate.set(Calendar.DATE, 29);
+		
+		for (int i=0; i<112; i++) {
+			
+			System.out.printf("%tF", courseDate);
+			System.out.println();
+			
+			for (int j=0; j<168; j++) {
+				
+				int hour = (int)Math.random() + 8;
+				int minute = (int)(Math.random() * 60);
+				
+				if (hour >= 8 && minute >= 50) {
+				
+					System.out.printf("%02d:%02d", hour, minute);
+					System.out.println();
+				
+				}
+				
+			}
+			
+			courseDate.add(Calendar.DATE, 1);
+			
+		}
+		
+	}//main
+
+}

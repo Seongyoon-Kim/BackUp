@@ -1,0 +1,43 @@
+package ver2_lec05.fileIO05.training01;
+
+import java.io.File;
+import java.util.Date;
+
+public class FileManyFunction01 {
+	
+	public static void main(String[] args) throws Exception {
+		
+		File txtFile = new File("C:\\dev\\FileIOTextFile.txt");
+		File txtFolder = new File("C:\\dev\\FileIOFolder");
+		
+		String fileName = txtFile.getName();
+		System.out.println("fileName: " + fileName);
+		
+		long longLastModified = txtFile.lastModified();
+		System.out.println("longLastModified: " + longLastModified);
+		Date dateLastModified = new Date(longLastModified);
+		System.out.println("dateLastModified: " + dateLastModified);
+		
+		String filePath = txtFile.getPath();
+		System.out.println("filePath: " + filePath);
+		String fileAbsolutePath = txtFile.getAbsolutePath();
+		System.out.println("fileAbsolutePath: " + fileAbsolutePath);
+		String fileCanonicalPath = txtFile.getCanonicalPath();
+		System.out.println("fileCanonicalPath: " + fileCanonicalPath);
+		
+		boolean txtFileExist = txtFile.exists();
+		System.out.println("txtFileExist: " + txtFileExist);
+		
+		boolean txtFileFile = txtFile.isFile();
+		System.out.println("txtFileFile: " + txtFileFile);
+		boolean txtFolderFile = txtFolder.isFile();
+		System.out.println("txtFolderFile: " + txtFolderFile);
+		
+		boolean txtFileDirectory = txtFile.isDirectory();
+		System.out.println("txtFileDirectory: " + txtFileDirectory);
+		boolean txtDirectory = txtFolder.isDirectory();
+		System.out.println("txtDirectory: " + txtDirectory);
+		
+	}
+
+}

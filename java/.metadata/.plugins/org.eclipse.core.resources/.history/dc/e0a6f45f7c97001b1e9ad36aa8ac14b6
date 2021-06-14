@@ -1,0 +1,32 @@
+package com.test.question.q10;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Q006 {
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("음식을 받기 원하는 시각");
+		System.out.print("시: ");
+		
+		int hour = Integer.parseInt(reader.readLine());
+		
+		System.out.print("분: ");
+		
+		int minute = Integer.parseInt(reader.readLine());
+		
+		int jajangMinute = minute - 10;
+		int jajangHour = (jajangMinute < 0) ? (hour - 1) : (hour);
+		jajangMinute = (jajangMinute < 0) ? (jajangMinute + 60) : (jajangMinute);
+		
+		System.out.printf("짜장면: %d시 %d분", jajangHour, jajangMinute);
+		
+		
+		
+	}//main
+
+}

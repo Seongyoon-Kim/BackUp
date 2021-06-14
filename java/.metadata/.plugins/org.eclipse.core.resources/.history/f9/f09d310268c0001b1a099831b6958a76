@@ -1,0 +1,52 @@
+package com.test.java;
+
+import java.util.Calendar;
+import java.util.Random;
+
+public class Dbms_project {
+	
+	public static void main(String[] args) {
+	
+		Calendar courseDate = Calendar.getInstance();
+		Random rnd = new Random();
+		
+		courseDate.set(Calendar.YEAR, 2021);
+		courseDate.set(Calendar.MONTH, 2);
+		courseDate.set(Calendar.DATE, 29);
+		
+		
+		for (int i=0; i<112; i++) {
+			
+			int count = 1;
+			
+			for (int j=0; true; j++) {
+				
+				int inHour = 8;
+				int inMinute = rnd.nextInt(59);
+				
+				int outHour = 17;
+				int outMinute = rnd.nextInt(5) + 50;
+				
+				if (inHour >= 8 && inMinute >= 50) {
+				
+					System.out.printf("INSERT INTO tblAttendance (attendanceSeq, AttendanceDate, inTime, outTime, condition) values (%d, %tF, %02d:%02d, %02d:%02d, null)", count, courseDate, inHour, inMinute, outHour, outMinute);
+					System.out.println();
+				
+					count++;
+					
+					if (count > 168) {
+						break;
+					}
+					
+				}
+				
+				
+			}
+			
+			courseDate.add(Calendar.DATE, 1);
+			
+		}
+		
+	}//main
+
+}

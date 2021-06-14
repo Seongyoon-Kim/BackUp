@@ -1,0 +1,14 @@
+1618794750894	Encapsulate field 'color'
+1618794782314	Encapsulate field 'weight'
+1618796279837	Encapsulate field 'price'
+1618800595549	Rename type 'Student2'
+1618800606313	Rename type 'Student'
+1618808629995	Encapsulate field 'model'
+1618808983807	Encapsulate field 'count'
+1618964197952	Delete element
+1618964230219	Delete element
+1618964280127	Delete element
+1619050825825	Rename package 'com.test.question.inheritance'
+1619050836545	Rename package 'com.test.question.Inheritance2'
+1619062592800	Encapsulate field 'data'
+1619145513720	Extract method 'pause'

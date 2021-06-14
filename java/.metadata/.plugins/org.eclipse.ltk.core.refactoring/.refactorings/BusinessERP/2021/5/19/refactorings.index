@@ -1,0 +1,3 @@
+1620135112959	Extract method 'commentUpadateRemove'
+1620136081554	Extract method 'commentWriteUpdateDelete'
+1620294627961	Extract method 'postList'

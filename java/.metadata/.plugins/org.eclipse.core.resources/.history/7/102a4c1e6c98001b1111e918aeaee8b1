@@ -1,0 +1,23 @@
+package com.test.java;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Calendar;
+
+public class Practice {
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("섭씨(C): ");
+		
+		int celsius = Integer.parseInt(reader.readLine());
+		
+		double b = celsius * 1.8 + 32;
+		
+		System.out.printf("섭씨 %dC는 화씨%.1fF입니다.", celsius, b);
+	}
+	
+}

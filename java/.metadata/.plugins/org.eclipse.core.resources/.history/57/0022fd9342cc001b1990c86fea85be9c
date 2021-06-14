@@ -1,0 +1,17 @@
+package ver2_lec05.fileIO05.training01;
+
+import java.io.File;
+
+public class FileManyFunction01 {
+	
+	public static void main(String[] args) throws Exception {
+		
+		File txtFile = new File("C:\\dev\\FileIOTextFile.txt");
+		File txtFolder = new File("C:\\dev\\FileIOFolder");
+		
+		String fileName = txtFile.getName();
+		System.out.println("fileName: " + fileName);
+		
+	}
+
+}

@@ -1,0 +1,34 @@
+package com.test.java;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class Practice {
+	
+	public static void main(String[] args)  {
+		
+		Vector v = new Vector(5);
+		
+		v.add("1");
+		v.add("2");
+		v.add("3");
+		print(v);
+		
+	}//main
+	
+	public static void print(Vector<E> v) {
+		
+		System.out.println(v);
+		System.out.println("size: " + v.size());
+		System.out.println("capacity: " + v.capacity());
+		
+	}
+	
+}
+
+
+
+
+
+

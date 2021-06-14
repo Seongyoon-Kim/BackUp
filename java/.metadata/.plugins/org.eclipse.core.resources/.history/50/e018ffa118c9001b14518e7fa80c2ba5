@@ -1,0 +1,13 @@
+package lec04;
+
+public class ObjClass01 {
+	
+	public static void main(String[] args) {
+		
+		ProcureItemVO ProcureItemVO = new ProcureItemVO();
+		
+		System.out.println("아무것도 세팅하지 않은 객체 ::: " + ProcureItemVO.toString());
+		
+	}
+
+}

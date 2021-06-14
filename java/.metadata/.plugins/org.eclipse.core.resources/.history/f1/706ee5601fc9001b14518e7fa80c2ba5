@@ -1,0 +1,7 @@
+package lec05;
+
+public class Electronics {
+	
+	int productCount = 10;
+
+}

@@ -1,0 +1,9 @@
+package ver2_lec01;
+
+public class MainMethod {
+	
+	CocaCola coca = new CocaCola();
+	
+	coca.showColaName("코카콜라");
+
+}

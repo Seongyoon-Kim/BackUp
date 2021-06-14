@@ -1,0 +1,52 @@
+package com.test.question.q10;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Calendar;
+
+public class Q003 {
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.print("태어난 년도 : ");
+		
+		int birthYear = Integer.parseInt(reader.readLine());
+		
+		birthYear();
+		
+	}//main
+
+	private static void birthYear() {
+		
+		Calendar now = Calendar.getInstance();
+		Calendar birthYear = Calendar.getInstance();
+		
+		birthYear.set(Calendar.YEAR, 1994);
+		
+		long nowTick = now.getTimeInMillis();
+		long birthYearTick = birthYear.getTimeInMillis();
+		
+		long age = ((nowTick - birthYearTick) / 1000 / 60 / 60 / 24 / 365) + 1;
+		
+		System.out.printf("나이 : %d", age);
+		
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

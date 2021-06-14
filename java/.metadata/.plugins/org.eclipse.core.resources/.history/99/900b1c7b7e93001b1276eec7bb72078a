@@ -1,0 +1,42 @@
+package com.test.question.q3;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+
+public class Q001 {
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		// 1번 문제 풀이
+		
+		BufferedReader reader = new BufferedReader(InputStreamReader(System.in));
+		
+		System.out.println("태어난 년도: ");
+		
+		int year = Integer.parseInt(reader.readLine());
+		
+		int age = 2021 + 1 - year;
+		
+		System.out.printf("나이: %d\n", age);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	private static Reader InputStreamReader(InputStream in) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
