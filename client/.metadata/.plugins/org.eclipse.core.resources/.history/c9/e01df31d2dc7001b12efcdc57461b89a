@@ -1,0 +1,65 @@
+D:\\class\\client 폴더 생성
+
+1. HTML
+2. CSS
+3. JavaScript
+
+사용 도구
+1. Eclipse
+2. 다른 편집기 -> Visual Studio Code
+
+이클립스
+1. 워크 스페이스 이동 -> D:\\class\\client
+2. 인코딩
+    - workspace > Text File Encoding
+    - CSS Files
+    - HTML Files
+    - JSP Files
+3. 폰트
+4. 나머지
+
+http://tomcat.apache.org
+- 왼쪽메뉴 > Download > Tomcat 8
+- 64-bit Windows zip(pgp, sha512)
+
+
+New > Dynamic Web Project > "ClientTest"
+
+
+아파치톰캣
+- 포트번호 8080번 사용
+- 3000대 이후 ~ 32000번
+- 8090
+
+http://localhost:8090/ClientTest/hello.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

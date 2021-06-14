@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex19_form.html -->
+    <!-- 
+
+        <form>, 폼
+        - 우리 과정의 목적
+        - HTML form + HTML Input Control
+        - 클라이언트(사용자)로부터 입력장치(키보드, 마우스 등)을 통해서 데이터를 입력받는 요소 -> 입력 받는 데이터는 JavaScript로 처리하거나 서버측에 전달한다.
+        - <form> 이외의 태그: 주로 출력을 위한 태그들
+        - <form>과 관련된 태그: 주로 행동을 위한 태그들(입력)
+        - ex) 텍스트 박스, 버튼, 체크박스, 라디오버튼, 파일업로드, 셀렉트박스 등
+
+        1. <form> 태그
+            - 출력 결과를 가지지 않는다. > 렌더링(Rendering)을 안한다.
+            - 렌더링이란 HTML, CSS, JavaScript 등 개발자가 작성한 문서를 브라우저에서 그래픽 형태로 출력하는 과정을 말합니다.
+            - 대부분의 브라우저는 렌더링을 수행하는 렌더링 엔진(Rendering Engine)을 가지고 있습니다. 다만 모든 브라우저가 같은 렌더링 엔진을 사용하지는 않습닏,. 파이어폭스는 게코(Gecko)를 사용하고 있고 웹킷(Webkit)을 사용하고 있습니다. 크롬의 경우 웹킷을 사용하다가 웹킷을 Fork하여 블링크(Blink) 엔진을 자체적으로 구현하여 사용하고 있습니다.
+
+     -->
+
+     <h1>폼</h1>
+
+     AA
+     <form></form>
+     BB
+     
+</body>
+</html>
