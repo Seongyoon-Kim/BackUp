@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            float 속성
+            - 해당 태그의 기존 출력 정책을 따르지 않고, 원래 위치에서 벗어나 라인의 왼쪽/오른쪽 끝으로 이동
+            - left, right, none(default)
+            - float이 적용되면 block 태그의 성질로 바뀐다. + 최상단 배치
+        */
+        #m1 {
+            color: red;
+            float: right;
+        }
+
+        img {
+            float: left;
+        }
+
+        #title {
+            /* border: 1px solid black; */
+            width: 600px;
+            border-bottom: 1px dashed grey;
+        }
+
+        #title > small {
+            float: right;
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex26_float.html -->
+    
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius amet recusandae pariatur officiis porro earum consequatur nostrum possimus maxime ab, repudiandae dolores tempore ad, doloribus blanditiis voluptatibus iste nulla explicabo libero laudantium! Quasi corporis enim nisi tempore optio est reiciendis quo ex cum ipsa ullam voluptatibus porro @@<span id="m1">HTML</span>@@, nobis ipsum, qui assumenda voluptatum soluta consectetur blanditiis pariatur iure doloribus dolore. Quibusdam maiores eos, velit, natus obcaecati dolores qui, perspiciatis doloremque optio accusantium officia laboriosam assumenda quasi quis fuga adipisci voluptate sunt repudiandae hic eligendi! Aliquid voluptatum fugiat quod accusantium corporis eos, facilis minima soluta sapiente! Exercitationem iure aperiam ullam hic!</p>
+
+    <h1>대표 인사말</h1>
+
+    <p id="p1"> 저는 OO 개발의 홍길동입니다. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere adipisci ad laborum harum eius, praesentium suscipit, nulla quam iusto maiores vero aliquid quisquam? Sequi temporibus ullam sed, vero asperiores ipsum porro, in, debitis rerum ratione eligendi unde architecto amet. Unde ducimus ea voluptatem, animi numquam neque sunt debitis perspiciatis repellat ut. Numquam commodi sit nostrum quas odio iure sint nisi dicta odit architecto! Dignissimos, ut laborum? <img src="images/man_01.png">Animi, pariatur blanditiis. Earum consequuntur amet consectetur, expedita nemo, provident quas alias ab quaerat quidem atque fuga exercitationem, in illo rem temporibus qui iure sit ipsa. In laudantium consectetur ducimus dolorum ad eius dolor. Consectetur assumenda cum qui iure quasi, magnam repudiandae accusamus, ab ea vitae, laborum praesentium. Iusto vero cupiditate iure. Atque, nisi! Asperiores placeat perspiciatis non fuga ullam, rem optio dolore eligendi vel tenetur officia labore nemo! Nam molestiae quia sunt. Voluptatem est nulla dolor ea repellendus quo, in cumque non aliquam!</p>
+
+    <h1 id="title">자유게시판 <small>Free Board</small></h1>
+</body>
+</html>
