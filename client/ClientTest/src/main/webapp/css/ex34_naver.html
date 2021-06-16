@@ -6,245 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #movie {
-            border: 2px solid white;
-            width: 750px;
-            height: 365px;
-            padding-top: 22px;
-            padding-bottom: 18px;
-        }
-
-        #movie .asd {
-            float: left;
-        }
-
-        #movie .zxc {
-            border:  5px solid khaki;
-            float: right;
-            width: 364px;
-            height: 322px;
-        }
-
-        #movie .item1 {
-            border: 3px solid red;
-        }
-
-        #movie .item2 {
-            border: 3px solid darkviolet;
-            width: 364px;
-            height: 98px;
-            float: left;
-        }
-
-        #movie .item3 {
-            border: 3px solid indianred;
-            width: 364px;
-            height: 98px;
-            float: left;
-        }
-
-        #movie .item4 {
-            border: 3px solid lawngreen;
-            width: 364px;
-            height: 98px;
-            float: left;
-        }
-
-        #movie .item1 img {
+        #total {
             border: 1px solid black;
+            width: 750px;
+            height: 322px;
+            padding: 22px 18px;
+        }
+
+        #total #leftBox .leftImage {
             width: 364px;
             height: 180px;
         }
 
-        .zxc .item2 img {
-            border: 1px solid black;
+        #total #rightBOx .rightImage {
             width: 98px;
             height: 98px;
         }
 
-        #movie .item1 .type {
+        #leftBox .type {
             width: 346px;
             height: 16px;
-            color: inherit;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
         }
 
-        #movie .item1 .title {
+        #leftBox .title {
             width: 346px;
             height: 16px;
-            color: inherit;
-            letter-spacing: -0.25px;
-            font-size: 13px;
-            line-height: 16px;
-            font-weight: bold;
-            margin-top: 6px;
         }
 
-        #movie .item1 .desc {
+        #leftBox .desc {
             width: 346px;
             height: 41.33px;
-            color: inherit;
-            letter-spacing: -0.25px;
-            font-size: 13px;
-            line-height: 21px;
-            margin-top: 5px;
         }
 
-        #movie .item1 .publisher {
+        #leftBox .publisher {
             width: 58.75px;
-            height: 16px;
-            color: #969696;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
         }
 
-        .zxc .item2 .final .type {
-            width: 218px;
-            height: 16px;
-            font-weight: 700;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-        }
+        #rightBox .type
 
-        .zxc .item2 .final .title {
-            width: 218px;
-            height: 40px;
-            font-weight: bold;
-            letter-spacing: -0.25px;
-            font-size: 13px;
-            line-height: 20px;
-            margin-top: 4px;
-            color: inherit;
-        }
 
-        .zxc .item2 .final .publisher {
-            width: 58.75px;
-            height: 16px;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-            margin-top: 4px;
-            color: #969696;
-        }
-
-        .zxc .item3 img {
-            border: 1px solid black;
-            width: 98px;
-            height: 98px;
-        }
-
-        .zxc .item3 .final .type {
-            width: 218px;
-            height: 16px;
-            font-weight: 700;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-        }
-
-        .zxc .item3 .final .title {
-            width: 218px;
-            height: 40px;
-            font-weight: bold;
-            letter-spacing: -0.25px;
-            font-size: 13px;
-            line-height: 20px;
-            margin-top: 4px;
-            color: inherit;
-        }
-
-        .zxc .item3 .final .publisher {
-            width: 58.75px;
-            height: 16px;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-            margin-top: 4px;
-            color: #969696;
-        }
-        
-        .zxc .item4 img {
-            border: 1px solid black;
-            width: 98px;
-            height: 98px;
-        }
-
-        .zxc .item4 .final .type {
-            width: 218px;
-            height: 16px;
-            font-weight: 700;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-        }
-
-        .zxc .item4 .final .title {
-            width: 218px;
-            height: 40px;
-            font-weight: bold;
-            letter-spacing: -0.25px;
-            font-size: 13px;
-            line-height: 20px;
-            margin-top: 4px;
-            color: inherit;
-        }
-
-        .zxc .item4 .final .publisher {
-            width: 58.75px;
-            height: 16px;
-            letter-spacing: -0.25px;
-            font-size: 12px;
-            line-height: 16px;
-            margin-top: 4px;
-            color: #969696;
-        }
     </style>
 </head>
 <body>
-    <!-- ex34_naver.html -->
-    <div id="movie">
-        <div class="asd">
-            <div class="item1">
-                <img src="images/movie01.jpeg">
-                <div class="type">영화人</div>
-                    <div class="title">데뷔 1년 만에 주연! 모두를 사로잡은 1994년생 배우</div>
-                    <div class="desc">넷플릭스에서 공개된 상큼 발랄한 로맨스 <새콤달콤>은 이제 막 사회에 발을 내디딘 청춘 남녀의 각가지 맛 사랑을 ...</div>
-                    <div class="publisher">씨네플레이</div>
-                </div>
-            </div>
+    <div id="total">
+        <div id="leftBox">
+            <img src="images/movie01.jpeg" class="leftImage">
+            <div class="type">영화人</div>
+            <div class="title">데뷔 1년 만에 주연! 모두를 사로잡은 1994년생 배우</div>
+            <div class="desc">넷플릭스에서 공개된 상큼 발랄한 로맨스 <새콤달콤>은 이제 막 사회에 발을 내디딘 청춘 남녀의 각가지 맛 사랑을 ...</div>
+            <div class="publisher">씨네플레이</div>
         </div>
+        <div id="rightBox">
+            <img src="images/movie02.jpeg" class="rightImage">
+            <div class="type">영화이야기</div>
+            <div class="title">아시아 대표 영화강국이던 일본, 쇠퇴의 원인은 무엇인가</div>
+            <div class="publisher">씨네플레이</div>
 
-        <div class="zxc">
-            <div class="item2">
-                <img src="images/movie02.jpeg">
-                <div class="final">
-                    <div class="type">영화이야기</div>
-                    <div class="title">아시아 대표 영화강국이던 일본, 쇠퇴의 원인은 무엇인가</div>
-                    <div class="publisher">씨네플레이</div>
-                </div>
-            </div>
+            <img src="images/movie03.jpeg" class="rightImage">
+            <div class="type">히어로 월드</div>
+            <div class="title">당할수록 작품이 사는 남자, '로키'의 귀환</div>
+            <div class="publisher">씨네플레이</div>
 
-            <div class="item3">
-                <img src="images/movie03.jpeg">
-                <div class="final">
-                    <div class="type">영화이야기</div>
-                    <div class="title">아시아 대표 영화강국이던 일본, 쇠퇴의 원인은 무엇인가</div>
-                    <div class="publisher">씨네플레이</div>
-                </div>
-            </div>
-
-            <div class="item4">
-                <img src="images/movie04.jpeg">
-                <div class="final">
-                    <div class="type">영화이야기</div>
-                    <div class="title">아시아 대표 영화강국이던 일본, 쇠퇴의 원인은 무엇인가</div>
-                    <div class="publisher">씨네플레이</div>
-                </div>
-            </div>
+            <img src="images/movie04.jpeg" class="rightImage">
+            <div class="type">영화 비평</div>
+            <div class="title">장르적 요소를 적극적으로 차용한 지아장커의 '강호아녀'</div>
+            <div class="publisher">씨네플레이</div>
         </div>
     </div>
 </body>
