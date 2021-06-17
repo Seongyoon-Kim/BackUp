@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #main {
+            border: 1px solid gray;
+            width: 600px;
+            font-size: 14px;
+            color: #444;
+            text-align: justify;
+        }
+
+        #main input[type=radio] {
+            display: none;
+        }
+
+        #main label {
+            border-bottom: 1px solid gray;
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            cursor: pointer;
+        }
+
+        #main input[type=radio]:checked + label {
+            background-color: cadetblue;
+            color: white;
+            font-weight: bold;
+        }
+
+        #main div {
+            display: none;
+            padding: 80px 20px 20px 20px;
+        }
+
+        #main img{
+            float: left;
+        }
+        
+        #main #rb1:checked ~ #info1 {
+            display: block;
+        }
+
+        #main #rb2:checked ~ #info2 {
+            display: block;
+        }
+
+        #main #rb3:checked ~ #info3 {
+            display: block;
+        }
+
+        #main #rb4:checked ~ #info4 {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <input type="radio" id="rb1" name="rb" checked>
+        <label for="rb1" class="label">홍길동</label>
+
+        <input type="radio" id="rb2" name="rb">
+        <label for="rb2" class="label">아무개</label>
+
+        <input type="radio" id="rb3" name="rb">
+        <label for="rb3" class="label">하하하</label>
+
+        <input type="radio" id="rb4" name="rb">
+        <label for="rb4" class="label">호호호</label>
+        <div style="clear: both;"></div>
+        github아무거나 따서 그거 만들기
+    
+        <div id="info1">
+            <img src="images/man_01.png">
+            <span class="txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A velit labore obcaecati sit nobis doloremque mollitia recusandae minima est tenetur, optio, atque corrupti, eveniet magnam error alias dolor veritatis! Facilis nobis labore quia, pariatur veniam, aliquid nesciunt reprehenderit suscipit deserunt necessitatibus beatae omnis obcaecati quaerat doloribus repudiandae harum eaque, hic placeat optio tempora maxime adipisci et ex. Quia maxime fuga, dolorum quis quasi dolor, quae labore modi est natus officiis, repellendus at harum sint necessitatibus fugit. Debitis in architecto id, aliquam quia rerum fugiat officia unde, facilis natus laudantium neque veniam blanditiis. Veritatis adipisci deserunt amet assumenda distinctio quidem itaque!</span>
+        </div>
+
+        <div id="info2">
+            <img src="images/man_02.png" alt="">
+            <span class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo tempore aspernatur sunt. At qui necessitatibus quia repellendus aliquam blanditiis. Optio, numquam. Possimus nobis, totam mollitia a voluptatibus omnis cupiditate tenetur rerum doloremque aspernatur dicta veritatis voluptatum qui velit fugiat ex excepturi adipisci cum esse id quo saepe beatae! Incidunt impedit voluptate molestiae iusto quia error voluptatum quas similique nemo, architecto animi at sed expedita optio maxime quod iste labore itaque. Deserunt soluta quaerat architecto blanditiis? Pariatur ducimus totam, doloremque quidem fugiat delectus, molestiae explicabo recusandae molestias aspernatur ipsam sequi neque suscipit sed laudantium eligendi. Eligendi veritatis a laboriosam tempore.</span>
+        </div>
+
+        <div id="info3">
+            <img src="images/man_03 (1).png" alt="">
+            <span class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas enim aut amet sapiente impedit optio praesentium nesciunt placeat dolorem, iure animi perferendis soluta vel quasi, autem ex laboriosam qui quisquam, provident incidunt voluptatibus quaerat. Nisi architecto provident magnam veniam tenetur veritatis earum molestias voluptate, quam possimus! Aut explicabo, consequatur minus corrupti, iste ut quod sunt doloremque architecto itaque at deserunt quas doloribus est laudantium. Ullam exercitationem atque reprehenderit dignissimos voluptatum assumenda expedita repellat itaque eveniet obcaecati dolore dolores asperiores iste officia non adipisci totam, animi excepturi illo tenetur maxime. Necessitatibus ad incidunt, perspiciatis voluptas harum velit aperiam omnis temporibus neque?</span>
+        </div>
+
+        <div id="info4">
+            <img src="images/woman_01.png" alt="">
+            <span class="txt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quas molestias veniam minima adipisci at a odit! Facere adipisci pariatur expedita fugit libero, inventore modi impedit, sapiente voluptatum quod aliquid cumque recusandae soluta nesciunt dolorem nam nostrum ratione beatae culpa, debitis sit nisi iste eligendi laborum? Eos porro rem animi iusto repudiandae. Odio impedit nobis nesciunt tenetur, quae quisquam explicabo vitae, voluptate iusto numquam, consequatur itaque. Dignissimos sit, fugiat qui ratione, sapiente omnis repellendus officia illum ex ducimus numquam. Hic architecto autem consectetur fugiat, sed fuga provident libero atque quibusdam molestiae neque omnis dolore in est nemo quia sunt laudantium.</span>
+        </div>
+    </div>
+
+
+
+
+    <h2>페이지 소스</h2>
+
+    <div id="main">
+
+    </div>
+</body>
+</html>

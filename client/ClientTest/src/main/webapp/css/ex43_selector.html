@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin-bottom: 500px;}
+        /* 
+            입력 폼 선택자
+            1. :focus
+            2. :enabled
+            3. :disabled
+            4. :checked
+            5. :required
+            6. :read-only
+            7. :optional
+        */
+        form:nth-child(2) > input {
+            display: block;
+            margin-bottom: 10px;
+            border: 1px solid #999;
+            background-color: white;
+            outline: none;
+            padding: 5px;
+        }
+
+        /* form:nth-child(2) > input:focus {background-color: palegreen;} */
+
+        /* form:nth-child(2) > input:enabled {background-color: peru;} */
+        /* form:nth-child(2) > input:disabled {background-color: pink;} */
+        /* form:nth-child(2) > input:disabled {
+            background-color: palevioletred;
+            cursor: not-allowed;
+            opacity: .3;
+        } */
+
+        form:nth-child(2) > input:required {background-color: gold;}
+        form:nth-child(2) > input:optional {background-color: tomato;}
+
+        form:nth-child(2) > input:read-only {cursor: not-allowed;}
+
+        form:nth-child(4) > input {
+            /* background-color: tomato; */
+            /* width: 50px; */
+            /* height: 50px; */
+        }
+
+        /* input[type=checkbox]:checked {
+            width: 50px;
+            height: 50px;
+        } */
+
+        /* input[type=radio]:checked {
+            width: 50px;
+            height: 50px;
+        } */
+
+        /* input.cat + img {
+            opacity: .3;
+        }
+
+        input.cat:checked + img {
+            opacity: 1;
+        } */
+
+        input.cat {
+            display: none;
+        }
+
+        input.cat + label > img {
+            opacity: .3;
+        }
+
+        input.cat:checked + label > img {
+            opacity: 1;
+        }
+
+        #cb1 {
+            display: none;
+        }
+
+        #cb1 + label + div {
+            visibility: hidden;
+        }
+
+        #cb1:checked + label + div {
+            visibility: visible;
+        }
+
+        #cb1 + label > span:nth-child(1) {
+
+        }
+
+        #cb1:checked + label > span:nth-child(2) {
+            display: inline;
+        }
+
+        #cb1:checked + label > span:nth-child(1) {
+            display: none;
+        }
+
+        #cb1 + label > span:nth-child(2) {
+            display: none;
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            width: 200px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5em;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .item > input[type=checkbox] {
+            display: none;
+        }
+
+        .item > label {
+            display: block;
+            background-color: #eee;
+            padding: 5px;
+            padding-left: 8px;
+            font-weight: bold;
+            font-variant: small-caps;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .item > div {
+            padding: 10px;
+        }
+
+        .item > input[type=checkbox]:checked + label + div {
+            display: none;
+        }
+
+        .item > input[type=checkbox]:checked + label {
+            color: #ccc;
+            border-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex43_selector.html -->
+    <h1>입력 폼</h1>
+
+    <form>
+        <input type="text" required>
+        <input type="text" readonly>
+        <input type="text" disabled>
+        <input type="text" required>
+        <input type="text">
+        <input type="text">
+        <input type="text" readonly>
+        <input type="text" required>
+        <input type="text">
+        <input type="text" disabled>
+    </form>
+
+    <h1>체크박스 + 라디오버튼</h1>
+
+    <form action="">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="radio" name="rb">
+        <input type="radio" name="rb">
+        <input type="radio" name="rb">
+    </form>
+
+    <h1>고양이</h1>
+
+    <form action="">
+        <div>
+            <input type="checkbox" class="cat" id="cat1">
+            <label for="cat1"><img src="images/catty01.png" alt=""></label>
+        </div>
+
+        <div>
+            <input type="checkbox" class="cat" id="cat2">
+            <label for="cat2"><img src="images/catty02.png" alt=""></label>
+        </div>
+
+        <div>
+            <input type="checkbox" class="cat" id="cat3">
+            <label for="cat3"><img src="images/catty03.png" alt=""></label>
+        </div>
+
+        <div>
+            <input type="checkbox" class="cat" id="cat4">
+            <label for="cat4"><img src="images/catty04.png" alt=""></label>
+        </div>
+
+        <div>
+            <input type="checkbox" class="cat" id="cat5">
+            <label for="cat5"><img src="images/catty05.png" alt=""></label>
+        </div>
+    </form>
+
+    <hr>
+
+    <details>
+        <summary style="cursor: pointer;">클래스</summary>
+        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit enim ad molestias, asperiores aliquam quia assumenda soluta debitis temporibus neque repellendus praesentium culpa facilis molestiae. Sapiente provident, in quae reiciendis velit placeat totam eaque fugiat, cum ut ipsam vel aliquid debitis, natus quos doloremque perspiciatis sit sequi nobis. Iste ea officia ducimus blanditiis repellendus minima expedita ipsam cumque ab sapiente, rerum sit reprehenderit natus tempore quae modi tenetur odit illum labore neque at error alias. Recusandae vel autem tempora dolore aperiam! Voluptates magnam, ad iusto non commodi repudiandae aperiam nulla et consequatur temporibus consequuntur architecto iure adipisci mollitia ut rem ab aliquam necessitatibus quibusdam cupiditate molestias eum animi fugiat! Temporibus, ex consectetur delectus sapiente maiores dolorem nisi molestiae ut nam dolor autem necessitatibus odio perferendis nemo ea quas corporis debitis?</div>
+    </details>
+
+    <hr>
+
+    <input type="checkbox" id="cb1">
+    <label for="cb1"><span>▶</span><span>▼</span> 클래스</label>
+    <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit enim ad molestias, asperiores aliquam quia assumenda soluta debitis temporibus neque repellendus praesentium culpa facilis molestiae. Sapiente provident, in quae reiciendis velit placeat totam eaque fugiat, cum ut ipsam vel aliquid debitis, natus quos doloremque perspiciatis sit sequi nobis. Iste ea officia ducimus blanditiis repellendus minima expedita ipsam cumque ab sapiente, rerum sit reprehenderit natus tempore quae modi tenetur odit illum labore neque at error alias. Recusandae vel autem tempora dolore aperiam! Voluptates magnam, ad iusto non commodi repudiandae aperiam nulla et consequatur temporibus consequuntur architecto iure adipisci mollitia ut rem ab aliquam necessitatibus quibusdam cupiditate molestias eum animi fugiat! Temporibus, ex consectetur delectus sapiente maiores dolorem nisi molestiae ut nam dolor autem necessitatibus odio perferendis nemo ea quas corporis debitis?</div>
+
+    <h1>자바</h1>
+
+    <div class="item">
+        <input type="checkbox" class="cb" id="item1">
+        <label for="item1">Class</label>
+        <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, blanditiis totam? Labore animi voluptates aut distinctio fugit minima omnis minus reiciendis hic. Dignissimos distinctio velit numquam eligendi sequi maiores minima debitis. Aperiam ullam optio excepturi harum nam delectus sunt sit assumenda hic cum itaque, vero porro illo ab quis fugiat, quae laboriosam neque vitae labore dolores? Quidem labore nemo ullam repudiandae quaerat atque, dolores hic sapiente porro, veniam, sequi culpa. Illum explicabo hic voluptatum! Optio expedita consectetur consequuntur, ea hic tempore minus possimus dolores officia recusandae ipsam error illo aut aliquid cumque autem fugit iste, sint eum nisi accusantium cupiditate eos in odit? Quasi alias quae expedita doloribus obcaecati, a officiis suscipit labore minima vitae fugit dignissimos enim ipsa cumque dicta! Mollitia neque voluptatum impedit maxime quas, tempora quisquam sequi!
+        </div>
+    </div>
+
+    <div class="item">
+        <input type="checkbox" class="cb" id="item2">
+        <label for="item2">Method</label>
+        <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, blanditiis totam? Labore animi voluptates aut distinctio fugit minima omnis minus reiciendis hic. Dignissimos distinctio velit numquam eligendi sequi maiores minima debitis. Aperiam ullam optio excepturi harum nam delectus sunt sit assumenda hic cum itaque, vero porro illo ab quis fugiat, quae laboriosam neque vitae labore dolores? Quidem labore nemo ullam repudiandae quaerat atque, dolores hic sapiente porro, veniam, sequi culpa. Illum explicabo hic voluptatum! Optio expedita consectetur consequuntur, ea hic tempore minus possimus dolores officia recusandae ipsam error illo aut aliquid cumque autem fugit iste, sint eum nisi accusantium cupiditate eos in odit? Quasi alias quae expedita doloribus obcaecati, a officiis suscipit labore minima vitae fugit dignissimos enim ipsa cumque dicta! Mollitia neque voluptatum impedit maxime quas, tempora quisquam sequi!
+        </div>
+    </div>
+
+    <div class="item">
+        <input type="checkbox" class="cb" id="item3">
+        <label for="item3">Interface</label>
+        <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, blanditiis totam? Labore animi voluptates aut distinctio fugit minima omnis minus reiciendis hic. Dignissimos distinctio velit numquam eligendi sequi maiores minima debitis. Aperiam ullam optio excepturi harum nam delectus sunt sit assumenda hic cum itaque, vero porro illo ab quis fugiat, quae laboriosam neque vitae labore dolores? Quidem labore nemo ullam repudiandae quaerat atque, dolores hic sapiente porro, veniam, sequi culpa. Illum explicabo hic voluptatum! Optio expedita consectetur consequuntur, ea hic tempore minus possimus dolores officia recusandae ipsam error illo aut aliquid cumque autem fugit iste, sint eum nisi accusantium cupiditate eos in odit? Quasi alias quae expedita doloribus obcaecati, a officiis suscipit labore minima vitae fugit dignissimos enim ipsa cumque dicta! Mollitia neque voluptatum impedit maxime quas, tempora quisquam sequi!
+        </div>
+    </div>
+</body>
+</html>
