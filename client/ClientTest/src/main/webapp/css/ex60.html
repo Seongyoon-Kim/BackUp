@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 600px;
+            margin: 20px auto;
+        }
+
+        #problem {
+            border-left: 3px dotted gray;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .nemo {
+            padding: 25px;
+            transition: all 1s;
+        }
+
+        #square01 {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+
+        #square02 {
+            width: 450px;
+            height: 450px;
+            background-color: orange;
+        }
+
+        #square03 {
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+
+        #square04 {
+            width: 350px;
+            height: 350px;
+            background-color: green;
+        }
+
+        #square05 {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+
+        #square06 {
+            width: 250px;
+            height: 250px;
+            background-color: indigo;
+        }
+
+        #square07 {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+
+        #square01:hover .nemo{
+            border-radius: 10%;
+        }
+
+        #square02:hover .nemo{
+            border-radius: 20%;
+        }
+
+        #square03:hover .nemo{
+            border-radius: 30%;
+        }
+
+        #square04:hover .nemo{
+            border-radius: 40%;
+        }
+
+        #square05:hover .nemo{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>:transition + hover + border-radius</h1>
+        <div id="problem">아래 상자에 마우스를 올리면 변화를 주시오.</div>
+        <div id="square01" class="nemo">
+            <div id="square02" class="nemo">
+                <div id="square03" class="nemo">
+                    <div id="square04" class="nemo">
+                        <div id="square05" class="nemo">
+                            <div id="square06" class="nemo">
+                                <div id="square07" class="nemo"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #problem {
+            border-left: 3px dotted gray;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        #main {
+            border: 1px solid black;
+        }
+
+        #main .radio {
+            height: 100px;
+            border-bottom: 1px solid black;
+        }
+
+        .ball {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            margin-top: 35px;
+            box-sizing: border-box;
+            border-radius: 50%;
+            font-size: 4.4em;
+            font-weight: bold;
+            transition: width 9s;
+        }
+
+        #main #radio1 > .ball {
+            background-color: tomato;
+        }
+
+        #main #radio2 > .ball {
+            background-color: yellow;
+        }
+
+        #main #radio3 > .ball {
+            background-color: orange;
+        }
+
+        #main #radio4 > .ball {
+            background-color: greenyellow;
+        }
+
+        #main #radio5 > .ball {
+            background-color: cornflowerblue;
+        }
+
+        #ball1 {
+            transition-duration: 5s;
+        }
+
+        #ball2 {
+            transition-duration: 2;
+        }
+
+        #ball3 {
+            transition-duration: 10;
+        }
+
+        #ball4 {
+            transition-duration: 7.8;
+        }
+
+        #ball5 {
+            transition-duration: 9.2;
+        }
+
+        #main:hover .ball {
+            transform: rotate(3600deg);
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 1400px; margin: 30px auto;">
+        <h1>:hover + position(absolute) + transform(rotate) + transition</h1>
+        <div id="main">
+            <div id="radio1" class="radio"><div id="ball1" class="ball">A</div></div>
+            <div id="radio2" class="radio"><div id="ball2" class="ball">B</div></div>
+            <div id="radio3" class="radio"><div id="ball3" class="ball">C</div></div>
+            <div id="radio4" class="radio"><div id="ball4" class="ball">D</div></div>
+            <div id="radio5" class="radio"><div id="ball5" class="ball">E</div></div>
+        </div>
+    </div>
+</body>
+</html>
