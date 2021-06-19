@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .head-wrapper {
+            background-size: cover;
+            background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/c0a32732-b033-43b3-be2a-8fee037a6146/eb295b7c-6aa7-4485-a3f5-0c61ee5f1434/KR-ko-20210607-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+            background-repeat: no-repeat;
+            height: 670px;
+        }
+
+        .head-wrapper {
+            border: 0px solid black;
+            padding: 10px 0px 0px 0px;
+            box-sizing: border-box;
+        }
+
+        .head {
+            width: 900px;
+            border: 0px solid black;
+            margin: 0px auto;
+            display: flex;
+        }
+
+        .logo {
+            border: 0px solid red;
+            margin: 0px 0px 0px 10px;
+            color: red;
+            font-weight: 900;
+            font-size: 40px;
+        }
+
+        .login {
+            width: 70px;
+            height: 30px;
+            border: 1px solid red;
+            background-color: red;
+            color: white;
+            border-radius: 3px;
+            margin: 12px 0px 0px 0px;
+            font-size: 0.9rem;
+        }
+
+        .language {
+            width: 94px;
+            height: 30px;
+            border: 1px solid white;
+            margin: 12px 30px 0px 571px;
+            border-radius: 3px;
+            background-color: unset;
+            color: white;
+            font-size: 0.9rem;
+            padding: 0px 10px 0px 10px;
+        }
+
+        .middle {
+            width: 800px;
+            margin: 140px auto 0px auto;
+            text-align: center;
+        }
+
+        .title {
+            max-width: 470px;
+            font-size: 50px;
+            margin: 0px auto;
+            font-weight: bold;
+            color: white;
+        }
+
+        .subtitle {
+            max-width: 600px;
+            margin: 10px auto;
+            color: white;
+            font-size: 25px;
+        }
+
+        .message {
+            max-width: 800px;
+            margin: 30px auto;
+            color: white;
+            font-size: 20px;
+        }
+
+        .email {
+            min-width: 450px;
+            height: 50px;
+            padding: 0px 0px 0px 10px;
+            font-size: 15px;
+            color: #888;
+            border-radius: 3px;
+            border: 0px;
+            transition: font .1s;
+        }
+
+        .start {
+            width: 160px;
+            height: 52px;
+            margin-left: -6px;
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            padding: 0px 0px 6px 0px;
+            border-radius: 3px;
+            border: 0px;
+        }
+
+        .footer {
+            margin-bottom: 90px;
+            
+        }
+
+        .start:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .login:hover {
+            cursor: pointer;
+        }
+
+        .text {
+            color: #888;
+            position: absolute;
+            left: 340px;
+            bottom: 33px;
+            transition: font .1s;
+        }
+
+        .text:checked {
+            transform: translate(10px, 10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="head-wrapper">
+        <div class="head">
+            <div class="logo">NETFLIX</div>
+            <select name="language" class="language">
+                 <option selected>한국어</option>
+            </select>
+           
+            <form method="GET" action="/ClientTest/ex19ok.JSP">
+                <input type="button" class="login" value="로그인" onclick="https://google.com">
+            </form>
+        </div>
+        <div class="middle">
+            <div class="title">영화, TV 프로그램을 무제한으로.</div>
+            <div class="subtitle">다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.</div>
+            <div class="message">시청할 준비가 되셨나요 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</div>
+                <div class="footer">
+                    <input type="text" id="box" class="email" name="as">
+                    <label for="box" class="text">이메일 주소</label>
+                    <input type="button" value="시작하기 >" class="start">
+                </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
