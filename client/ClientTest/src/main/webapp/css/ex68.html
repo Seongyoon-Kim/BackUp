@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        .main {
+            width: 650px;
+            margin: 10px auto;
+        }
+
+        .question {
+            border-left: 3px dotted gray;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .table {
+            width: 570px;
+            height: 800px;
+            border: 5px solid black;
+            display: flex;
+        }
+
+        .table > div {
+            margin: 10px;
+        }
+
+        .ball01 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: red;
+            animation-name: key1;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key1 {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            100% {
+                transform: translate(0px, 730px);
+            }
+        }
+
+        .ball02 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: orange;
+            animation-name: key2;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key2 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+
+        .ball03 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: yellow;
+            animation-name: key3;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key3 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+
+        .ball04 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: green;
+            animation-name: key4;
+            animation-duration: 0.9s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key4 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+
+        .ball05 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: blue;
+            animation-name: key5;
+            animation-duration: 0.6s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key5 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+
+        .ball06 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: purple;
+            animation-name: key6;
+            animation-duration: 1.3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key6 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+
+        .ball07 {
+            width: 50px;
+            height: 50px;
+            border: 5px solid black;
+            border-radius: 50%;
+            background-color: pink;
+            animation-name: key7;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes key7 {
+            0% {transform: translate(0px, 0px);}
+            100% {transform: translate(0px, 730px);}
+        }
+    </style>
+</head>
+<body>
+    <!-- 16번 문제 ex68.html -->
+    <div class="main">
+        <h1>animation + keyframe</h1>
+        <div class="question">공 튀기시오.</div>
+        <div class="table">
+            <div class="ball01"></div>
+            <div class="ball02"></div>
+            <div class="ball03"></div>
+            <div class="ball04"></div>
+            <div class="ball05"></div>
+            <div class="ball06"></div>
+            <div class="ball07"></div>
+        </div>
+    </div>
+</body>
+</html>

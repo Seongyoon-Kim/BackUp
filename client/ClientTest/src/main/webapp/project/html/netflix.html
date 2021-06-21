@@ -126,16 +126,133 @@
             cursor: pointer;
         }
 
-        .text {
-            color: #888;
-            position: absolute;
-            left: 340px;
-            bottom: 33px;
-            transition: font .1s;
+        .center {
+            background-color: black;
+            width: 100%;
+            height: 480px;
+            padding: 70px 45px;
+            border-top: 5px solid gray;
+            border-bottom: 5px solid gray;
         }
 
-        .text:checked {
-            transform: translate(10px, 10px);
+        .section {
+            max-width: 1100px;
+            margin: 0px auto;
+            display: flex;
+        }
+
+        .left_content {
+            height: 100%;
+            padding-right: 50px;
+            padding-top: 30px;
+            padding-left: 50px;
+        }
+
+        .right {
+            width: 20%;
+            height: auto;
+        }
+
+        .img {
+            padding-right: 30px;
+            width: 400px;
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .first {
+            width: 500px;
+            color: white;
+            font-size: 3.125rem;
+            font-weight: bold;
+        }
+
+        .second {
+            width: 460px;
+            color: white;
+            color: white;
+            padding-top: 30px;
+            padding-right: 45px;
+            text-align: justify;
+            font-size: 1.625rem;
+            font-weight: 400;
+        }
+
+        .second_center {
+            background-color: black;
+            width: 100%;
+            height: 420px;
+            border-bottom: 3px solid gray;
+        }
+
+        .second_container {
+            margin: 0px auto;
+            padding: 20px 30px 30px 10px;
+            display: flex;
+        }
+
+        .second_leftbox {
+            width: 48%;
+            height: 100%;
+            padding-left: 40px;
+        }
+
+        .img2 {
+            width: 450px;
+            height: 250px;
+        }
+
+        .third_img {
+            border: 3px solid #333;
+            display: flex;
+            width: 320px;
+            border-radius: 23px;
+            margin-left: 64px;
+            margin-bottom: 10px;
+            padding: 0px 0px 15px 0px;
+        }
+
+        .img3 {
+            padding-top: 13px;
+            padding-left: 20px;
+            width: 70px;
+            height: 68px;
+        }
+
+        .text1 {
+            color: white;
+            padding: 23px 0px 0px 13px;
+            font-weight: bold;
+        }
+
+        .text2 {
+            color: #0071eb;
+            padding: 1px 0px 0px 13px;
+        }
+
+        .img4 {
+            width: 50px;
+            margin-top: 20px;
+            margin-left: 71px;
+        }
+
+        .second_rightbox {
+            width: 480px;
+            padding-top: 60px;
+            padding-left: 31px;
+        }
+
+        .rightbox_text1 {
+            color: white;
+            font-weight: bold;
+            font-size: 45px;
+        }
+
+        .rightbox_text2 {
+            color: white;
+            font-size: 27px;
+            padding-top: 30px;
+            width: 541px;
         }
     </style>
 </head>
@@ -156,13 +273,48 @@
             <div class="subtitle">다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.</div>
             <div class="message">시청할 준비가 되셨나요 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</div>
                 <div class="footer">
-                    <input type="text" id="box" class="email" name="as">
-                    <label for="box" class="text">이메일 주소</label>
+                    <input type="text" id="box" class="email"value="이메일 주소">
                     <input type="button" value="시작하기 >" class="start">
                 </div>
         </div>
     </div>
-
     
+    <hr>
+
+    <div class="center">
+        <div class="section">
+            <div class="left_content">
+                <div class="first">TV로 즐기세요.</div>
+                <div class="second">스마트 TV, PlayStation, Xbox, Chromecast, Apple TV, 블루레이 플레이어 등 다양한 디아비스에서 시청하세요.</div>
+            </div>
+            <div class="right">
+                <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="" class="img">
+            </div>
+        </div>
+    </div>
+
+    <div class="second_center">
+        <div class="second_container">
+            <div class="second_leftbox">
+                <div class="second_img">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="" class="img2">
+                </div>
+                <div class="third_img">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png" alt="" class="img3">
+                    <div class="text">
+                        <div class="text1">기묘한 이야기</div>
+                        <div class="text2">저장 중...</div>
+                    </div>
+                    <div class="forth_img">
+                        <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif" alt="" class="img4">
+                    </div>
+                </div>
+            </div>
+            <div class="second_rightbox">
+                <div class="rightbox_text1">즐겨 보는 콘텐츠를 저장해 오프라인으로 시청하세요.</div>
+                <div class="rightbox_text2">간편하게 저장하고 빈틈없이 즐겨보세요.</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
