@@ -5214,6 +5214,12 @@ textarea.form-control-lg {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+  background-size: contain;
+}
+
+.modal-body > img {
+  width: 400px;
+  height: 290px;
 }
 
 .modal-footer {
