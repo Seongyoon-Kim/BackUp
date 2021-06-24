@@ -5222,6 +5222,10 @@ textarea.form-control-lg {
   height: 290px;
 }
 
+.modal-body > img:hover {
+  cursor: pointer;
+}
+
 .modal-footer {
   display: flex;
   flex-wrap: wrap;
