@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 210px auto;
+        }
+
+        div {
+            border: 1px solid gray;
+            padding: 10px;
+            width: 540px;
+        }
+
+        input {
+            width: 500px;
+            font-size: 1.4em;
+            border: 0px;
+            font-weight: bold;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 5번 문제 ex32.html -->
+    <div>
+        <img src="images/img01.jpg" alt="" name='img1'>
+        <img src="images/img02.jpg" alt="" name='img2'>
+        <img src="images/img03.jpg" alt="" name='img3'>
+    </div>
+    <input type="text" name="txt1" id="" value="">
+
+    <script>
+        var img1 = document.images['img1'];
+        var img2 = document.images['img2'];
+        var img3 = document.images['img3'];
+        var txt1 = document.all.txt1;
+
+        img1.onmouseover = function () {
+            img1.src = 'images/img04.jpg';
+            txt1.value = "'스키'타는 사람이 '당근'으로 변했습니다.";
+        }
+
+        img1.onmouseout = function () {
+            img1.src = 'images/img01.jpg';
+            txt1.value = "";
+        }
+
+        img2.onmouseover = function () {
+            img2.src = 'images/img05.jpg';
+            txt1.value = "'해바라기'가 '피망'으로 변했습니다.";
+        }
+
+        img2.onmouseout = function () {
+            img2.src = 'images/img02.jpg';
+            txt1.value = "";
+        }
+
+        img3.onmouseover = function () {
+            img3.src = 'images/img06.jpg';
+            txt1.value = "'나무'가 '개'가 됐습니다.";
+        }
+
+        img3.onmouseout = function () {
+            img3.src = 'images/img03.jpg';
+            txt1.value = "";
+        }
+    </script>
+</body>
+</html>

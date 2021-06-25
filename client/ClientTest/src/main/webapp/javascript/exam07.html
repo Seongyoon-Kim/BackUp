@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 7번 문제 exam07.html -->
+        <img src="images/catty01.png" alt="" name='cat'>
+        <img src="images/catty02.png" alt="" name='cat'>
+        <img src="images/catty03.png" alt="" name='cat'>
+        <img src="images/catty04.png" alt="" name='cat'>
+        <img src="images/catty05.png" alt="" name='cat'>
+
+    <script>
+        var cat = document.all.cat;
+
+        for (var i=0; i<cat.length; i++) {
+            cat[i].onmouseover = function () {
+                event.srcElement.width += 5;
+            }
+
+            cat[i].onclick = function () {
+                event.srcElement.width = 128;
+            }
+        }
+
+        // cat.forEach(function (cat, index) {
+        //     cat.onmouseover = function () {
+        //         event.srcElement.width = 5;
+        //     }
+
+        //     index.onclick = function () {
+        //         cat.srcElement.width = 128;
+        //     }
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 300px auto;
+            border: 1px solid black;
+        }
+
+        tr, td {
+            border: 1px solid black;
+        }
+
+        td:first-child {
+            padding: 20px;
+        }
+
+        td:nth-child(2) {
+            padding: 20px;
+            text-align: center;
+            width: 500px;
+        }
+
+        input {
+            display: block;
+        }
+
+        table .btn {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: 150px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3번 문제 ex30.html -->
+    <table>
+        <tr>
+            <td>
+                <form name="form1">
+                    <input type="button" value="강아지1" name="btn1" class="btn">
+                    <input type="button" value="강아지2" name="btn2" class="btn">
+                    <input type="button" value="강아지3" name="btn3" class="btn">
+                    <input type="button" value="강아지4" name="btn4" class="btn">
+                    <input type="button" value="강아지5" name="btn5" class="btn">
+                </form>
+            </td>
+            <td>
+                <img src="images/dog01.jpg" alt="" name='img'>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        var btn3 = document.form1.btn3;
+        var btn4 = document.form1.btn4;
+        var btn5 = document.form1.btn5;
+
+        btn1.onmouseover = function () {
+            img.src = 'images/dog01.jpg';
+        }
+
+        btn1.onclick = function () {
+            window.open('images/dog01_big.jpg', 'dog', '');
+        }
+
+        btn2.onmouseover = function () {
+            img.src = 'images/dog02.jpg';
+        }
+
+        btn2.onclick = function () {
+            window.open('images/dog02_big.jpg', 'dog', '');
+        }
+
+        btn3.onmouseover = function () {
+            img.src = 'images/dog03.jpg';
+        }
+
+        btn3.onclick = function () {
+            window.open('images/dog03_big.jpg', 'dog', '');
+        }
+
+        btn4.onmouseover = function () {
+            img.src = 'images/dog04.jpg';
+        }
+
+        btn4.onclick = function () {
+            window.open('images/dog04_big.jpg', 'dog', '');
+        }
+
+        btn5.onmouseover = function () {
+            img.src = 'images/dog05.jpg';
+        }
+
+        btn5.onclick = function () {
+            window.open('images/dog05_big.jpg', 'dog', '');
+        }
+    </script>
+</body>
+</html>

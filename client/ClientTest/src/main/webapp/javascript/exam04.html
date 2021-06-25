@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 590px;
+            margin: 100px auto;
+        }
+
+        #tbl {
+            border-collapse: collapse;
+            width: 600px;
+            border: 1px solid gray;
+            margin-right: 0px auto;
+        }
+
+        #tbl td {
+            padding: 20px;
+            border: 1px solid gray;
+        }
+
+        #txt1 {
+            width: 65px;
+        }
+
+        .txt2 {
+            width: 420px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- 4번 문제 ex31.html -->
+    <h2>우편 번호 검색</h2>
+    <table id="tbl">
+        <tr>
+            <td>우편번호</td>
+            <td>
+                <input type="text" name="txt1" id="txt1">
+                <input type="button" value="우편번호 검사하기" name="btn1">
+            </td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td>
+                <input type="text" name="txt2" id="" class='txt2'>
+            </td>
+        </tr>
+        <tr>
+            <td>상세주소</td>
+            <td>
+                <input type="text" name="txt3" id="" class='txt2'>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var btn1 = document.all.btn1;
+        var txt1 = document.all.txt1;
+        var txt2 = document.all.txt2;
+        var txt3 = document.all.txt3;
+
+        btn1.onclick = function () {
+            window.open('exam04_child.html', 'child', 'width=200 height=200');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 200px auto;
+        }
+
+        label {
+            font-size: 1.3em;
+        }
+
+        input {
+            width: 200px;
+            height: 25px;
+        }
+
+        #txt {
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 6번 문제 ex33.html -->
+    <label for="">아이디: <input type="text" name="txt1" id=""></label>
+    <input type="text" name="txt2" id="txt">
+
+    <script>
+        var txt1 = document.all.txt1;
+        var txt2 = document.all.txt2;
+
+        txt2.readOnly = true;
+
+        txt1.onkeyup = function () {
+            if (txt1.value.length == 0) {
+                txt2.value='';
+            } else if (txt1.value.length < 5) {
+                txt2.value = '아이디가 너무 짧습니다.';
+            } else if (txt1.value.length > 10) {
+                txt2.value = '아이디가 너무 깁니다.';
+            } else {
+                txt2.value = '아이디가 적합합니다.';
+            }
+        }
+    </script>
+</body>
+</html>
