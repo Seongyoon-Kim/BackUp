@@ -28,48 +28,39 @@
 </head>
 <body>
     <!-- 5번 문제 ex32.html -->
-    <div>
-        <img src="images/img01.jpg" alt="" name='img1'>
-        <img src="images/img02.jpg" alt="" name='img2'>
-        <img src="images/img03.jpg" alt="" name='img3'>
-    </div>
-    <input type="text" name="txt1" id="" value="">
+    <form name="form1">
+        <div>
+            <img src="images/img01.jpg" alt="" name='img' value='1'>
+            <img src="images/img02.jpg" alt="" name='img' value='2'>
+            <img src="images/img03.jpg" alt="" name='img' value='3'>
+        </div>
+        <input type="text" name="txt1" id="" value="">
+    </form>
 
     <script>
-        var img1 = document.images['img1'];
-        var img2 = document.images['img2'];
-        var img3 = document.images['img3'];
-        var txt1 = document.all.txt1;
+        var img = document.form1.img;
+        var txt1 = document.form1.txt1;
 
-        img1.onmouseover = function () {
-            img1.src = 'images/img04.jpg';
-            txt1.value = "'스키'타는 사람이 '당근'으로 변했습니다.";
-        }
+        img.forEach(function (item, index) {
+            item.onmouseover = function () {
+                // console.log(parseInt(event.srcElement.getAttribute('value')) + 3);
+                event.srcElement.src = 'images/img0' + (parseInt(event.srcElement.getAttribute('value')) + 3) + '.jpg';
 
-        img1.onmouseout = function () {
-            img1.src = 'images/img01.jpg';
-            txt1.value = "";
-        }
+                if (parseInt(event.srcElement.getAttribute('value')) + 3 == 4) {
+                txt1.value = "'스키'타는 사람이 '당근'으로 변했습니다.";
+            } else if (parseInt(event.srcElement.getAttribute('value')) + 3 == 5) {
+                txt1.value = "'해바라기'가 '피망'으로 변했습니다.";
+            } else {
+                txt1.value = "'나무'가 '개'가 됐습니다.";
+            }
+            }
 
-        img2.onmouseover = function () {
-            img2.src = 'images/img05.jpg';
-            txt1.value = "'해바라기'가 '피망'으로 변했습니다.";
-        }
-
-        img2.onmouseout = function () {
-            img2.src = 'images/img02.jpg';
-            txt1.value = "";
-        }
-
-        img3.onmouseover = function () {
-            img3.src = 'images/img06.jpg';
-            txt1.value = "'나무'가 '개'가 됐습니다.";
-        }
-
-        img3.onmouseout = function () {
-            img3.src = 'images/img03.jpg';
-            txt1.value = "";
-        }
+            item.onmouseout = function () {
+                event.srcElement.src = 'images/img0' + (parseInt(event.srcElement.getAttribute('value'))) + '.jpg';
+                
+                txt1.value = '';
+            }
+        })
     </script>
 </body>
 </html>

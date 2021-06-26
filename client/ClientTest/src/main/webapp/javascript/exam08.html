@@ -35,47 +35,75 @@
 </head>
 <body>
     <!-- 8번 문제 exam08.html -->
-    <div id="section">
-        <img src="images/rect_icon01.png" alt="" name='img' value="1">
-        <img src="images/rect_icon02.png" alt="" name='img' value="2">
-        <img src="images/rect_icon03.png" alt="" name='img' value="3">
-        <img src="images/rect_icon04.png" alt="" name='img' value="4">
-        <img src="images/rect_icon05.png" alt="" name='img' value="5">
-        <img src="images/rect_icon06.png" alt="" name='img' value="6">
-        <img src="images/rect_icon07.png" alt="" name='img' value="7">
-        <img src="images/rect_icon08.png" alt="" name='img' value="8">
-        <img src="images/rect_icon09.png" alt="" name='img' value="9">
-    </div>
-    <div id="footer">
-        <input type="button" value="RESET" name="btn1" class="btn1">
-        <input type="button" value="INPUT" name="btn2" class="btn2">
-    </div>
+    <form name="form1">
+        <div id="section">
+            <img src="images/rect_icon01.png" alt="" name='img' value="1">
+            <img src="images/rect_icon02.png" alt="" name='img' value="2">
+            <img src="images/rect_icon03.png" alt="" name='img' value="3">
+            <img src="images/rect_icon04.png" alt="" name='img' value="4">
+            <img src="images/rect_icon05.png" alt="" name='img' value="5">
+            <img src="images/rect_icon06.png" alt="" name='img' value="6">
+            <img src="images/rect_icon07.png" alt="" name='img' value="7">
+            <img src="images/rect_icon08.png" alt="" name='img' value="8">
+            <img src="images/rect_icon09.png" alt="" name='img' value="9">
+        </div>
+        <div id="footer">
+            <input type="button" value="RESET" name="btn1" class="btn1">
+            <input type="button" value="INPUT" name="btn2" class="btn2">
+        </div>
+    </form>
 
     <script>
-        var img = document.all.img;
-        var btn1 = document.all.btn1;
-        var btn2 = document.all.btn2;
+        var img = document.form1.img;
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
         var password = "";
 
-        for (var i=0; i<img.length; i++) {
-            img[i].onmouseover = function () {
+        window.onload = function () {
+            
+        }
+
+        img.forEach(function (item, index) {
+            item.onmouseover = function () {
                 event.srcElement.src = 'images/rect_icon10.png';
                 password += event.srcElement.getAttribute('value');
             }
-
-        }
+        });
 
         btn1.onclick = function () {
             for (var i=0; i<img.length; i++) {
-                img[i].src = 'images/rect_icon0' + (i+1) + '.png'; 
+                img[i].src = 'images/rect_icon0' + (i+1) + '.png';
             }
-        }
+        };
 
         btn2.onclick = function () {
             if (password == '14789') {
-                location.href = 'http://google.com';
+                location.href = 'http://google.com'
+            } else {
+                alert('Error!');
+                location.reload();
             }
         }
+
+        // for (var i=0; i<img.length; i++) {
+        //     img[i].onmouseover = function () {
+        //         event.srcElement.src = 'images/rect_icon10.png';
+        //         password += event.srcElement.getAttribute('value');
+        //     }
+
+        // }
+
+        // btn1.onclick = function () {
+        //     for (var i=0; i<img.length; i++) {
+        //         img[i].src = 'images/rect_icon0' + (i+1) + '.png'; 
+        //     }
+        // }
+
+        // btn2.onclick = function () {
+        //     if (password == '14789') {
+        //         location.href = 'http://google.com';
+        //     }
+        // }
 
     </script>
 </body>

@@ -15,35 +15,35 @@
     </style>
 </head>
 <body>
-    <input type="button" value="서울시 강남구 역삼동" name="btn1">
-    <input type="button" value="서울시 강남구 대치동" name="btn2">
-    <input type="button" value="서울시 강남구 도곡동" name="btn3">
+    <form name="form1">
+        <input type="button" value="서울시 강남구 역삼동" name="btn">
+        <input type="button" value="서울시 강남구 대치동" name="btn">
+        <input type="button" value="서울시 강남구 도곡동" name="btn">
+    </form>
 
     <script>
-        var btn1 = document.all.btn1;
-        var btn2 = document.all.btn2;
-        var btn3 = document.all.btn3;
+        var btn = document.form1.btn;
 
-        btn1.onclick = function () {
-            opener.document.all.txt1.value = '06232';
-            opener.document.all.txt2.value = event.srcElement.value;
-            window.close();
-            opener.document.all.txt3.focus();
-        }
-
-        btn2.onclick = function () {
-            opener.document.all.txt1.value = '06291';
-            opener.document.all.txt2.value = event.srcElement.value;
-            window.close();
-            opener.document.all.txt3.focus();
-        }
-
-        btn3.onclick = function () {
-            opener.document.all.txt1.value = '06267';
-            opener.document.all.txt2.value = event.srcElement.value;
-            window.close();
-            opener.document.all.txt3.focus();
-        }
+        btn.forEach(function (item, index) {
+            item.onclick = function () {
+                if (event.srcElement.value.indexOf('역삼동')) {
+                    opener.document.all.txt1.value = '06232';
+                    opener.document.all.txt2.value = event.srcElement.value;
+                    window.close();
+                    opener.document.all.txt3.focus();
+                } else if (event.srcElement.value.indexOf('대치동')) {
+                    opener.document.all.txt1.value = '06291';
+                    opener.document.all.txt2.value = event.srcElement.value;
+                    window.close();
+                    opener.document.all.txt3.focus();
+                } else if (event.srcElement.value.indexOf('도곡동')) {
+                    opener.document.all.txt1.value = '06267';
+                    opener.document.all.txt2.value = event.srcElement.value;
+                    window.close();
+                    opener.document.all.txt3.focus();
+                }
+            }
+        })
     </script>
 </body>
 </html>

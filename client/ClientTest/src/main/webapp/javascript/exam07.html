@@ -11,34 +11,36 @@
 </head>
 <body>
     <!-- 7번 문제 exam07.html -->
-        <img src="images/catty01.png" alt="" name='cat'>
-        <img src="images/catty02.png" alt="" name='cat'>
-        <img src="images/catty03.png" alt="" name='cat'>
-        <img src="images/catty04.png" alt="" name='cat'>
-        <img src="images/catty05.png" alt="" name='cat'>
+        <form name="form1">
+            <img src="images/catty01.png" alt="" name='cat'>
+            <img src="images/catty02.png" alt="" name='cat'>
+            <img src="images/catty03.png" alt="" name='cat'>
+            <img src="images/catty04.png" alt="" name='cat'>
+            <img src="images/catty05.png" alt="" name='cat'>
+        </form>
 
     <script>
-        var cat = document.all.cat;
+        var cat = document.form1.cat;
 
-        for (var i=0; i<cat.length; i++) {
-            cat[i].onmouseover = function () {
+        cat.forEach(function (item, index) {
+            item.onmouseover = function () {
                 event.srcElement.width += 5;
             }
 
-            cat[i].onclick = function () {
+            item.onclick = function () {
                 event.srcElement.width = 128;
             }
-        }
+        })
 
-        // cat.forEach(function (cat, index) {
-        //     cat.onmouseover = function () {
-        //         event.srcElement.width = 5;
+        // for (var i=0; i<cat.length; i++) {
+        //     cat[i].onmouseover = function () {
+        //         event.srcElement.width += 5;
         //     }
 
-        //     index.onclick = function () {
-        //         cat.srcElement.width = 128;
+        //     cat[i].onclick = function () {
+        //         event.srcElement.width = 128;
         //     }
-        // })
+        // }
     </script>
 </body>
 </html>
