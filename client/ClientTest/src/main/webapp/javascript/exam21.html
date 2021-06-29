@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #tbl1 {
+		border: 1px solid black;
+		border-collapse: collapse;
+    }
+	#tbl1 td {
+		border: 1px solid black;
+		width: 126px;
+		height: 126px;
+    }
+
+    div {
+        width: 700px;
+        margin: 70px auto;
+    }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <!-- ex21.html -->
+    <div>
+        <table id="tbl1">
+            <tr>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>			
+            </tr>
+            <tr>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>			
+            </tr>
+            <tr>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>			
+            </tr>
+            <tr>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>			
+            </tr>
+            <tr>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>
+                <td class="cell"></td>			
+            </tr>
+        </table>
+    </div>
+
+
+    <script>
+        var cell = document.getElementsByClassName('cell');
+
+        for (var i=0; i<cell.length; i++) {
+            cell[i].onmousedown = function () {
+                if (event.buttons == 1) {
+                    var img = document.createElement('img');
+                    img.setAttribute('src', 'images/rect_icon01.png');
+                    event.srcElement.appendChild(img);
+                } else if (event.buttons == 2) {
+                    img = document.createElement('img');
+                    img.setAttribute('src', 'images/rect_icon02.png');
+                    event.srcElement.appendChild(img);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

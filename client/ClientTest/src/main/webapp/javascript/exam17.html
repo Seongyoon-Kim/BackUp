@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 770px;
+            margin: 200px auto;
+        }
+
+        #timer {
+            border: 1px solid black;
+            width: 700px;
+            height: 210px;
+            box-sizing: border-box;
+            margin-left: 20px;
+            padding-top: 14px;
+            padding-left: 15px;
+        }
+
+        #timer span {
+            width: 130px;
+            font-size: 9.16em;
+            border: 0px;
+            text-align: center;
+            padding-bottom: 70px;
+        }
+
+        #btns {
+            margin: 60px;
+        }
+
+        #btns input {
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <!-- 17번 문제 exam17.html -->
+
+    <div id="timer">
+		<img src="images/0.png" alt="" id="img1">
+        <img src="images/0.png" alt="" id="img2">
+		<span>:</span>
+		<img src="images/0.png" alt="" id="img3">
+        <img src="images/0.png" alt="" id="img4">
+		<span>:</span>
+		<img src="images/0.png" alt="" id="img5">
+        <img src="images/0.png" alt="" id="img6">
+	</div>
+	<div id="btns">
+		<input type="button" value="시작" name="btn1">
+		<input type="button" value="멈춤" name="btn2" disabled>
+		<input type="button" value="종료" name="btn3" disabled>
+	</div>
+
+
+    <script>
+        var img1 = document.getElementById('img1');
+        var img2 = document.getElementById('img2');
+        var img3 = document.getElementById('img3');
+        var img4 = document.getElementById('img4');
+        var img5 = document.getElementById('img5');
+        var img6 = document.getElementById('img6');
+        
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+        var timer;
+        var n = 0;
+
+        btn1.onclick = function () {
+            timer = setInterval(function () {
+                img6.src = 'images/' + n + '.png';
+            }, 10)
+        };
+    </script>
+</body>
+</html>

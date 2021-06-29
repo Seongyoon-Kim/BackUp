@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 1011px;
+            margin: 200px auto;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input {
+            border: 0px;
+            text-align: center;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <!-- 13번 문제 exam13.html -->
+    <form action="" name="form1">
+        <input type="text" name="txt" id="" value="10" disabled>
+    </form>
+
+    <script>
+        var txt = document.form1.txt;
+        // window.onkeydown = function () {
+        //     console.log(event.keyCode);
+        // }
+
+        var timer = setInterval(function () {
+            txt.value--;
+
+            if (txt.value == 0) {
+                location.href = 'http://google.com';
+            }
+
+            window.onkeydown = function () {
+                if (event.keyCode == 27) {
+                clearInterval(timer);
+                document.body.bgColor = 'tomato';
+            }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

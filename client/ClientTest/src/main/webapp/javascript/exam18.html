@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 3px solid #777;
+            width: 300px;
+            font-size: 1.3em;
+        }
+        fieldset label {
+            display: block;
+            margin: 10px;
+        }
+
+        fieldset input[type='text'] {
+            width: 200px;
+            height: 20px;
+        }
+
+        #tbl1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+            margin: 30px;
+            font-size: 1.3em;
+        }
+
+        #tbl1 td {
+            border: 1px solid black;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <!-- 18번 문제 exam18.html -->
+    <h1>테이블</h1>
+
+    <fieldset>
+        <legend>색상 입력</legend>
+        <label for="">색상: <input type="color" name="" id="cl"></label>
+        <label for="">이름: <input type="text" name="" id="txt"></label>
+        <input type="button" value="추가하기" name="" id="btn">
+    </fieldset>
+
+    <table id="tbl1">
+        <tbody id="tbody1">
+            <th>색상명</th>
+            <th>미리보기</th>
+        </tbody>
+    </table>
+
+
+    <script>
+        var cl = document.getElementById('cl');
+        var txt = document.getElementById('txt');
+        var btn = document.getElementById('btn');
+        var tbody1 = document.getElementById('tbody1');
+
+        btn.onclick = function () {
+            var temp = '';
+
+            temp += '<tr>';
+            temp += '<td>';
+            temp += txt.value;
+            temp += '</td>';
+            temp += "<td bgColor=" + cl.value  + ">" + "</td>";
+            temp += '</tr>';
+
+            tbody1.innerHTML += temp;
+        }
+    </script>
+</body>
+</html>

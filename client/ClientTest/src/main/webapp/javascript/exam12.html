@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            padding-left: 150px;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        table th:nth-child(2) {
+            width: 300px;
+        }
+
+        .txt {
+            width: 250px;
+        }
+
+        .txt:read-only {
+            cursor: not-allowed;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <!-- 12번 문제 exam12.html -->
+    <form name="form1">
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>입력</th>
+                <th>잠금</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt" value="">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>
+                    <input type="text" name="txt" id="" class="txt">
+                </td>
+                <td>
+                    <input type="checkbox" name="cb" id="">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        var txt = document.form1.txt;
+        var cb = document.form1.cb;
+        var flag = true;
+        var n = 1;
+
+        // console.log(cb);
+
+        txt.forEach(function (item1, index) {
+            item1.onkeydown = function () {
+                if (event.keyCode == 13) {
+                    event.srcElement.readOnly = true;
+                    cb[index].checked = true;
+                    if (n % 2 == 0) {
+                        cb[index].checked = false;
+                        event.srcElement.readOnly = false;
+                    }
+                    n++;
+                }
+            }
+
+            item1.ondblclick = function () {
+                event.srcElement.readOnly = true;
+                cb[index].checked = true;
+                if (n % 2 == 0) {
+                    cb[index].checked = false;
+                    event.srcElement.readOnly = false;
+                }
+                n++;
+            }
+
+            
+        })
+
+        cb.forEach(function (item2, index) {
+            item2.onchange = function () {
+                if (item2.checked) {
+                    txt[index].readOnly = true;
+                } else {
+                    txt[index].readOnly = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
