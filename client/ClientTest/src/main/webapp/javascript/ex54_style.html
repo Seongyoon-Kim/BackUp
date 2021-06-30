@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex54_style.html -->
+    <h1>뉴스</h1>
+    <fieldset>
+        <button type="button" id="big">크게</button>
+        <button type="button" id="small">작게</button>
+    </fieldset>
+    <p id="content">
+        [파이낸셜뉴스] 홍남기 부총리 겸 기획재정부 장관이 30일 "단기적으로 소득과 괴리된 주택가격 상승이 있으나 갈수록 과도한 레버리지가 주택가격 하방리스크로 작용할 것이다"라고 분석했다. 과도한 '빚투'에 대한 경고의 목소리를 낸 것이다. 아울러 공급 확대를 위해 다음달 15일부터 제3기 신도시 4400호 청약을 시작하고, 오는 9월에는 2·4 대책 사업 후보지 24곳 중 예정 지구 지정 절차를 밟겠다는 계획이다.
+
+홍 부총리는 이날 오전 정부서울청사에서 제25차 부동산시장 점검 관계장관회의를 주재하고 이같이 밝혔다.
+
+그는 "서울과 수도권 매매 시장의 경우 개발 호재 지역을 중심으로 가격 불안 현상이 계속되고 있다"며 "전세 시장은 최근 재건축에 따른 이주 수요 등으로 이달 들어 강남 4구(강남·서초·송파·강동구)를 중심으로 불안한 모습"이라고 진단했다.
+
+홍 부총리는 "최근 가계대출 금리상승 상황속에서 내일부터 차주 단위 DSR 확대 등 가계부채 관리방안 시행, 한국은행의 연내 기준금리 인상 가능성 언급 등은 주택시장으로의 유동성 유입을 둔화시키는 요인이 될 것이다"고 했다.
+
+실제로 가계 주택담보대출 평균금리는 지난해 10월 2.47%에서 올해 2월 2.66%로 상승했고, 지난 4월에는 2.73%을 기록하는 등 오름세를 보이고 있다.
+
+그러면서 "부동산시장 안정은 우리 모두, 우리 아이들 세대를 위해서도 반드시 이루어내야 한다"며 "주택시장 참여자들은 과도한 기대심리, 막연한 불안감, 지나치게 높은 가격으로의 추격매수 보다는 정확한 정보와 합리적인 판단 하에 시장참여와 의사결정 해주실 것을 요청한다"고 말했다.
+    </p>
+
+
+    <script>
+        var big = document.getElementById('big');
+        var small = document.getElementById('small');
+        var content = document.getElementById('content');
+
+        big.onclick = function () {
+            // 현재 크기?
+            // alert(window.getComputedStyle(content).fontSize);
+            var fontSize = parseInt(window.getComputedStyle(content).fontSize);
+            fontSize += 2;
+
+            content.style.fontSize = fontSize + 'px';
+        }
+
+        small.onclick = function () {
+            var fontSize = parseInt(window.getComputedStyle(content).fontSize);
+            fontSize -= 2;
+
+            content.style.fontSize = fontSize + 'px';
+        }
+    </script>
+</body>
+</html>

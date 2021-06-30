@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- 26번 문제 exam26.html -->
+
+    <script>
+        var random;
+        var firstImage = null;
+
+        window.onload = function () {
+            window.onmousedown = function () {
+                random = parseInt((Math.random() * 18) + 1);
+
+                var img = document.createElement('img');
+                img.setAttribute('class', 'img');
+                if (random >= 10) {
+                    img.setAttribute('src', 'images/m' + random + '.png')
+                } else {
+                    img.setAttribute('src', 'images/m0' + random + '.png')
+                }
+
+                img.style.left = event.clientX - 64 + 'px';
+                img.style.top = event.clientY - 64 + 'px';
+
+                document.body.appendChild(img);
+
+                for (var i=0; i<document.body.children.length; i++) {
+                    if (document.body.children[i].nodeName == 'IMG') {
+                        if (firstImage == null) {
+                            firstImage = document.body.children[i];
+                        }
+                    }
+                }
+
+                if (document.body.children.length > 12) {
+                    document.body.removeChild(firstImage);
+                    firstImage = null;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
