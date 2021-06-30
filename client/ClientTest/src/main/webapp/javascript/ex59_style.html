@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<style>
 		@font-face { font-family: 'BRRA_R'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff'); font-weight: normal; font-style: normal; }
@@ -59,7 +59,6 @@
 	</style>
 </head>
 <body>
-
 	<div id="main">
 		<h1>Editor</h1>
 
@@ -81,63 +80,73 @@
 			20~30대가 EBS 캐릭터 펭수에게 열광하는 것도 같은 맥락이다. "열 살이니까 말을 놓겠다"는 사람에게 "안 된다"고 단호히 선을 긋고, "나 때는 말이야"라고 하는 선배에겐 "내가 알아서 하겠다"고 한다. 펭수는 이런 말을 남겼다. "나이가 중요한 게 아닙니다. 이해하고 배려하고 존중하면 되는 거예요."
 		</div>
 	</div>
+
 	<script>
-		
-		var c1 = document.getElementById("c1");
-		var c2 = document.getElementById("c2");
-		var c3 = document.getElementById("c3");
-		var c4 = document.getElementById("c4");
-		var c5 = document.getElementById("c5");
-		var c6 = document.getElementById("c6");
-		var content = document.getElementById("content");
+		var c1 = document.getElementById('c1');
+		var c2 = document.getElementById('c2');
+		var c3 = document.getElementById('c3');
+		var c4 = document.getElementById('c4');
+		var c5 = document.getElementById('c5');
+		var c6 = document.getElementById('c6');
+		var content = document.getElementById('content');
 
 		c4.style.backgroundColor = 'gold';
 
 		c1.onclick = function () {
+			if (content.classList.contains('bold')) {
+				event.srcElement.style.backgroundColor = 'white';
+			} else {
+				event.srcElement.style.backgroundColor = 'gold';
+			}
 			content.classList.toggle('bold');
-			button2(c1);
 		}
 
 		c2.onclick = function () {
+			if (content.classList.contains('italic')) {
+				event.srcElement.style.backgroundColor = 'white';
+			} else {
+				event.srcElement.style.backgroundColor = 'gold';
+			}
 			content.classList.toggle('italic');
-			button2(c2);
 		}
 
 		c3.onclick = function () {
+			if (content.classList.contains('underline')) {
+				event.srcElement.style.backgroundColor = 'white';
+			} else {
+				event.srcElement.style.backgroundColor = 'gold';
+			}
 			content.classList.toggle('underline');
-			button2(c3);
 		}
 
 		c4.onclick = function () {
 			content.style.fontFamily = '맑은 고딕';
-			button1(c4);
+			button2(c4);
 		}
 
 		c5.onclick = function () {
 			content.style.fontFamily = '궁서체';
-			button1(c5);
+			button2(c5);
 		}
 
 		c6.onclick = function () {
 			content.style.fontFamily = 'BRRA_R';
-			button1(c6);
+			button2(c6);
 		}
 
 		function button1(btn) {
-			c4.style.backgroundColor = 'white';
-			c5.style.backgroundColor = 'white';
-			c6.style.backgroundColor = 'white';
-
-			btn.style.backgroundColor = 'gold';
-		}
-
-		function button2(btn) {
 			c1.style.backgroundColor = 'white';
 			c2.style.backgroundColor = 'white';
 			c3.style.backgroundColor = 'white';
 			btn.style.backgroundColor = 'gold';
 		}
-	
+
+		function button2(btn) {
+			c4.style.backgroundColor = 'white';
+			c5.style.backgroundColor = 'white';
+			c6.style.backgroundColor = 'white';
+			btn.style.backgroundColor = 'gold';
+		}
 	</script>
 </body>
 </html>
