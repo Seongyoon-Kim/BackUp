@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: .1s;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/catty01.png" alt="" class="cat">
+    <img src="images/catty02.png" alt="" class="cat">
+    <img src="images/catty03.png" alt="" class="cat">
+    <img src="images/catty04.png" alt="" class="cat">
+    <img src="images/catty05.png" alt="" class="cat">
+    <img src="images/catty06.png" alt="" class="cat">
+    <img src="images/catty07.png" alt="" class="cat">
+    <img src="images/catty08.png" alt="" class="cat">
+    <img src="images/catty09.png" alt="" class="cat">
+    <img src="images/catty10.png" alt="" class="cat">
+    <img src="images/catty11.png" alt="" class="cat">
+    <img src="images/catty12.png" alt="" class="cat">
+    <img src="images/catty13.png" alt="" class="cat">
+    <img src="images/catty14.png" alt="" class="cat">
+    <img src="images/catty15.png" alt="" class="cat">
+    <img src="images/catty16.png" alt="" class="cat">
+    <img src="images/catty17.png" alt="" class="cat">
+    <img src="images/catty18.png" alt="" class="cat">
+    <img src="images/catty19.png" alt="" class="cat">
+    <img src="images/catty20.png" alt="" class="cat">
+
+
+    <script>
+        var cat = document.getElementsByClassName('cat');
+        var listX = [];
+        var listY = [];
+
+        for (var i=0; i<cat.length; i++) {
+            cat[i].style.zIndex = (cat.length - i);
+        }
+
+        window.onmousemove = function () {
+            listX.push(event.clientX)
+            listY.push(event.clientY)
+
+            if (listX.length > cat.length) {
+                listX.shift();
+                listY.shift();
+            }
+
+            for (var i=0; i<cat.length; i++) {
+                if (listX[i] !== null) {
+                    cat[i].style.left = listX[i] - 64 + 'px'
+                    cat[i].style.top = listY[i] - 64 + 'px'
+                    cat[i].style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

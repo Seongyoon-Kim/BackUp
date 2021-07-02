@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .container {
+            border: 10px solid black;
+            width: 1000px;
+            height: 700px;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 34번 문제 -->
+    <div class="container">
+        <img src="images/catty01.png" alt="" class="cat">
+        <img src="images/catty02.png" alt="" class="cat">
+        <img src="images/catty03.png" alt="" class="cat">
+        <img src="images/catty04.png" alt="" class="cat">
+        <img src="images/catty05.png" alt="" class="cat">
+        <img src="images/catty06.png" alt="" class="cat">
+        <img src="images/catty07.png" alt="" class="cat">
+        <img src="images/catty08.png" alt="" class="cat">
+        <img src="images/catty09.png" alt="" class="cat">
+        <img src="images/catty10.png" alt="" class="cat">
+        <img src="images/catty11.png" alt="" class="cat">
+        <img src="images/catty12.png" alt="" class="cat">
+        <img src="images/catty13.png" alt="" class="cat">
+        <img src="images/catty14.png" alt="" class="cat">
+        <img src="images/catty15.png" alt="" class="cat">
+        <img src="images/catty16.png" alt="" class="cat">
+        <img src="images/catty17.png" alt="" class="cat">
+        <img src="images/catty18.png" alt="" class="cat">
+        <img src="images/catty19.png" alt="" class="cat">
+        <img src="images/catty20.png" alt="" class="cat">
+    </div>
+
+    <script>
+        document.body.bgColor = 'gray';
+
+        var container = document.getElementsByClassName('container');
+        var cat = document.getElementsByClassName('cat');
+        var listX = [];
+        var listY = [];
+
+        window.onmousemove = function () {
+            listX.push(event.clientX);
+            listY.push(event.clientY);
+
+            for (var i=0; i<cat.length; i++) {
+                cat[i].style.left = listX[i] - 400 + 'px';
+                cat[i].style.top = listY[i] - 250 + 'px';
+
+                if (listX.length > cat.length) {
+                    listX.shift();
+                    listY.shift();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

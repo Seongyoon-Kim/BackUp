@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #man1,
+      #man2,
+      #man3,
+      #man4 {
+        width: 128px;
+        height: 128px;
+        background-image: url('images/work.png');
+        margin-bottom: 20px;
+      }
+
+      #cage {
+        border: 0px solid black;
+        width: 800px;
+        position: relative;
+        left: 0px;
+        top: 0px;
+      }
+      #cage img {
+        position: absolute;
+        top: 6px;
+        /* transition: all .2s; */
+        /* display: none; */
+      }
+      #cage img:first-child {
+        left: -108px;
+      }
+      #cage img:last-child {
+        left: 780px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 37번 문제 exam37.html -->
+
+    <div id="man1"></div>
+    <div id="man2"></div>
+    <div id="man3"></div>
+    <div id="cage">
+      <img src="images/stop-left.png" alt="" />
+      <div id="man4"></div>
+      <img src="images/stop-right.png" alt="" />
+    </div>
+
+    <script>
+      var man1 = document.getElementById('man1');
+      var man2 = document.getElementById('man2');
+      var man3 = document.getElementById('man3');
+      var man4 = document.getElementById('man4');
+      var flag = false;
+      var distance = 0;
+
+      // 첫번째
+      var x1 = 0;
+      var y1 = 0;
+
+      var timer1 = setInterval(function () {
+        x1 -= 128;
+        if (x1 <= -(128 * 4)) {
+          x1 = 0;
+          y1 -= 128;
+          if (y1 <= -(128 * 2)) {
+            y1 = 0;
+          }
+        }
+        man1.style.backgroundPosition = x1 + 'px ' + y1 + 'px';
+      }, 100);
+
+      // 두번째
+      var x2 = 0;
+      var y2 = 0;
+
+      var timer2 = setInterval(function () {
+        x2 -= 128;
+        if (x2 <= -(128 * 4)) {
+          x2 = 0;
+          y2 -= 128;
+
+          if (y2 <= -(128 * 4)) {
+            y2 = 0;
+          }
+        }
+        man2.style.backgroundPosition = x2 + 'px ' + y2 + 'px';
+
+        man2.onclick = function () {
+            flag = true;
+        }
+
+        if (flag) {
+            distance += 10;
+            man2.style.transform = "translate(" + distance + "px," +  "0px)"
+        }
+      }, 100);
+
+
+    // 세번째
+    var x3 = 0;
+    var y3 = 0;
+    var flag2 = true;
+
+    man3.onclick = function () {
+        if (flag2) {
+            var timer3 = setInterval(function () {
+                x3 -= 128;
+                if (x3 <= -(128 * 4)) {
+                x3 = 0;
+                y3 -= 128;
+
+                    if (y3 <= -(128 * 4)) {
+                        y3 = 0;
+                    }
+                }
+                man3.style.backgroundPosition = x3 + 'px ' + y3 + 'px';
+            }, 100)
+        }
+    }
+</script>
+  </body>
+</html>

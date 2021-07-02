@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex87_regex.html -->
+    <h1>JavaScript + 정규 표현식</h1>
+
+    <textarea name="" id="txt" cols="80" rows="10">[헤럴드경제=이태형 기자]상장 추진 과정에서 공모가 거품 논란에 휩싸인 크래프톤이 주력 게임 '배틀그라운드'와 중국 시장에 대한 높은 의존도를 인정하며 결국 공모가를 내렸다.
+
+        크래프톤은 1일 공모가 희망 범위(밴드)를 낮춘 정정 증권신고서를 제출하며 본격적인 유가증권시장 상장 절차에 돌입했다. 010-1234-5678
+        
+        크래프톤의 새 공모 희망가는 40만원∼49만8000원으로 처음에 제시한 45만8000원∼55만7000원보다 5만원 정도 내려갔다.
+        
+        이에 따른 공모 예정 금액은 3조4617억원∼4조398억원이다. 공모가 상단 기준으로 기존 최대 공모액인 2010년 삼성생명의 4조8881억원에는 미치지 못한다.
+        
+        정정 전 공모가 기준 공모액은 4조6000억원∼5조6000억원으로 국내 기업공개(IPO) 사상 최대 규모였다.
+        
+        이에 따라 희망 공모가액 기준 시가총액도 19조5590억~24조3510억원으로 떨어졌지만, 국내 게임사 중 기업 가치 1위에 오를 가능성은 여전하다.
+        
+        대개 대형 공모주의 공모가가 밴드 상단에서 결정된 점에 미뤄보면 크래프톤이 상장 후 국내 게임 대장주 엔씨소프트(18조원)는 물론이고 일본 도쿄 증시에 상장한 넥슨(약 22조원)의 시가총액을 넘어설 여지는 충분하다. 010-1234-5678
+        
+        앞서 크래프톤은 지난달 16일 증권신고서를 냈으나 금융감독원이 공모가 산정 기준을 명확히 기재해달라며 정정 신고서 제출을 요구해 공모가를 다시 산정했다.
+        
+        게임 ‘배틀그라운드’로 유명한 크래프톤은 정정 전 증권신고서에서 자사 기업가치를 35조736억원으로 추정했다. 이는 실적에서 크래프톤을 앞서는 엔씨소프트 시가총액(1일 기준 18조3097억원)의 약 2배에 이른다.
+        
+        애초 크래프톤은 기업가치를 산정하면서 비교 대상으로 엔씨소프트·넷마블 등 국내외 대형 게임회사 7곳과 월트디즈니, 워너뮤직그룹 등 글로벌 콘텐츠 업체 2곳을 제시했다.
+        
+        '배틀그라운드' 등의 지식재산(IP)을 활용한 콘텐츠 사업 모델을 근거로 비교 대상을 선정했다고 회사 측은 설명했으나, 아직 사업 초기로 특별한 성과가 없어 월트디즈니 등과 비교는 무리라는 의견이 나왔다.
+        
+        결국 적정 시가총액을 29조1662억원으로 제시한 정정 신고서상에는 비교 대상에 엔씨소프트, 넷마블, 카카오게임즈, 펄어비스 등 국내 게임업체 4곳만 들어갔으며 월트디즈니 등은 빠졌다.
+        
+        이와 관련해 크래프톤은 “IP를 바탕으로 게임을 넘어 영화, 음악, 드라마 등 엔터테인먼트 산업으로 확장을 진행하고 있으나, 현재 사업 초기 단계인 관계로 엔터테인먼트 기업은 비교회사 선정 시 제외했다”고 밝혔다.
+        
+        증권신고서상 매출처로는 퍼블리셔(배급·서비스)인 A사의 매출 비중이 지난해 68.1%, 올해 1분기에는 71.8%를 차지했다.
+        
+        A사는 중국 텐센트로 추정되는데, 이 회사는 ‘배틀그라운드’와 흡사한 ‘화평정영’을 현지에 서비스하면서 크래프톤에 수수료를 주고 있다.
+        
+        크래프톤은 “향후 중국 내에서 게임 관련 규제가 확대되거나 중국의 정치적 불확실성이 증가하는 등의 경우 당사가 이로 인한 영향을 받을 수 있다”며 “당사 사업, 재무상태 및 영업실적에 부정적인 영향을 미칠 수 있다”고 밝혔다. 010-5458-8748
+        
+        이번에 공모하는 주식은 총 864만4230주다. 신주 모집이 562만4000주(65%), 구주 매출이 303만230주(35%)다.
+        
+        정정 전 증권신고서와 비교하면 신주 모집규모가 애초 700만주에서 137만6000주 줄었다.
+        </textarea>
+
+        <hr>
+
+    <input type="button" value="버튼" id="btn1">
+
+    <h1>입력</h1>
+
+    <form action="ex87.jsp" method="GET">
+        <div>이름: <input type="text" name="name" id="" pattern="[가-힣]{2,5}" required> 필수 + 한글(2~5자)</div>
+        <div>나이: <input type="text" name="age" id="" pattern="[0-9]{1,2}" required> 필수 + 숫자</div>
+        <div>나이: <input type="number" name="age" id=""> 필수 + 숫자</div>
+        <div><input type="submit" value="등록하기"></div>
+    </form>
+
+
+    <script>
+        var txt = document.getElementById('txt');
+        var btn1 = document.getElementById('btn1');
+
+        btn1.onclick = function () {
+            // 정규 표현식
+            // 1. 생성자 함수 사용
+            // 2. 리터럴 표기법 사용
+
+            // 정규 표현식 객체 메소드
+            // 1. boolean test()
+            // 2. array exec()
+            // 3. array match()
+            // 4. string replace()
+            // 5. array split()
+
+            // - g(global): 전역 탐색(N회 검색)
+            // var regex = new RegExp('[0-9]{3}-[0-9]{3,4}-[0-9]{4}', 'g');
+            var regex = /([0-9]{3})-([0-9]{3,4})-([0-9]{4})/g;
+
+            console.log(regex.test(txt.value));
+            console.log('-----------');
+
+            // console.log(regex.exec(txt.value));
+            var result = regex.exec(txt.value);
+            console.log(result.length);
+            result.forEach(function (item, index) {
+                console.log(item);
+            })
+            console.log('-------------');
+
+            var result = txt.value.match(regex);
+            console.log(result.length);
+
+            result.forEach(function (item, index) {
+                console.log(item);
+            })
+
+            console.log('----------------');
+
+        }
+        var str = '홍길동님 안녕하세요. 반갑습니다. 홍길동님';
+
+        console.log(str.replace('홍길동', '아무개'));
+        console.log(str.replace(/홍길동/g, '아무개'));
+
+
+        var str = 'Hello Java~ Hi java';
+
+        console.log(str.replace(/Java/g, '자바'));
+
+        // g(global), i(insensitive)
+        console.log(str.replace(/Java/gi, '자바'));
+        console.log(str.replace(/Java/ig, '자바'));
+
+
+        // var str = '홍길동,아무개,하하하,호호호,후후후';
+        // var str = '홍길동,아무개;하하하!호호호,후후후';
+        var str = '홍길동,   아무개,하하하   ,호호호,후후후';
+
+        console.log(str.split(','));
+        console.log(str.split(/[,;!]/));
+        console.log(str.split(/\s?,\s?/));
+        console.log(str.split(/\s*,\s*/));
+        </script>
+</body>
+</html>

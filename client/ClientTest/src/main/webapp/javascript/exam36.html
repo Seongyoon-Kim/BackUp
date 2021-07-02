@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img1 {
+            width: 200px;
+            height: 140px;
+            background-image: url('images/fly.png');
+            background-position: 0px 0px;
+            margin-bottom: 20px;
+            margin-top: 200px;
+            transition: transform 3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 36번 문제 exam36.html -->
+
+    <div id="img1"></div>
+    <label for="">새의 속도: <select name="" id="sel1">
+        <option value="느림">느림</option>
+        <option value="보통" selected>보통</option>
+        <option value="빠름">빠름</option>
+        <option value="엄청빠름">엄청빠름</option>
+    </select></label>
+
+    <script>
+        var img1 = document.getElementById('img1');
+        var sel1 = document.getElementById('sel1');
+        var timer;
+        var x = 0;
+        var y = 0;
+        var x2 = 0;
+        var y2 = 0;
+
+        sel1.onchange = function () {
+            if (sel1.value == '느림') {
+                interval(200);
+            } else if (sel1.value == '보통') {
+                interval(100);
+            } else if (sel1.value == '빠름') {
+                interval(50);
+            } else if (sel1.value == '엄청빠름') {
+                interval(10);
+            }
+        }
+
+        function interval(speed) {
+            setInterval(function () {
+                    x -= 200;
+                    y = 0;
+
+                    if (sel1.value == '엄청빠름') {
+                        x2 = 0;
+                        y2 -= 10;
+                        img1.style.transform = 'translate(0px, -1000px)';
+                    }
+
+                    img1.style.backgroundPositionX = x + 'px';
+                    img1.style.backgroundPositionY = y + 'px';
+                }, speed)
+        }
+
+    </script>
+</body>
+</html>

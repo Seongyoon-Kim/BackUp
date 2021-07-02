@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #btn {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 32번 문제 exam32.html -->
+
+    <img src="images/catty01.png" alt="" id="cat">
+    <input type="button" value="시작" id="btn">
+
+    <script>
+        var cat = document.getElementById('cat');
+        var btn = document.getElementById('btn');
+        var listX = [];
+        var listY = [];
+        var timer;
+
+        window.onmousemove = function () {
+            if (event.ctrlKey) {
+                listX.push(event.clientX);
+                listY.push(event.clientY);
+            }
+        }
+
+        btn.onclick = function () {
+            timer = setInterval(function () {
+                
+                cat.style.left = listX[0] - 64 + 'px'
+                cat.style.top = listY[0] - 64 + 'px'
+
+                listX.shift();
+                listY.shift();
+
+                if (listX.length == 0) {
+                    clearInterval(timer);
+                }
+
+            }, 10)
+        }
+    </script>
+</body>
+</html>
