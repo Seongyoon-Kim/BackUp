@@ -5219,7 +5219,8 @@ textarea.form-control-lg {
 
 .modal-body > img {
   width: 400px;
-  height: 290px;
+  height: auto;
+  object-fit: cover;
 }
 
 .modal-body > img:hover {
