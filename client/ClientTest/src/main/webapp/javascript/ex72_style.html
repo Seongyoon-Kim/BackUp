@@ -9,7 +9,7 @@
         body {
             transition: all 1s;
         }
-        
+
         #menu {
             /* border: 1px solid black; */
             width: 680px;
@@ -25,16 +25,9 @@
             transition: all 1s;
         }
 
-        #menu::after {
-            content: '';
-            display: block;
-            clear: both;
-        }
     </style>
 </head>
 <body>
-    <!-- ex72_style.html -->
-
     <header>
         <nav id="menu">
             <img src="images/rect_icon01.png" alt="" class="item" data-no="0">
@@ -50,13 +43,13 @@
     </section>
 
     <script>
-        var item = document.getElementsByClassName('item')
+
         var menu = document.getElementById('menu')
+        var item = document.getElementsByClassName('item')
         var color = [ "#A67F62", "#BE4F3B", "#E7C758", "#666666", "#63AFD1" ];
 
         for (var i=0; i<item.length; i++) {
             item[i].onclick = function () {
-                // 이전에 열려있는 메뉴는 원위치
                 for (var i=0; i<item.length; i++) {
                     if (item[i] != event.srcElement) {
                         item[i].style.transform = 'translate(0px, 0px)'
@@ -64,16 +57,15 @@
                 }
 
                 if (event.srcElement.style.transform == 'translate(0px, 90px)') {
-                    // 접기
                     event.srcElement.style.transform = 'translate(0px, 0px)';
                     document.body.style.backgroundColor = 'white';
                 } else {
-                    // 펼치기
-                    event.srcElement.style.transform = 'translate(0px, 90px)';
+                    event.srcElement.style.transform = 'translate(0px, 90px)'
                     document.body.style.backgroundColor = color[event.srcElement.dataset['no']]
                 }
             }
         }
+
     </script>
 </body>
 </html>
