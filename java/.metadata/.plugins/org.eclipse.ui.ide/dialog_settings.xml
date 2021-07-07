@@ -6,14 +6,14 @@
 		</list>
 	</section>
 	<section name="org.springsource.ide.eclipse.commons.quicksearch.ui.QuickSearchDialog.DIALOG_SETTINGS">
-		<item key="LAST_QUERY" value="서울시"/>
+		<item key="LAST_QUERY" value="별찍"/>
 		<item key="PATH_FILTER" value=""/>
 		<item key="CASE_SENSITIVE" value="true"/>
 		<item key="KEEP_OPEN" value="false"/>
 		<list key="COLUMN_WIDTHS">
 			<item value="40"/>
 			<item value="400"/>
-			<item value="219"/>
+			<item value="245"/>
 		</list>
 		<list key="SASH_WEIGHTS">
 			<item value="833"/>
