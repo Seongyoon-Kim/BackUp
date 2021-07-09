@@ -209,18 +209,108 @@ JSP 내장 객체, JSP Implicit Object
 - request, response, session, pageContext >> out, application >> config, page, exception ..
 
 
+
+
 JSP 내장 객체 저장소
 - request, session, pageContext, application
 - 내부에 사용자 데이터를 저장할 수 있는 Map을 가지고 있다.(*****)
 - setAttribute(key, value), getAttrubute(key)
 
 a. request
+	- 데이터 저장
 	a.1. 클라이언트(브라우저)가 서버에게 전송한 데이터를 받아오는 기능(***********)
-		- ex06_form.jsp
-		- ex06_ok.jsp
+		- ex06.form.jsp
+		- ex06.ok.jsp
+		
+		- ex07.form.jsp
+		- ex07.ok.jsp
 	
 	a.2. 클라이언트(브라우저)가 서버에게 전송한 데이터의 인코딩 처리
+	
+	
 	a.3. 클라이언트(브라우저)가 서버에게 페이지 요청 시 관련된 정보 가져오기
+	- ex08.request.jsp
+	
+	
+
+b. response
+	b.1. 돌려줄 웹 페이지 제작 > response.getWriter() > PrintWriter()
+	b.2. 돌려줄 웹 페이지 인코딩 > response.setCharacterEncoding("UTF-8")
+	b.3. 돌려줄 내용의 MIME 지정(text/html)
+	b.4. 페이지 이동하기
+	
+	- ex09_response_one.jsp
+	- ex09_response_two.jsp
+	
+	
+c. pageContext
+	- 페이지 실행에 필요한 컨텍스트 정보를 저장한 객체
+	- 페이지 간의 데이터를 전달할 때 사용
+	- 데이터 저장
+	
+	- ex10_pagecontext_one.jsp
+	- ex10_pagecontext_two.jsp
+	
+	
+
+d. out
+	- 응답 페이지 전송을 위한 출력 스트림 객체
+	- 서블릿의 PrintWriter와 유사한 역할
+	- HTML 소스에 값을 출력하는 역할
+	- *** JSP에서 <%= %>을 사용하면 불가항력으로 스파게티 코드가 자주 발생한다. > 가독성 저하 > 차라리 옛날 서블릿 방식으로 돌아가자 > 가독성 향상
+	
+	- ex11_out.jsp
+	
+	
+e. session
+	- *********************
+	- 데이터 저장
+	- 인증 상태를 저장하는 용도로 사용(**********)
+	
+	- ex12_session.jsp
+	
+	- ex13_one.jsp
+	- ex13_two.jsp
+
+f. application
+	- 데이터 저장
+	
+	
+	
+	
+
+내장 객체의 생명 주기
+- pageContext, request(response) ***, session ***, application
+- 사용자 데이터를 저장하는 동일한 기능을 가지지만, 생명 주기가 다르기 때문에 저장할 데이터의 쓰임새에 따라서 내장 객체를 선택해서 사용한다.
+
+1. pageContext: 현재 페이지 요청 -> 응답할때까지
+2. request(response): 현재 페이지 요청 -> 응답할 때까지. 단, forward를 사용한다면 응답전까지 계속 살아있다.
+3. session: 유저 접속 -> 해제할 때까지
+4. application: 첫 유저 접속 -> 마지막 유저 해제할 때까지
+
+
+
+
+
+
+
+
+	JSP 기본 액션 태그
+	- 프로그래밍 기능의 일부를 태그 형태로 구현
+	- 추가 설치 과정 없이 바로 사용 가능
+	- ex14_one.jsp
+	- ex14_two.jsp
+	
+	
+	JSTL 확장 액션 태그
+	- 추가 설치가 필요
+	- JSP 기본 액션 태그의 버전업
+	- ex15_el.jsp
+	- ex16_jstl.jsp	
+	
+	
+	사용자 정의 액션 태그
+	- JSP 기본 액션 태그 or JSTL 확장 액션 태그 > 부족하면 직접 설계 구현
 
 
 

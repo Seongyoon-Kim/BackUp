@@ -54,9 +54,9 @@
       type: 'doughnut',
       options,
       data: {
-        labels: ['Java'],
+        labels: ['Java', 'JSP'],
         datasets: [{
-          data: [100],
+          data: [90, 10],
           borderColor,
           backgroundColor,
           hoverBackgroundColor,
@@ -73,7 +73,7 @@
       data: {
         labels: ['Oracle DB', 'SQL Developer'],
         datasets: [{
-          data: [45, 45],
+          data: [70, 30],
           borderColor,
           backgroundColor,
           hoverBackgroundColor,
