@@ -27,6 +27,8 @@
 		<div>num2 : <%= request.getAttribute("num2") %></div>
 		<div>num3 : <%= session.getAttribute("num3") %></div>
 		<div>num4 : <%= application.getAttribute("num4") %></div>
+		
+		<hr>
 	
 	</div>
 	

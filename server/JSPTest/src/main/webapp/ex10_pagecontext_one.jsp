@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	// 페이지 이동하기(Servlet/JSP)
 	// 1. response.sendRedirect()
 	// 2. pageContext.forward()
@@ -25,10 +24,8 @@
 	
 	// http://localhost:8090/jsp/ex10_pagecontext_two.jsp
 	// response.sendRedirect("ex10_pagecontext_two.jsp");
-
 	// http://localhost:8090/jsp/ex10_pagecontext_one.jsp
 	pageContext.forward("ex10_pagecontext_two.jsp");
-
 %>
 <!DOCTYPE html>
 <html>
@@ -39,7 +36,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -61,7 +57,6 @@
 	</script>
 </body>
 </html>
-
 
 
 

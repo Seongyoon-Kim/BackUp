@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -14,7 +12,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -55,7 +52,6 @@
 	</script>
 </body>
 </html>
-
 
 
 

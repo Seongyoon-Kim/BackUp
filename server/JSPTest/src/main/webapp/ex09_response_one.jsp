@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	// 페이지를 이동하는 수단
 	
 	// 1. HTML
@@ -17,7 +16,6 @@
 	// - 프로그램 제어 가능
 	
 	// response.sendRedirect("ex09_response_two.jsp");
-
 %>
 <!DOCTYPE html>
 <html>
@@ -28,7 +26,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -45,7 +42,6 @@
 	</script>
 </body>
 </html>
-
 
 
 
