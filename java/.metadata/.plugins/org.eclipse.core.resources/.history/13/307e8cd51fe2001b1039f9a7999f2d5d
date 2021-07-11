@@ -1,0 +1,14 @@
+package java_standard.DateFormat;
+
+import java.text.DateFormat;
+
+public class DateFormatEx4 {
+
+	public static void main(String[] args) {
+		
+		String pattern = "yyyy/MM/dd";
+		DateFormat df = new 
+		
+	}
+	
+}

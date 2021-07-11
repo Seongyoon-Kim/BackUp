@@ -1,0 +1,11 @@
+package java_standard.MessageFormat;
+
+public class MessageFormatEx1 {
+
+	public static void main(String[] args) {
+		
+		String msg = ""
+		
+	}
+	
+}

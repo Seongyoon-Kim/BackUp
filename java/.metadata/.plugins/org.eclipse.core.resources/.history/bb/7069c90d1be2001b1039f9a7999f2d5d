@@ -1,0 +1,14 @@
+package java_standard.DecimalFormat;
+
+import java.text.DecimalFormat;
+
+public class DecimalFormatEx2 {
+
+	public static void main(String[] args) {
+		
+		DecimalFormat df = new DecimalFormat("#,###.##");
+		DecimalFormat df2 = new DecimalFormat()
+		
+	}
+	
+}

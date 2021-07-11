@@ -1,0 +1,11 @@
+package java_standard.ChoiceFormat;
+
+public class ChoiceFormatEx2 {
+
+	public static void main(String[] args) {
+		
+		String pattern = "60#D|"
+		
+	}
+	
+}

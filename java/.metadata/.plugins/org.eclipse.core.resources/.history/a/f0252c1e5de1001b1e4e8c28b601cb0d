@@ -1,0 +1,17 @@
+package java_standard;
+
+import java.util.Calendar;
+
+public class CalendarEx4 {
+	
+	public static void main(String[] args) {
+		
+		Calendar date = Calendar.getInstance();
+		
+		date.set(2015, 7, 31);
+		
+		System.out.println(date);
+		
+	}
+
+}
