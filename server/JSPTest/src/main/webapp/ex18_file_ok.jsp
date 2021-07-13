@@ -1,3 +1,4 @@
+
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
@@ -6,13 +7,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	// 1. 파일 업로드 처리
 	// 2. ex18_view.jsp로 이동하기(목록보기)
 	
 	// 1. 경로
 	String path = application.getRealPath("/files");
-
 	// 2.
 	int size = 1024 * 1024 * 100;
 	
@@ -51,7 +50,6 @@
 	
 	response.sendRedirect("ex18_view.jsp");
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +60,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -81,8 +78,6 @@
 	</script>
 </body>
 </html>
-
-
 
 
 

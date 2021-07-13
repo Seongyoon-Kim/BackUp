@@ -3,7 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	// 파일 업로드 처리
 	// 1. 업로드 된 파일을 어디에 저장할 지 결정
 	// - webapp > files 폴더
@@ -71,7 +70,6 @@
 	} catch (Exception e) {
 		System.out.println(e);
 	}
-
 %>
 <!DOCTYPE html>
 <html>
@@ -82,7 +80,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -117,7 +114,6 @@
 	</script>
 </body>
 </html>
-
 
 
 

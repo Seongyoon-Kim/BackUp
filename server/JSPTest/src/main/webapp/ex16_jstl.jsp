@@ -2,9 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <%
-
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +13,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -136,8 +133,6 @@
 	</script>
 </body>
 </html>
-
-
 
 
 

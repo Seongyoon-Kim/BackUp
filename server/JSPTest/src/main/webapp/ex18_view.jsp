@@ -1,3 +1,4 @@
+
 <%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -5,7 +6,6 @@
 <%
 // 디렉토리 목록 읽기
 String path = application.getRealPath("/files");
-
 File dir = new File(path);
 File[] list = dir.listFiles();
 %>
@@ -124,8 +124,6 @@ File[] list = dir.listFiles();
 	</script>
 </body>
 </html>
-
-
 
 
 

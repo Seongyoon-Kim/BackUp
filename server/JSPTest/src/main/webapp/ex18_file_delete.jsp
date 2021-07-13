@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	// location.href = 'ex18_file_delete.jsp?img=cat01.jpg';
 	String img = request.getParameter("img");
 	
@@ -13,7 +12,6 @@
 	file.delete(); // 파일 삭제(***)
 	
 	response.sendRedirect("ex18_view.jsp"); // 목록으로 이동하기
-
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +22,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 </style>
 </head>
 <body>
@@ -43,7 +40,6 @@
 	</script>
 </body>
 </html>
-
 
 
 
