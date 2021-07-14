@@ -7,7 +7,6 @@ contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
     
 <%
-
    // 페이지 할일!!
    // 1. DB -> select
    // 2. ResultSet
@@ -32,7 +31,6 @@ pageEncoding="UTF-8"%>
    } catch (Exception e) {
 	   System.out.println(e);
    }
-
 %>
 <!DOCTYPE html>
 <html>
@@ -115,7 +113,6 @@ pageEncoding="UTF-8"%>
 	stat.close();
 	conn.close();
 %>
-
 
 
 

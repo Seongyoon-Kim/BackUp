@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     
 <%
-
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -14,7 +12,6 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-
 	.container {
 		width: 600px;
 	}
@@ -39,7 +36,6 @@
 	.table td select[name=gender] {
 		width: 90px;
 	}
-
 </style>
 </head>
 <body>
@@ -88,7 +84,6 @@
 	</script>
 </body>
 </html>
-
 
 
 

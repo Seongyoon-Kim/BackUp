@@ -58,24 +58,19 @@
 .container {
 	width: 600px;
 }
-
 .container .table th, .table td {
 	text-align: center;
 	vertical-align: middle;
 }
-
 .table th {
 	width: 120px;
 }
-
 .table td input[name=name] {
 	width: 100px;
 }
-
 .table td input[name=age] {
 	width: 80px;
 }
-
 .table td select[name=gender] {
 	width: 90px;
 }
@@ -136,7 +131,6 @@
 	</script>
 </body>
 </html>
-
 
 
 

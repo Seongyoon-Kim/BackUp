@@ -1,30 +1,30 @@
-<%@page import="com.test.jsp.jdbc.DBUtil"%>
 <%@page import="java.sql.Statement"%>
+<%@page import="com.test.jsp.jdbc.DBUtil"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    
 <%
-	// delok.jsp
-	
-	// 할일
-	// 1. 삭제할 글번호 가져오기
-	// 2. DB -> delete
-	// 3. 페이지 이동하기 -> list.jsp
-	
+
+	request.setCharacterEncoding("UTF-8");
+
 	String seq = request.getParameter("seq");
+	String todo = request.getParameter("todo");
 	
 	Connection conn = null;
-	Statement stat = null;
+	PreparedStatement stat = null;
 	int result = -1;
 	
 	try {
+
+		String sql = "update tblTodo set todo = ? where seq = ?";
 		
 		conn = DBUtil.open();
-		stat = conn.createStatement();
+		stat = conn.prepareStatement(sql);
 		
-		String sql = "delete from tblAddress where seq = " + seq;
+		stat.setString(1, todo);
+		stat.setString(2, seq);
 		
-		result = stat.executeUpdate(sql);
+		result = stat.executeUpdate();
 		
 		stat.close();
 		conn.close();
@@ -34,10 +34,11 @@
 	}
 	
 	if (result == 1) {
-		response.sendRedirect("/jsp/jdbc/list.jsp");
+		response.sendRedirect("/jsp/todo/todo_list.jsp");
 	} else {
-		response.sendRedirect("/jsp/jdbc/del.jsp");
+		response.sendRedirect("/jsp/todo/todo_edit.jsp");
 	}
+
 %>
 <!DOCTYPE html>
 <html>
@@ -48,22 +49,31 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
+	
 </style>
+
 </head>
 <body>
-	<!-- delok.jsp -->
+	<!-- todo_editok.jsp -->
 	<div class="container">
-	
-		<h1 class="page-header">Address Book</h1>
-	
-	</div>
-	
+		<h1 class="page-header"></h1>		
+		
+	</div>	
 	
 	<script>
-	
+		
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
