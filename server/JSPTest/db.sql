@@ -113,6 +113,14 @@ end proc_m5;
 
 select * from tblAddress;
 
+delete from tblAddress;
+
+insert into tblAddress (seq, name, age, gender, address) values (seqAddress.nextval, '홍길동', '20', 'm', '서울시 강남구 역삼동');
+insert into tblAddress (seq, name, age, gender, address) values (seqAddress.nextval, '아무개', '22', 'm', '서울시 강남구 대치동');
+insert into tblAddress (seq, name, age, gender, address) values (seqAddress.nextval, '하하하', '20', 'm', '서울시 강남구 논현동');
+
+commit;
+
 
 
 
