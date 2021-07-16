@@ -45,11 +45,9 @@ public class DelOk extends HttpServlet{
 			resp.sendRedirect("/jsp/del.do");
 		}
 		
-//		req.setAttribute("result", result);
-//
 //		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/address/delok.jsp");
 //		dispatcher.forward(req, resp);
-	
+		
 	}
 	
 }

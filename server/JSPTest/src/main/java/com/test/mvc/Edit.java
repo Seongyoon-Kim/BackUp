@@ -17,12 +17,13 @@ public class Edit extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		String seq = req.getParameter("seq");
+		
 		Connection conn = null;
 		PreparedStatement stat = null;
 		ResultSet rs = null;
 		HashMap<String, String> map = new HashMap<String, String>();
-		String seq = req.getParameter("seq");
 		
 		try {
 			
@@ -34,6 +35,7 @@ public class Edit extends HttpServlet{
 			stat.setString(1, seq);
 			
 			rs = stat.executeQuery();
+			
 			
 			while (rs.next()) {
 				
@@ -57,7 +59,7 @@ public class Edit extends HttpServlet{
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/address/edit.jsp");
 		dispatcher.forward(req, resp);
-	
+		
 	}
 	
 }

@@ -18,17 +18,10 @@ public class List extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-//		http://localhost:8090/jsp/list.do
-//		-> list.jsp
-		
-//		1. DB 작업 -> SELECT
-//		2. ResultSet
-//		3. JSP 호출하기 + ResultSet
-		
 		Connection conn = null;
 		Statement stat = null;
 		ResultSet rs = null;
-		ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
+		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		
 		try {
 			
@@ -39,16 +32,10 @@ public class List extends HttpServlet{
 			
 			rs = stat.executeQuery(sql);
 			
-			
-			
-			// 결과 테이블 -> 행 + 열 -> 2차원 배열
-			
 			while (rs.next()) {
 				
-				// 레코드 1줄 -> HashMap 1개
-				HashMap<String,String> map = new HashMap<String,String>();
+				HashMap<String, String> map = new HashMap<String, String>();
 				
-				//*******
 				map.put("seq", rs.getString("seq"));
 				map.put("name", rs.getString("name"));
 				map.put("age", rs.getString("age"));
@@ -59,31 +46,19 @@ public class List extends HttpServlet{
 				
 			}
 			
-			// list == rs
-			// ResultSet의 모든 내용을 ArrayList<HashMap>에 복사를 했다.
-			
 			rs.close();
-		    stat.close();
-		    conn.close();
-
+			stat.close();
+			conn.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		// ResultSet을 직접 전달하지 않고, ArrayList에 담아서 전달하는 이유
-		// 1. MVC 디자인 패턴을 구현하기 위해서(********************)
-		// 2. JSTL을 사용하기 위해서
-		// - JSTL이 ArrayList는 forEach로 탐색이 가능하지만, ResultSet은 탐색할 수 없다.
-		
-		
-		// JSP에게 전달하기 위해서 ArrayList<HashMap>을 담는다. -> 화면에 출력하라고!!!
 		req.setAttribute("list", list);
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/address/list.jsp");
 		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/address/list.jsp");
 		dispatcher.forward(req, resp);
-	
+		
 	}
 	
 }

@@ -127,6 +127,25 @@ commit;
 
 
 
+create table tblCard (
+    seq number primary key,
+    korname varchar2(50) not null,
+    engname varchar2(50) not null,
+    tel varchar2(15) not null,
+    email varchar2(50) not null,
+    company varchar2(50) not null,
+    position varchar2(50) not null
+);
+
+create sequence seqCard;
+
+insert into tblCard (seq, korname, engname, tel, email, company, position) values (seqCard.nextVal, '홍길동', 'Hong gil dong', '010-1234-5678', 'hong.java@gmail.com', '쌍용 OO 솔루션', '제 1개발팀 팀장');
+
+commit;
+
+select * from tblCard order by seq desc;
+
+
 
 
 

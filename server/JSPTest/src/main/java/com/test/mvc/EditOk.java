@@ -55,11 +55,6 @@ public class EditOk extends HttpServlet{
 			resp.sendRedirect("/jsp/edit.do");
 		}
 		
-//		req.setAttribute("result", result);
-//
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/address/editok.jsp");
-//		dispatcher.forward(req, resp);
-	
 	}
 	
 }
