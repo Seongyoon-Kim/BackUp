@@ -1,7 +1,6 @@
 package com.test.card;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -17,22 +16,10 @@ public class List extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
-		// 할일
-		// 1. DB 작업 > 위임 > select
-		// 2. 결과 반환 > 출력 > JSP 호출하기
-		
 		CardDAO dao = new CardDAO();
 		
-		// ResultSet rs = dao.list();
-		
-		// ResultSet <-> ArrayList<CardDTO>
-		// ResultSet: 테이블
-		// ArrayList<CardDTO>: 2차원 배열 -> 테이블
-		// ArrayList<HashMap>
 		ArrayList<CardDTO> list = dao.list();
 		
-		// 2.
 		req.setAttribute("list", list);
 		
 

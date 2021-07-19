@@ -50,19 +50,22 @@
    .btns {
       padding: 10px;
    }
+   
+   .glyphicon{
+		float: right;
+   }
 </style>
 
 </head>
 <body>
    <!-- list.jsp -->
    <div class="container">
-      <h1 class="page-header">Business Card <small>총 ${list.size()}개의 명함이 있습니다.</small></h1>      
-      
+      <h1 class="page-header">Business Card <small>총 ${list.size() }개의 명함이 있습니다.</small></h1>      
       <div id="list">
-      	 <c:forEach items="${list}" var="dto">
+      <c:forEach items="${list }" var="dto">
 	         <div class="item">
 	            <div class="name">
-	               <div class="korname">${dto.korname }</div>
+	               <div class="korname">${dto.korname } <button type="button" class="glyphicon glyphicon-trash" onclick="location.href='/jsp/card/delete.do?seq=${dto.seq}'"></button><button type="button" class="glyphicon glyphicon-edit" onclick="location.href='/jsp/card/edit.do?seq=${dto.seq}'"></button></div>
 	               <div class="engname">${dto.engname }</div>
 	            </div>
 	            <div class="info">
@@ -76,14 +79,13 @@
 	               </div>
 	            </div>
 	         </div>
-         </c:forEach>
-         
+      </c:forEach>
       </div>
       
       <hr>
       
       <div class="btns">
-         <input type="button" value="Register" class="btn btn-default" onclick="location.href='/jsp/card/add.do';">
+         <input type="button" value="Register" class="btn btn-default" onclick="location.href='/jsp/card/add.do'">
       </div>
       
    </div>   

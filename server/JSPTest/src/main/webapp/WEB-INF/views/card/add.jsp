@@ -18,7 +18,7 @@
    <div class="container">
       <h1 class="page-header">Business Card</h1>
       
-      <form action="/jsp/card/addok.do" method="POST">
+      <form method="POST" action="/jsp/card/addok.do">
       	<table class="table table-bordered" style="width: 600px;">
       		<tr>
       			<th>이름(한글)</th>
@@ -47,7 +47,7 @@
       	</table>
       	<div class="btns">
       		<input type="submit" value="Register" class="btn btn-default" />
-      		<input type="button" value="Cancel" class="btn btn-default" onclick="location.href='/jsp/card/list.do';" />
+      		<input type="button" value="Cancel" class="btn btn-default" onclick="location.href='/jsp/card/list.do'"/>
       	</div>
       </form>
 

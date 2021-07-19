@@ -7,13 +7,6 @@ import java.sql.Statement;
 
 import com.test.mvc.DBUtil;
 
-// MVC 디자인 패턴
-// -> 데이터 처리를 담당하는 객체 -> DAO
-
-// DAO, Data Access Object
-// - 데이터를 처리하는 전용 객체(DB)
-
-// ******* 철칙: JDBC와 관련된 코드는 앞으로 DAO에서만 구현한다.(*****************)
 public class AuthDAO {
 	
 	private Connection conn;
@@ -21,8 +14,6 @@ public class AuthDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	// DB 연결
-
 	public AuthDAO() {
 		
 		try {
@@ -35,37 +26,11 @@ public class AuthDAO {
 		
 	}
 
-	// LoginOk 서블릿이 id와 pw를 줄테니 DB에서 회원이 맞는지를 검사해주세요.
-	public int login(AuthDTO dto) {
+	public AuthDTO login(AuthDTO dto) {
 		
 		try {
 			
-			String sql = "select count(*) as cnt from tblUsers where id=? and pw=?";
-			
-			pstat = conn.prepareStatement(sql);
-			
-			pstat.setString(1, dto.getId());
-			pstat.setString(2, dto.getPw());
-			
-			rs = pstat.executeQuery();
-			
-			if (rs.next()) {
-				return rs.getInt("cnt"); // 1 or 0
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return 0;
-	}
-
-	public AuthDTO login2(AuthDTO dto) {
-		
-		try {
-			
-			// 로그인 처리
-			String sql = "select * from tblUsers where id=? and pw=?";
+			String sql = "select * from tblUsers where id = ? and pw = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getId());
@@ -74,15 +39,17 @@ public class AuthDAO {
 			rs = pstat.executeQuery();
 			
 			if (rs.next()) {
-				// 로그인 O
+				
 				AuthDTO resultDTO = new AuthDTO();
 				
 				resultDTO.setId(rs.getString("id"));
+				resultDTO.setPw(rs.getString("pw"));
 				resultDTO.setName(rs.getString("name"));
 				resultDTO.setLv(rs.getString("lv"));
 				resultDTO.setRegdate(rs.getString("regdate"));
 				
 				return resultDTO;
+				
 			}
 			
 		} catch (Exception e) {
@@ -90,7 +57,6 @@ public class AuthDAO {
 		}
 		
 		return null;
-		
 	}
-
+	
 }

@@ -16,16 +16,12 @@ public class Member extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// 인증 받지 못한 사용자 쫓아내기
 		HttpSession session = req.getSession();
 		
 		if (session.getAttribute("id") == null) {
-			// 로그인 안한 사람!!
 			resp.sendRedirect("/jsp/auth/login.do");
 			return;
 		}
-		
-		
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/auth/member.jsp");
 		dispatcher.forward(req, resp);

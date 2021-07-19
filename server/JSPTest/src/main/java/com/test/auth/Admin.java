@@ -16,20 +16,13 @@ public class Admin extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// 인증 받지 못한 사용자 쫓아내기
 		HttpSession session = req.getSession();
 		
-		if (session.getAttribute("id") == null) {
-			// 로그인 안한 사람!!
+		if (session.getAttribute("id") == null || !(session.getAttribute("lv").equals("3"))) {
+			
 			resp.sendRedirect("/jsp/auth/login.do");
 			return;
-		}
-		
-		// 관리자 아닌 인증 사용자를 쫓아내기!!!
-		if (!session.getAttribute("lv").toString().equals("3")) {
-			// 일반 회원!!
-			resp.sendRedirect("/jsp/auth/index.do");
-			return;
+			
 		}
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/auth/admin.jsp");

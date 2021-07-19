@@ -16,23 +16,21 @@
    <div class="container">
       <h1 class="page-header"></h1>
       
-      로그인 성공 유무: ${id}
+      
 
       
    </div>
 
    <script>
       
-   		<c:if test="${not empty id}">
-		alert('로그인 성공!!!');
-		location.href = '/jsp/auth/index.do';
+		<c:if test='${not empty id && not empty pw}'>
+		location.href='/jsp/auth/index.do';
 		</c:if>
 		
-		<c:if test="${empty id}">
-		alert('로그인 실패;;;');
-		history.back();
+		<c:if test='${empty id || empty pw}'>
+		alert('아이디 혹은 비밀번호를 잘못 입력하셨습니다.')
+		location.href='/jsp/auth/login.do'
 		</c:if>
-		
    
    </script>
 </body>

@@ -16,7 +16,7 @@
    <div class="container">
       <h1 class="page-header">로그인</h1>
       
-      <form action="/jsp/auth/loginok.do" method="POST">
+      <form method="POST" action="/jsp/auth/loginok.do">
 	      <table class="table table-bordered" style="width: 300px;">
 	      	<tr>
 	      		<th>아이디</th>

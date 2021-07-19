@@ -21,8 +21,9 @@
    
    <script>
       
-      alert('로그아웃 성공!!!');
-      location.href = '/jsp/auth/index.do';
+      <c:if test='${empty id}'>
+      location.href='/jsp/auth/index.do'
+      </c:if>
       
    </script>
 </body>
