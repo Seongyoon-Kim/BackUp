@@ -9,10 +9,12 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-	.table th {width: 120px;}
-	.main-section .table td {width: 680px; text-align: left;}
-	.short {width: 120px;}
-	.table #content {height: 300px;}
+	
+	.main-section .table th { width: 120px; }
+	.main-section .table td { width: 680px; text-align: left; }
+	
+	.table #content { height: 300px; }
+	
 </style>
 
 </head>
@@ -22,9 +24,9 @@
 	
 	<section class="main-section">
 		
-		<h1>Board <small>Add</small></h1>
+		<h1>Board <small>Del</small></h1>
 		
-		<form method="POST" action="/myapp/board/delok.do">
+		<form method="POST" action="/myapp/board/delok.do">		
 			<table class="table table-bordered">
 				<tr>
 					<th>번호</th>
@@ -34,10 +36,13 @@
 			
 			<div class="btns">
 				<button type="submit" class="btn btn-primary">삭제하기</button>
-				<button type="button" class="btn btn-default" onclick="location.href='/myapp/board/view.do?seq=${seq}'">돌아가기</button>
+				<button type="button" class="btn btn-default"
+					onclick="location.href='/myapp/board/view.do?seq=${seq}';">돌아가기</button>
 			</div>
-			<input type="hidden" name="seq" value="${seq}" />
+			
+			<input type="hidden" name="seq" value="${seq}">
 		</form>
+		
 
 	</section>	
 	

@@ -9,10 +9,12 @@
 <%@ include file="/inc/asset.jsp" %>
 
 <style>
-	.table th {width: 120px;}
-	.table td {width: 680px;}
-	.short {width: 120px;}
-	.table #content {height: 300px;}
+	
+	.table th { width: 120px; }
+	.table td { width: 680px; }
+	
+	.table #content { height: 300px; }
+	
 </style>
 
 </head>
@@ -24,15 +26,20 @@
 		
 		<h1>Board <small>Edit</small></h1>
 		
-		<form method="POST" action="/myapp/board/editok.do">
+		<form method="POST" action="/myapp/board/editok.do">		
 			<table class="table table-bordered">
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="subject" id="subject" class="form-control" required="required" value="${dto.subject}"/></td>
+					<td>
+						<input type="text" name="subject" id="subject" 
+								class="form-control" required value="${dto.subject}">
+					</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea rows="" cols="" name="content" id="content" class="form-control" required="required">${dto.content}</textarea></td>
+					<td>
+						<textarea name="content" id="content" class="form-control" required>${dto.content}</textarea>
+					</td>
 				</tr>
 				<tr>
 					<th>태그</th>
@@ -40,23 +47,26 @@
 						<select name="tag" id="tag" class="form-control short">
 							<option value="n">적용안함</option>
 							<option value="y">적용함</option>
-						</select>
+						</select>	
 					</td>
 				</tr>
 			</table>
 			
 			<div class="btns">
 				<button type="submit" class="btn btn-primary">수정하기</button>
-				<button type="button" class="btn btn-default" onclick="location.href='/myapp/board/list.do'">돌아가기</button>
+				<button type="button" class="btn btn-default"
+					onclick="location.href='/myapp/board/list.do';">돌아가기</button>
 			</div>
-			<input type="hidden" name="seq" value="${dto.seq}" />
+			
+			<input type="hidden" name="seq" value="${dto.seq}">
 		</form>
+		
 
 	</section>	
 	
 	<%@ include file="/inc/init.jsp" %>
 	<script>
-		
+	
 		$("#tag").val("${dto.tag}");
 	
 	</script>

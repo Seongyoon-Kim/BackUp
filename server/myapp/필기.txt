@@ -60,3 +60,99 @@
 			c. view
 			d. edit
 			e. del
+			
+			
+			
+			
+			
+			
+		댓글 쓰기
+		1. 별도 테이블
+			- tblComment
+			
+		2. JSP 페이지 (X)
+		3. Servlet(O)
+			- AddComment.java
+			- DelComment.java
+			- CommentDAO.java > BoardDAO.java 사용
+			- CommentDTO.java
+			
+			
+			
+			
+			
+		
+		게시판 정책
+		1. 익명 사용자
+			- 목록 보기가 가능하다. (list.do)
+			- 글보기가 가능하다. (view.do)
+			- 글쓰기, 수정하기, 삭제하기, 댓글쓰기 등은 불가능하다.
+			- Add.java, AddOk.java, Edit.java, EditOk.java, Del.java, DelOk.java, AddComment.java, DelComment.java
+			
+		2. 수정하기, 삭제하기
+			- 글쓴이만 가능하게..
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

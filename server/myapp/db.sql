@@ -31,10 +31,30 @@ as
     seq, 
     id, 
     (select name from tblUsers where id = tblBoards.id) as name, 
-    subject, 
+    subject,
+    content,
     readcount, 
     regdate, 
-    (sysdate - regdate) as isnew
+    (sysdate - regdate) as isnew,
+    (select count(*) from tblComments where pseq = tblBoards.seq) as ccnt
     from tblBoards;
     
 select * from vwBoards;
+
+
+drop table tblComments;
+drop sequence seqComments;
+
+create table tblComments (
+    seq number primary key,                                 -- 댓글번호(PK)
+    id varchar2(30) not null references tblUsers(id),        -- 아이디(FK)
+    content varchar2(2000) not null,                        -- 댓글내용
+    regdate date default sysdate not null,                  -- 작성날짜
+    pseq number not null references tblBoards(seq)          -- 부모글번호(FK)
+);
+
+create sequence seqComments;
+
+select * from tblComments order by seq desc;
+
+delete from tblComments;

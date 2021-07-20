@@ -15,11 +15,25 @@ public class Add extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		// 현재 할일 없음 > 나중에 생김
+		//현재 할일 없음 > 나중에 생김
+		CheckMember cm = new CheckMember();
+		cm.check(req, resp);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/add.jsp");
 		dispatcher.forward(req, resp);
-
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

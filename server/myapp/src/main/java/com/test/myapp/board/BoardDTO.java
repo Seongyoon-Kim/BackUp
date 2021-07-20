@@ -1,29 +1,26 @@
 package com.test.myapp.board;
 
-// 보통 오라클 테이블 1개당 DTO 1개(이상)를 만든다.
+//보통 오라클 테이블 1개당 DTO 1개(이상)를 만든다.
 public class BoardDTO {
 	
 	private String seq;
 	private String id;
 	private String subject;
 	private String content;
-	private String tag;
 	private String regdate;
 	private String readcount;
-	private String name;
-	private String isnew;
+	private String tag;
 	
-	public String getIsnew() {
-		return isnew;
+	private String name; //추가 멤버
+	private String isnew; //새글 표시
+	private String ccnt;
+	
+	
+	public String getCcnt() {
+		return ccnt;
 	}
-	public void setIsnew(String isnew) {
-		this.isnew = isnew;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCcnt(String ccnt) {
+		this.ccnt = ccnt;
 	}
 	public String getSeq() {
 		return seq;
@@ -49,12 +46,6 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getTag() {
-		return tag;
-	}
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
 	public String getRegdate() {
 		return regdate;
 	}
@@ -67,11 +58,25 @@ public class BoardDTO {
 	public void setReadcount(String readcount) {
 		this.readcount = readcount;
 	}
-	
-	@Override
-	public String toString() {
-		return "BoardDTO [seq=" + seq + ", id=" + id + ", subject=" + subject + ", content=" + content + ", tag=" + tag
-				+ ", regdate=" + regdate + ", readcount=" + readcount + ", name=" + name + ", isnew=" + isnew + "]";
+	public String getTag() {
+		return tag;
 	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIsnew() {
+		return isnew;
+	}
+	public void setIsnew(String isnew) {
+		this.isnew = isnew;
+	}
+
 	
 }
+
