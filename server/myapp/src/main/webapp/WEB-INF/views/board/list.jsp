@@ -31,6 +31,8 @@
 	
 	.searchBar { margin: 10px; text-align: center; }
 	
+	.pagebar {text-align: center;}
+	
 </style>
 
 </head>
@@ -65,6 +67,11 @@
 			<tr>
 				<td>${dto.seq}</td>
 				<td>
+					
+					<c:if test="${dto.depth > 0 }">
+						<span style="color: cornflowerblue; margin-left: ${dto.depth * 20}px;">▶</span>
+					</c:if>
+				
 					<a href="/myapp/board/view.do?seq=${dto.seq}&column=${map.column}&search=${map.search}">${dto.subject}</a>
 					
 					<c:if test="${dto.ccnt > 0 }">
@@ -82,6 +89,33 @@
 			</tr>
 			</c:forEach>
 		</table>
+		
+		
+		<%-- <div>
+			<form method="GET" action="/myapp/board/list.do">
+				<input type="number" name="page" id="" min="1" max="${totalPage}" value="${nowPage }"/>
+				<input type="submit" value="페이지 보기" />
+			</form>
+		</div>
+		
+		<hr>
+		
+		
+		<div>
+			<select name="" id="selPage">
+				<c:forEach var="i" begin="1" end="${totalPage }">
+				<option value="${i }">${i }page</option>
+				</c:forEach>
+			</select>
+		</div>
+		
+		<hr> --%>
+		
+		
+		<div class="pagebar">
+			${pagebar }
+		</div>
+		
 		
 		<div class="searchbox">
 			<!--  
@@ -103,8 +137,9 @@
 		<div class="btns">	
 		
 			<c:if test="${not empty id}">
+			<!-- 새글쓰기 -->
 			<button type="button" class="btn btn-primary"
-				onclick="location.href='/myapp/board/add.do';">글쓰기</button>
+				onclick="location.href='/myapp/board/add.do?reply=0';">글쓰기</button>
 			</c:if>
 				
 			<button type="button" class="btn btn-default"
@@ -125,6 +160,15 @@
 			$('#search').val('${map.search}');
 		
 		</c:if>
+		
+		
+		$("#selPage").change(function () {
+			
+			location.href='/myapp/board/list.do?page=' + $(this).val();
+			
+		})
+		
+		$("#selPage").val("${nowPage}");
 		
 		
 	

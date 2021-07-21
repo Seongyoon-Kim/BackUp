@@ -15,7 +15,22 @@ public class BoardDTO {
 	private String isnew; //새글 표시
 	private String ccnt;
 	
+	private int thread;
+	private int depth;
 	
+	
+	public int getThread() {
+		return thread;
+	}
+	public void setThread(int thread) {
+		this.thread = thread;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
 	public String getCcnt() {
 		return ccnt;
 	}

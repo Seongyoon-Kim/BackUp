@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="13" version="2.0">
 <workbenchAdvisor/>
 <window height="1042" maximized="true" width="982" x="949" y="-11">
 <fastViewData fastViewLocation="1024"/>
@@ -26,30 +26,31 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" partName="WebProjectERD.exerd" path="D:/class/oracle/모델링/WebProjectERD.exerd" title="WebProjectERD.exerd" tooltip="모델링/WebProjectERD.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" partName="WebProjectERD.exerd" path="D:/class/oracle/모델링/WebProjectERD.exerd" title="WebProjectERD.exerd" tooltip="모델링/WebProjectERD.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/모델링/WebProjectERD.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" partName="WebProjectERD.exerd" title="WebProjectERD.exerd" tooltip="C:\Users\tjddb\OneDrive\바탕화~1-DESKTOP-F4154AD-875\프로젝트\WebProject\기능명세서\WebProjectERD.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/tjddb/OneDrive/바탕화~1-DESKTOP-F4154AD-875/프로젝트/WebProject/기능명세서/WebProjectERD.exerd"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.ui.views.ResourceNavigator" partName="네비게이터">
-<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
-<filters>
-<filter element=".*" isEnabled="false"/>
-</filters>
-<expanded>
-<element path="/모델링"/>
-</expanded>
-<selection>
-<element path="/모델링"/>
-</selection>
-</viewState>
-</view>
 <view id="com.tomato.exerd.ui.views.thumbnail" partName="썸네일">
 <viewState/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="네비게이터">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>&#x0A;<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>&#x0A;<element path="/모델링"/>
+</expanded>
+<selection>&#x0A;<element path="/모델링"/>
+</selection>
+</viewState>
 </view>
 <view id="com.tomato.exerd.validate.ui.ValidateView" partName="검토"/>
 <view id="com.tomato.exerd.modelview3.ModelView3" partName="모델">
@@ -125,7 +126,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="leftFolder">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -140,20 +141,20 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.17907445" ratioLeft="178" ratioRight="816" relationship="2" relative="leftFolder"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@18f8425" ratio="0.7794118" ratioLeft="636" ratioRight="180" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="rightFolder" ratio="0.24878837" ratioLeft="154" ratioRight="465" relationship="4" relative="org.eclipse.ui.internal.ViewStack@18f8425">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="com.tomato.exerd.modelview3.ModelView3" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="bottomFolder" ratio="0.69951534" ratioLeft="433" ratioRight="186" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.domain" label="LabelNotFound"/>
 <page content="com.tomato.exerd.validate.ui.ValidateView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
@@ -162,7 +163,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1df20fd" ratio="0.29886913" ratioLeft="185" ratioRight="434" relationship="4" relative="leftFolder">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.gef.ui.palette_view" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -176,9 +177,11 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/모델링/비디오.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/모델링/WebProjectERD.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/tjddb/OneDrive/바탕화~1-DESKTOP-F4154AD-875/프로젝트/WebProject/기능명세서/WebProjectERD.exerd"/>
 </editors>
 <item historyLabel="비디오.exerd" index="0"/>
-<item active="true" historyLabel="WebProjectERD.exerd" index="1"/>
+<item historyLabel="WebProjectERD.exerd" index="1"/>
+<item active="true" historyLabel="WebProjectERD.exerd" index="2"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -205,6 +208,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" tooltip="C:\Users\tjddb\OneDrive\바탕화~1-DESKTOP-F4154AD-875\프로젝트\WebProject\기능명세서\WebProjectERD.exerd">
+<persistable uri="file:/C:/Users/tjddb/OneDrive/바탕화~1-DESKTOP-F4154AD-875/프로젝트/WebProject/기능명세서/WebProjectERD.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" tooltip="모델링/WebProjectERD.exerd">
 <persistable path="/모델링/WebProjectERD.exerd"/>
 </file>

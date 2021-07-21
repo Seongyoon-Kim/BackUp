@@ -32,8 +32,8 @@ public class BoardDAO {
 		
 		try {
 
-			String sql = "insert into tblBoards (seq, id, subject, content, regdate, readcount, tag)"
-							+ " values (seqBoard.nextVal, ?, ?, ?, default, default, ?)";
+			String sql = "insert into tblBoards (seq, id, subject, content, regdate, readcount, tag, thread, depth)"
+							+ " values (seqBoards.nextVal, ?, ?, ?, default, default, ?, ?, ?)";
 			
 			pstat = conn.prepareStatement(sql);
 						
@@ -41,6 +41,9 @@ public class BoardDAO {
 			pstat.setString(2, dto.getSubject());
 			pstat.setString(3, dto.getContent());
 			pstat.setString(4, dto.getTag());
+			
+			pstat.setInt(5, dto.getThread());
+			pstat.setInt(6, dto.getDepth());
 			
 			return pstat.executeUpdate();			
 
@@ -71,16 +74,17 @@ public class BoardDAO {
 				//where all like '%날씨%'
 				
 				if (map.get("column").equals("all")) {
-					where = String.format(" where subject like '%%%s%%' or content like '%%%s%%' "
+					where = String.format(" and subject like '%%%s%%' or content like '%%%s%%' "
 											, map.get("search"), map.get("search"));
 				} else {
-					where = String.format(" where %s like '%%%s%%' "
+					where = String.format(" and %s like '%%%s%%' "
 											, map.get("column"), map.get("search"));				
 				}
 				
 			}
 			
-			String sql = String.format("select * from vwBoards %s order by seq desc", where);
+			// 페이징 조건 <-> (분리) <-> 검색 조건
+			String sql = String.format("select * from vwBoards where rnum between %s and %s %s order by thread desc", map.get("begin"), map.get("end"), where);
 			
 			pstat = conn.prepareStatement(sql);
 			
@@ -102,6 +106,9 @@ public class BoardDAO {
 				
 				dto.setIsnew(rs.getString("isnew")); // 글쓰고 난뒤 며칠이 지났는지 시간
 				dto.setCcnt(rs.getString("ccnt")); // 현재 글에 달린 댓글 개수
+				
+				dto.setThread(rs.getInt("thread"));
+				dto.setDepth(rs.getInt("depth"));
 				
 				list.add(dto);
 				
@@ -142,6 +149,9 @@ public class BoardDAO {
 				dto.setReadcount(rs.getString("readcount"));
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setTag(rs.getString("tag"));
+				
+				dto.setThread(rs.getInt("thread"));
+				dto.setDepth(rs.getInt("depth"));
 				
 				return dto;
 				
@@ -231,7 +241,7 @@ public class BoardDAO {
 		try {
 
 			String sql = "insert into tblComments (seq, id, content, regdate, pseq)"
-							+ " values (seqComment.nextVal, ?, ?, default, ?)";
+							+ " values (seqComments.nextVal, ?, ?, default, ?)";
 			
 			pstat = conn.prepareStatement(sql);
 						
@@ -325,6 +335,89 @@ public class BoardDAO {
 			pstat.setString(1, seq);
 			
 			pstat.executeUpdate();	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	// List 서블릿이 총 게시물 수 알려달라고 요청
+	public int getTotalCount(HashMap<String, String> map) {
+		
+		try {
+			
+			String where = "";
+			
+			if (map.get("isSearch").equals("y")) {
+				//검색
+				//where name like '%홍길동%'
+				//where subject like '%날씨%'
+				//where all like '%날씨%'
+				
+				if (map.get("column").equals("all")) {
+					where = String.format(" where subject like '%%%s%%' or content like '%%%s%%' "
+											, map.get("search"), map.get("search"));
+				} else {
+					where = String.format(" where %s like '%%%s%%' "
+											, map.get("column"), map.get("search"));
+				}
+				
+			}
+			
+			String sql = String.format("select count(*) as cnt from tblBoards %s", where) ;
+			
+			pstat = conn.prepareStatement(sql);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	
+	// AddOk 서블릿이 가장 큰 thread값을 알려달라고..
+	public int getMaxThread() {
+		
+		try {
+			
+			String sql = "select nvl(max(thread), 0) + 1000 as thread from tblBoards";
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			if (rs.next()) {
+				return rs.getInt("thread");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	// AddOk 서블릿이 답변글쓰기에 필요한 업무를 위임
+	public void updateThread(int parentThread, int previousThread) {
+		
+		try {
+			
+			// a. 현존 모든 게시물의 thread값을 대상으로 현재 작성 중인 답변글의 부모글의 thread값보다 작고, 이전 새글의 thread값보다 큰 thread를 찾아서 모두 -1 한다.
+			
+			String sql = "update tblBoards set thread = thread - 1 where thread > ? and thread < ?";
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setInt(1, previousThread);
+			pstat.setInt(2, parentThread);
+			
+			pstat.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

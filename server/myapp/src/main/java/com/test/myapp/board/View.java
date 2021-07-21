@@ -82,7 +82,7 @@ public class View extends HttpServlet {
 		
 		
 		//3.
-		req.setAttribute("dto", dto);		
+		req.setAttribute("dto", dto);
 		req.setAttribute("column", column);
 		req.setAttribute("search", search);
 		req.setAttribute("clist", clist);
