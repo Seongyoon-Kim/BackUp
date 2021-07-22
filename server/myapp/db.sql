@@ -104,7 +104,7 @@ commit;
 
 
 drop table tblComments;
-drop sequence seqComment;
+drop sequence seqComments;
 
 drop table tblBoards;
 drop sequence seqBoards;
@@ -128,10 +128,44 @@ select nvl(max(thread), 0) + 1000 as thread from tblBoards;
 select * from tblBoards;
 
 
+create table tblComments (
+    seq number primary key,                                 -- 댓글번호(PK)
+    id varchar2(30) not null references tblUsers(id),        -- 아이디(FK)
+    content varchar2(2000) not null,                        -- 댓글내용
+    regdate date default sysdate not null,                  -- 작성날짜
+    pseq number not null references tblBoards(seq)          -- 부모글번호(FK)
+);
+
+create sequence seqComments;
+
+select * from tblBoards order by seq desc;
+select max(thread) from tblBoards;
+select * from tblComments;
 
 
+-- 유저당 게시물 개수?
+-- 유저당 댓글 개수?
 
+--{
+--    name: '홍길동',
+--    y: 10
+--},
+--{
+--    name: '테스트',
+--    y: 3
+--},
+--{
+--    name: '관리자',
+--    y: 6
+--}
 
+-- group by
+
+select name, (select * from tblBoards where id = tblUsers.name) from tblUsers group by name;
+
+select name, (select count(*) from tblBoards where id = tblUsers.id) as cnt from tblUsers;
+
+select name, (select count(*) from tblComments where id = tblUsers.id) as cnt from tblUsers;
 
 
 
