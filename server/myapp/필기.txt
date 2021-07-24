@@ -133,6 +133,21 @@
 		
 		
 		
+		지도 OpenAPI
+		- 구글맵
+		- 네이버맵
+		- 다음맵(카카오맵)
+		
+		
+		패키지
+		- com.test.myapp.map
+		> Map.java
+		> MapDAO.java
+		> MapDTO.java
+		
+		- views > map
+						> map.jsp
+						> ex01.jsp
 		
 		
 		

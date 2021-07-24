@@ -10,6 +10,7 @@
             <li onclick="location.href='/myapp/board/list.do';" title="게시판">Board</li>
             <li onclick="location.href='/myapp/chart/chart.do';" title="차트">chart</li>
             <li onclick="location.href='/myapp/openapi/book.do';" title="OpenAPI">OpenAPI</li>
+            <li onclick="location.href='/myapp/map/map.do';" title="Map">Map</li>
          </ul>
       </nav>
       <div class="auth">

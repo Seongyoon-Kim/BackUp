@@ -170,6 +170,17 @@ select name, (select count(*) from tblComments where id = tblUsers.id) as cnt fr
 
 
 
+-- 지도
+create table tblPlace (
+    seq number primary key,             -- PK
+    name varchar2(100) not null,        -- 장소명
+    lat number not null,                -- 위도(Latitude)
+    lng number not null                 -- 경도(Longitude)
+);
+
+create sequence seqPlace;
+
+select * from tblPlace order by seq;
 
 
 
@@ -177,10 +188,12 @@ select name, (select count(*) from tblComments where id = tblUsers.id) as cnt fr
 
 
 
+show user;
+create user web identified by java1234;
 
+show user;
 
-
-
+grant connect, resource to web;
 
 
 

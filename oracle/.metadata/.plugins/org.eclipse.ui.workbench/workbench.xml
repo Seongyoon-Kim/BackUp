@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="13" version="2.0">
 <workbenchAdvisor/>
-<window height="1042" maximized="true" width="982" x="949" y="-11">
+<window height="1042" width="982" x="949" y="-11">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -26,14 +26,10 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" partName="WebProjectERD.exerd" path="D:/class/oracle/모델링/WebProjectERD.exerd" title="WebProjectERD.exerd" tooltip="모델링/WebProjectERD.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/모델링/WebProjectERD.exerd"/>
-</editor>
 <editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="WebProjectERD.exerd" partName="WebProjectERD.exerd" title="WebProjectERD.exerd" tooltip="C:\Users\tjddb\OneDrive\바탕화~1-DESKTOP-F4154AD-875\프로젝트\WebProject\기능명세서\WebProjectERD.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/tjddb/OneDrive/바탕화~1-DESKTOP-F4154AD-875/프로젝트/WebProject/기능명세서/WebProjectERD.exerd"/>
 </editor>
@@ -178,9 +174,12 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/모델링/비디오.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/모델링/WebProjectERD.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/tjddb/OneDrive/바탕화~1-DESKTOP-F4154AD-875/프로젝트/WebProject/기능명세서/WebProjectERD.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/모델링/WebProjectERD.exerd"/>
 </editors>
 <item historyLabel="비디오.exerd" index="0"/>
 <item historyLabel="WebProjectERD.exerd" index="1"/>
+<item historyLabel="WebProjectERD.exerd" index="2"/>
+<item historyLabel="WebProjectERD.exerd" index="3"/>
 <item active="true" historyLabel="WebProjectERD.exerd" index="2"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
