@@ -1,0 +1,22 @@
+package com.test.java;
+
+public class TechQnaDummy {
+	
+	public static void main(String[] args) {
+		
+		String[] title = {
+				
+				"컴공과 3학년입니다...",
+				"이클립스 처음 깐 초보인데, 코드 치는 창이 안뜨네요..ㅠㅠ";
+				
+		};
+		
+		String[] content = {
+				
+				
+				
+		};
+		
+	}
+
+}

@@ -1,0 +1,59 @@
+package com.afd.member.qna;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/main/member/qna/view.do")
+public class View extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		String techQnaSeq = req.getParameter("techQnaSeq");
+		String search = req.getParameter("search");
+		
+		QnaDAO dao = new QnaDAO();
+
+		HttpSession session = req.getSession();
+
+		if (session.getAttribute("read") != null && !session.getAttribute("read").toString().equals("n")) {
+
+			dao.updateReadCount(techQnaSeq);
+			
+			session.setAttribute("read", "y");
+		}
+
+		QnaDTO dto = dao.get(techQnaSeq);
+		
+		String title = dto.getTitle();
+		String content = dto.getContent();
+		
+		title = title.replace("<script", "&lt;script").replace("</script>", "&lt;/script&gt;");
+		dto.setTitle(title);
+		
+		content = content.replace("<script", "&lt;script").replace("</script>", "&lt;/script&gt;");
+		dto.setContent(content);
+		
+		content = content.replace("\r\n", "<br>");
+		dto.setContent(content);
+
+		ArrayList<CommentDTO> clist = dao.commentList(techQnaSeq);
+
+		req.setAttribute("dto", dto);
+		req.setAttribute("clist", clist);
+		req.setAttribute("search", search);
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/member/qna/view.jsp");
+		dispatcher.forward(req, resp);
+
+	}
+
+}
