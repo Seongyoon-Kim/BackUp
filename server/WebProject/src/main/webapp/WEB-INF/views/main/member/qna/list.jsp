@@ -8,6 +8,7 @@
 <title></title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <%@ include file="/inc/asset.jsp"%>
 
@@ -90,7 +91,7 @@
 						style="width: 150px; margin-right: 10px;">
 						<option value="title">제목</option>
 						<option value="content">내용</option>
-						<option value="nickname">닉네임</option>
+						<option value="nickName">닉네임</option>
 						<option value="all">제목+내용</option>
 					</select> <input type="text" name="search" id="search" class="form-control"
 						required placeholder="검색어를 입력하세요."> <input type="submit"
@@ -107,13 +108,12 @@
 		</c:if>
 
 		<div style="margin-bottom: 20px;">
-			<ul class="nav nav-pills">
-				<li role="presentation" class="active"><a href="#">최신순</a></li>
-				<li role="presentation"><a href="#">추천순</a></li>
-				<li role="presentation"><a href="#">댓글순</a></li>
-				<li role="presentation"><a href="#">스크랩순</a></li>
-				<li role="presentation"><a href="#">조회순</a></li>
-			</ul>
+			<form action="/webproject/main/member/qna/list.do" method="GET">
+				<button type="submit" class="btn btn-outline-info" name="orderRegdate" value="regdate">최신순</button>
+				<button type="submit" class="btn btn-outline-info" name="orderRecommendCount" value="recommendCount">추천순</button>
+				<button type="submit" class="btn btn-outline-info" name="orderComment" value="ccnt">댓글순</button>
+				<button type="submit" class="btn btn-outline-info" name="orderReadCount" value="readCount">조회순</button>
+			</form>
 		</div>
 
 		<table class="table table-hover">

@@ -53,7 +53,7 @@
 		<div class="login">
 			<div class="logo">All For Developer</div>
 			<form method="POST" action="/webproject/main/member/membermain.do">
-				<input type="text" name="id" class="form-control" required placeholder="아이디">
+				<input type="text" name="id" id="id" class="form-control" required placeholder="아이디">
 				<input type="password" name="pw" class="form-control" required placeholder="비밀번호">
 				<input type="submit" value="로그인" class="logbutton">
 			</form>
@@ -65,6 +65,8 @@
 	<%@ include file="/inc/init.jsp" %>
 	<script>
 		
+	$('#id').focus();
+	
 	</script>
 </body>
 </html>

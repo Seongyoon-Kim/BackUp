@@ -192,7 +192,15 @@
 		
 		
 		
+		DB에 recommend = n or y
 		
+		추천을 누르면 recommend -> 'y' (인서트)
+		비추천을 누르면 recommend -> 'y' -> 'n' (업데이트)
+		
+		
+		
+		추천 누르면 recommend -> 'y' (인서트)
+		비추천 누르면 decommend -> 'n' (인서트)
 		
 		
 		

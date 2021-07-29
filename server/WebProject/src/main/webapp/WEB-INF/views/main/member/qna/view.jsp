@@ -116,18 +116,64 @@
 				<td rowspan="2">
 					<div id="content-function" class="content-function">
 						<div class="content-function-group">
-							<div>
-								<a href="/webproject/main/member/qna/recommend.do?techQnaSeq=${dto.techQnaSeq}"><span class="bi bi-chevron-up" title="추천"></span></a>
-							</div>
-							<div>${dto.recommendCount - dto.decommendCount}</div>
-							<div>
-								<a href="/webproject/main/member/qna/decommend.do?techQnaSeq=${dto.techQnaSeq}"><span class="bi bi-chevron-down" title="비추천"></span></a>
-							</div>
+								<c:if test="${not empty id}">
+									<div>
+										<c:set var="recYes" value="n"></c:set>
+										<c:forEach items="${recommendList}" var="rlist">
+											<c:if test="${rlist.memberSeq == memberSeq && rlist.recommend == 'y'}">
+												<c:set var="recYes" value="y"></c:set>
+											</c:if>
+										</c:forEach>
+										
+										<c:if test="${recYes == 'n'}">
+										<a href="/webproject/main/member/qna/recommend.do?techQnaSeq=${dto.techQnaSeq}&memberSeq=${dto.memberSeq}">
+										<span class="bi bi-chevron-up" title="추천"></span></a>
+										</c:if>
+										
+										<c:if test="${recYes == 'y'}">
+											<a href="#">
+										<span class="bi bi-chevron-up" title="추천"></span></a>
+										</c:if>
+									</div>
+								</c:if>
+							<div title="추천수">${dto.recommendCount - dto.decommendCount}</div>
+							<c:if test="${not empty id}">
+								<div>
+									<c:set var="recNo" value="n"></c:set>
+									<c:forEach items="${recommendList}" var="rlist">
+										<c:if test="${rlist.memberSeq == memberSeq && rlist.recommend == 'n'}">
+											<c:set var="recNo" value="y"></c:set>
+										</c:if>
+									</c:forEach>
+								
+									<c:if test="${recNo == 'n'}">
+										<a href="/webproject/main/member/qna/decommend.do?techQnaSeq=${dto.techQnaSeq}">
+										<span class="bi bi-chevron-down" title="비추천"></span></a>
+									</c:if>
+									
+									<c:if test="${recNo == 'y'}">
+										<a href="#">
+										<span class="bi bi-chevron-down" title="비추천"></span></a>
+									</c:if>
+								</div>
+							</c:if>
 						</div>
 						<div>
 							<div>
-								<a href="/webproject/main/member/qna/scrap.do?techQnaSeq=${dto.techQnaSeq}"><i class="bi bi-bookmark-star-fill" title="스크랩하기"></i></a>
-								<div class="scrap-count">${scrapResult.scrapCount}</div>
+								<c:set var="scrapYes" value="n"></c:set>
+								<c:forEach items="${scrapList}" var="scList">
+									<c:if test="${scList.memberSeq == memberSeq}">
+										<c:set var="scrapYes" value="y"></c:set>
+									</c:if>
+								</c:forEach>
+								<c:if test="${scrapYes == 'n'}">
+									<a href="/webproject/main/member/qna/scrap.do?techQnaSeq=${dto.techQnaSeq}"><i class="bi bi-bookmark-star" title="스크랩하기"></i></a>
+									<div class="scrap-count">${scrapResult.scrapCount}</div>
+								</c:if>
+								<c:if test="${scrapYes == 'y'}">
+									<a href="/webproject/main/member/qna/delscrap.do?techQnaSeq=${dto.techQnaSeq}&memberSeq=${memberSeq}"><i class="bi bi-bookmark-star-fill" title="스크랩 취소하기"></i></a>
+									<div class="scrap-count">${scrapResult.scrapCount}</div>
+								</c:if>
 							</div>
 						</div>
 					</div>

@@ -35,27 +35,44 @@ public class QnaDAO {
 
 		try {
 
+			//이 메소드 입장
+			//1. 목록보기
+			//2. 검색하기
+			
 			String where = "";
-
+			
 			if (map.get("isSearch").equals("y")) {
-				// 검색
-				// where name like '%홍길동%'
-				// where subject like '%날씨%'
-				// where all like '%날씨%'
-
+				
 				if (map.get("column").equals("all")) {
-					where = String.format(" and subject like '%%%s%%' or content like '%%%s%%' ", map.get("search"),
-							map.get("search"));
+					where = String.format(" and title like '%%%s%%' or content like '%%%s%%' "
+											, map.get("search"), map.get("search"));
 				} else {
-					where = String.format(" and %s like '%%%s%%' ", map.get("column"), map.get("search"));
+					where = String.format(" and %s like '%%%s%%' "
+											, map.get("column"), map.get("search"));				
 				}
-
+				
+			}
+			
+			String orderBy = "regdate";
+			
+			if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("orderRegdate")) {
+				orderBy = map.get("orderRegdate");
+			}
+			
+			if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
+				orderBy = map.get("orderRecommendCount");
+			}
+			
+			if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
+				orderBy = map.get("orderComment");
+			}
+			
+			if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
+				orderBy = map.get("orderReadCount");
 			}
 
-			String sql = String.format(
-					"select * from vwTechQna where rnum between %s and %s %s order by techQnaSeq desc",
-					map.get("begin"), map.get("end"), where);
-
+			String sql = String.format("select * from vwTechQna where rnum between %s and %s %s order by %s desc", map.get("begin"), map.get("end"), where, orderBy);
+			
 			pstat = conn.prepareStatement(sql);
 
 			rs = pstat.executeQuery();
@@ -119,6 +136,8 @@ public class QnaDAO {
 				dto.setCcnt(rs.getString("ccnt"));
 				dto.setRecommendCount(rs.getString("recommendCount"));
 				dto.setDecommendCount(rs.getString("decommendCount"));
+				dto.setMemberSeq(rs.getString("memberSeq"));
+				dto.setId(rs.getString("id"));
 				
 
 				return dto;
@@ -459,6 +478,99 @@ public class QnaDAO {
 		
 		return 0;
 	}
+
+	public ArrayList<QnaDTO> recommendList(String techQnaSeq) {
+		
+		ArrayList<QnaDTO> recommendList = new ArrayList<QnaDTO>();
+		
+		try {
+			
+			
+			String sql = "select re.*, (select id from tblMember where memberSeq = re.memberSeq) as id from tblTechQnaRecommend re where techQnaSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, techQnaSeq);
+			
+			rs = pstat.executeQuery();
+			
+			while (rs.next()) {
+				
+				QnaDTO recommendListDTO = new QnaDTO();
+				
+				recommendListDTO.setTechQnaSeq(rs.getString("techQnaSeq"));
+				recommendListDTO.setMemberSeq(rs.getString("memberSeq"));
+				recommendListDTO.setRecommend(rs.getString("recommend"));
+				recommendListDTO.setId(rs.getString("id"));
+				
+				
+				
+				recommendList.add(recommendListDTO);
+				
+			}
+			
+			return recommendList;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public ArrayList<QnaDTO> scrapList(String techQnaSeq) {
+		
+		try {
+			
+			ArrayList<QnaDTO> scrapList = new ArrayList<QnaDTO>();
+			
+			String sql = "select * from tblTechQnaScrap where techQnaSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, techQnaSeq);
+			
+			rs = pstat.executeQuery();
+			
+			while (rs.next()) {
+				
+				QnaDTO dto = new QnaDTO();
+				
+				dto.setMemberSeq(rs.getString("memberSeq"));
+				
+				scrapList.add(dto);
+				
+			}
+			
+			return scrapList;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public int delScrap(QnaDTO dto) {
+		
+		try {
+			
+			String sql = "delete from tblTechQnaScrap where techQnaSeq = ? and memberSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getTechQnaSeq());
+			pstat.setString(2, dto.getMemberSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	
 
 	
 

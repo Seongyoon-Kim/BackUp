@@ -29,6 +29,7 @@ public class List extends HttpServlet {
 
 	protected void doPostGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		req.setCharacterEncoding("UTF-8");
 		
 		QnaDAO dao = new QnaDAO();
 		
@@ -38,6 +39,11 @@ public class List extends HttpServlet {
 		String search = req.getParameter("search");
 		String isSearch = "n";
 		
+		String orderRegdate = req.getParameter("orderRegdate");
+		String orderRecommendCount = req.getParameter("orderRecommendCount");
+		String orderComment = req.getParameter("orderComment");
+		String orderReadCount = req.getParameter("orderReadCount");
+
 		if (column != null && search != null && !column.equals("") && !search.equals("")) {
 			isSearch = "y";
 		}
@@ -45,7 +51,10 @@ public class List extends HttpServlet {
 		map.put("column", column);
 		map.put("search", search);
 		map.put("isSearch", isSearch);
-		
+		map.put("orderRegdate", orderRegdate);
+		map.put("orderRecommendCount", orderRecommendCount);
+		map.put("orderComment", orderComment);
+		map.put("orderReadCount", orderReadCount);
 		
 		int nowPage = 0; // 현재 페이지 번호
 		int totalCount = 0; // 총 게시물 수

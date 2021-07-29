@@ -16,10 +16,31 @@ public class QnaDTO {
 	private String recommendCount;
 	private String decommendCount;
 	private String scrapCount;
+	private String recommendMemberSeq;
+	private String recommendTechQnaSeq;
+	private String recommend;
 	
 
 
 
+	public String getRecommend() {
+		return recommend;
+	}
+	public void setRecommend(String recommend) {
+		this.recommend = recommend;
+	}
+	public String getRecommendMemberSeq() {
+		return recommendMemberSeq;
+	}
+	public void setRecommendMemberSeq(String recommendMemberSeq) {
+		this.recommendMemberSeq = recommendMemberSeq;
+	}
+	public String getRecommendTechQnaSeq() {
+		return recommendTechQnaSeq;
+	}
+	public void setRecommendTechQnaSeq(String recommendTechQnaSeq) {
+		this.recommendTechQnaSeq = recommendTechQnaSeq;
+	}
 	public String getRecommendCount() {
 		return recommendCount;
 	}

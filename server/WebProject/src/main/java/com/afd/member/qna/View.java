@@ -20,6 +20,7 @@ public class View extends HttpServlet {
 		String techQnaSeq = req.getParameter("techQnaSeq");
 		String column = req.getParameter("column");
 		String search = req.getParameter("search");
+		String memberSeq = req.getParameter("memberSeq");
 		
 		QnaDAO dao = new QnaDAO();
 
@@ -53,6 +54,9 @@ public class View extends HttpServlet {
 			dto.setContent(content);
 		}
 		
+		ArrayList<QnaDTO> recommendList = dao.recommendList(techQnaSeq);
+		
+		ArrayList<QnaDTO> scrapList = dao.scrapList(techQnaSeq);
 		
 		QnaDTO scrapResult = dao.scrap(techQnaSeq);
 		
@@ -62,11 +66,13 @@ public class View extends HttpServlet {
 		session.setAttribute("recommend", "y");
 		session.setAttribute("decommend", "n");
 
+		req.setAttribute("recommendList", recommendList);
 		req.setAttribute("dto", dto);
 		req.setAttribute("clist", clist);
 		req.setAttribute("search", search);
 		req.setAttribute("column", column);
 		req.setAttribute("scrapResult", scrapResult);
+		req.setAttribute("scrapList", scrapList);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/member/qna/view.jsp");
 		dispatcher.forward(req, resp);
