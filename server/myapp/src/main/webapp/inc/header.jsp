@@ -17,6 +17,7 @@
          
          <c:if test="${not empty id }">
          <div>${name}(${id})</div>
+         <div class="btn-auth" onclick="location.href='/myapp/member/option.do';" title="설정">Option</div>
          <div class="btn-auth" onclick="location.href='/myapp/member/logout.do';" title="로그아웃">Logout</div>
          </c:if>
          

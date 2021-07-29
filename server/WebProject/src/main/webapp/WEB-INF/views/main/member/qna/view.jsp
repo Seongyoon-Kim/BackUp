@@ -104,10 +104,10 @@
 				</td>
 				<td style="display: flex; border-bottom: 0">
 					<div style="margin-right: 15px;">
-						<i class="bi bi-chat-dots-fill"></i> 0
+						<i class="bi bi-chat-dots-fill"></i> ${dto.ccnt}
 					</div>
 					<div>
-						<i class="bi bi-eye-fill"></i> 0
+						<i class="bi bi-eye-fill"></i> ${dto.readCount}
 					</div>
 				</td>
 			</tr>
@@ -117,17 +117,17 @@
 					<div id="content-function" class="content-function">
 						<div class="content-function-group">
 							<div>
-								<i class="bi bi-chevron-up" title="추천"></i>
+								<a href="/webproject/main/member/qna/recommend.do?techQnaSeq=${dto.techQnaSeq}"><span class="bi bi-chevron-up" title="추천"></span></a>
 							</div>
-							<div>0</div>
+							<div>${dto.recommendCount - dto.decommendCount}</div>
 							<div>
-								<i class="bi bi-chevron-down" title="비추천"></i>
+								<a href="/webproject/main/member/qna/decommend.do?techQnaSeq=${dto.techQnaSeq}"><span class="bi bi-chevron-down" title="비추천"></span></a>
 							</div>
 						</div>
 						<div>
 							<div>
-								<i class="bi bi-bookmark-star-fill" title="스크랩하기"></i>
-								<div class="scrap-count">0</div>
+								<a href="/webproject/main/member/qna/scrap.do?techQnaSeq=${dto.techQnaSeq}"><i class="bi bi-bookmark-star-fill" title="스크랩하기"></i></a>
+								<div class="scrap-count">${scrapResult.scrapCount}</div>
 							</div>
 						</div>
 					</div>
@@ -136,27 +136,43 @@
 			<tr>
 				<td>${dto.content}
 					<div class="editDelete">
-						<div>
-							<a href="/webproject/main/member/qna/edit.do?techQnaSeq=${dto.techQnaSeq}" class="bi bi-pencil-square" title="수정하기"></a>
-						</div>
-						<div>
-							<a href="/webproject/main/member/qna/delete.do?techQnaSeq=${dto.techQnaSeq}" class="bi bi-trash-fill" title="삭제하기"></a>
-						</div>
+						<c:if test="${not empty id}">
+							<c:if test="${dto.id == id}">
+								<div>
+									<a href="/webproject/main/member/qna/edit.do?techQnaSeq=${dto.techQnaSeq}" class="bi bi-pencil-square" title="수정하기"></a>
+								</div>
+								<div>
+									<a href="/webproject/main/member/qna/delete.do?techQnaSeq=${dto.techQnaSeq}" class="bi bi-trash-fill" title="삭제하기"></a>
+								</div>
+							</c:if>
+						</c:if>
 					</div>
 				</td>
 			</tr>
 		</table>
 
-		<table id="addComment" class="table table-bordered">
-			<tr>
-				<td style="border-right: 0"><input type="text" name="comment" id=""
-					class="form-control" placeholder="댓글을 작성하세요." /></td>
-				<td><input type="submit" value="댓글쓰기" class="btn btn-primary" />
-				</td>
-			</tr>
-		</table>
+		<button type="button" class="btn btn-default" onclick="location.href='/webproject/main/member/qna/list.do?column=${column}&search=${search}'" style="margin-left: 60px;">돌아가기</button>
+
+		<c:if test="${not empty id}">
+			<form action="/webproject/main/member/qna/addcomment.do" method="POST">
+				<table id="addComment" class="table table-bordered">
+					<tr>
+						<td style="border-right: 0"><input type="text" name="content" id=""
+							class="form-control" placeholder="댓글을 작성하세요." /></td>
+						<td><input type="submit" value="댓글쓰기" class="btn btn-primary" />
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="techQnaSeq" value="${dto.techQnaSeq}" />
+			</form>
+		</c:if>
 
 		<table id="listComment" class="table table-bordered">
+			<c:if test="${clist.size() == 0}">
+				<tr>
+					<td colspan="2">댓글이 없습니다.</td>
+				</tr>
+			</c:if>
 			<c:forEach items="${clist}" var="cdto">
 				<tr>
 					<td>
@@ -167,9 +183,13 @@
 						<div>${cdto.content}</div>
 					</td>
 					<td>
-						<div style="padding-top: 12px;">
-							<input type="button" value="삭제하기" class="btn btn-primary" style=""/>
-						</div>
+						<c:if test="${not empty id}">
+							<c:if test="${cdto.id == id}">
+								<div style="padding-top: 12px;">
+									<input type="button" value="삭제하기" class="btn btn-primary" onclick="location.href='/webproject/main/member/qna/deletecomment.do?techQnaCommentSeq=${cdto.techQnaCommentSeq}&techQnaSeq=${dto.techQnaSeq}'"/>
+								</div>
+							</c:if>
+						</c:if>
 					</td>
 				</tr>
 			</c:forEach>

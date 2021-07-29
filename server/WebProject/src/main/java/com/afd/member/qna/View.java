@@ -18,13 +18,14 @@ public class View extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String techQnaSeq = req.getParameter("techQnaSeq");
+		String column = req.getParameter("column");
 		String search = req.getParameter("search");
 		
 		QnaDAO dao = new QnaDAO();
 
 		HttpSession session = req.getSession();
 
-		if (session.getAttribute("read") != null && !session.getAttribute("read").toString().equals("n")) {
+		if (session.getAttribute("read") != null && session.getAttribute("read").toString().equals("n")) {
 
 			dao.updateReadCount(techQnaSeq);
 			
@@ -42,14 +43,30 @@ public class View extends HttpServlet {
 		content = content.replace("<script", "&lt;script").replace("</script>", "&lt;/script&gt;");
 		dto.setContent(content);
 		
+		//글 내용에 개행 문자 처리하기 	
 		content = content.replace("\r\n", "<br>");
 		dto.setContent(content);
+		
+		//내용으로 검색 중일 때 검색어 부각 시키기
+		if (column != null && search != null && column.equals("content")) {
+			content = content.replace(search, "<span style='color:tomato;background-color:yellow;'>" + search + "</span>");
+			dto.setContent(content);
+		}
+		
+		
+		QnaDTO scrapResult = dao.scrap(techQnaSeq);
+		
 
 		ArrayList<CommentDTO> clist = dao.commentList(techQnaSeq);
+		
+		session.setAttribute("recommend", "y");
+		session.setAttribute("decommend", "n");
 
 		req.setAttribute("dto", dto);
 		req.setAttribute("clist", clist);
 		req.setAttribute("search", search);
+		req.setAttribute("column", column);
+		req.setAttribute("scrapResult", scrapResult);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/member/qna/view.jsp");
 		dispatcher.forward(req, resp);

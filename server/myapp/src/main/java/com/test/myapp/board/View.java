@@ -79,8 +79,6 @@ public class View extends HttpServlet {
 		// - 현재 보고 있는 글에 달린 댓글 목록 가져오기
 		ArrayList<CommentDTO> clist = dao.listComment(seq); //현재 글번호(= 댓글의 부모글번호)
 				
-		
-		
 		//3.
 		req.setAttribute("dto", dto);
 		req.setAttribute("column", column);

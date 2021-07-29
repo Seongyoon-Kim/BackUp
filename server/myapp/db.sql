@@ -92,7 +92,7 @@ as
                 from tblBoards order by thread desc) a;
 
 select * from vwBoards where rnum = 5;
-select * from vwBoards where rnum > 5 and rnum < 10;
+select * from vwBoards order by seq desc;
 select count(*) from vwBoards;
 
 delete from tblBoards where seq between 21 and 74;

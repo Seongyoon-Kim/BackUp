@@ -154,6 +154,16 @@
 		
 		
 		
+		cookie.js 복사
+		- JSPTest > myapp으로 복사
+		- webapp > asset > js > cookie.js
+		
+		- webapp > inc > asset.jsp 수정
+		
+		
+		com.test.myapp.member > Option.java
+		views > member > option.jsp
+		
 		
 		
 		

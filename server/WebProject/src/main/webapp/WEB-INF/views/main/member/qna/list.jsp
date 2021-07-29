@@ -25,6 +25,53 @@
 	float: left;
 	margin-right: 20px;
 }
+
+.table th:nth-child(1) {
+	width: 60px;
+}
+
+.table th:nth-child(2) {
+	width: auto;
+}
+
+.table th:nth-child(3) {
+	width: 80px;
+}
+
+.table th:nth-child(4) {
+	width: 120px;
+}
+
+.table th:nth-child(5) {
+	width: 60px;
+}
+
+.table td:nth-child(2) {
+	text-align: left;
+}
+
+.searchbox {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.searchbox .form-control {
+	display: inline-block;
+	width: auto;
+}
+
+.searchbox #search {
+	width: 300px;
+}
+
+.searchBar {
+	margin: 10px;
+	text-align: center;
+}
+
+.pagebar {
+	text-align: center;
+}
 </style>
 </head>
 <body>
@@ -38,16 +85,17 @@
 		<div
 			style="position: relative; display: table; border-collapse: separate;">
 			<form action="/webproject/main/member/qna/list.do" method="GET">
-				<input type="search" name="search" id="" class="form-control"
-					placeholder="검색어를 입력하세요."
-					style="height: 30px; padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; margin-bottom: 0; width: 200px; float: right;" />
-				<span
-					style="font-size: 0; white-space: nowrap; width: 1%; vertical-align: middle; display: table-cell;">
-					<button type="submit" class="btn btn-default"
-						style="margin-left: -1px; height: 30px; padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; position: relative;">
-						<i class="glyphicon glyphicon-search"></i>
-					</button>
-				</span>
+				<div style="display: flex;">
+					<select name="column" id="column" class="form-control"
+						style="width: 150px; margin-right: 10px;">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="nickname">닉네임</option>
+						<option value="all">제목+내용</option>
+					</select> <input type="text" name="search" id="search" class="form-control"
+						required placeholder="검색어를 입력하세요."> <input type="submit"
+						value="검색하기" class="btn btn-default">
+				</div>
 			</form>
 		</div>
 
@@ -76,14 +124,20 @@
 			</c:if>
 			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td style="width: 600px; padding-left: 20px; padding-top: 18px;"><a
-						href="/webproject/main/member/qna/view.do?techQnaSeq=${dto.techQnaSeq }">${dto.title}</a></td>
+					<td style="width: 600px; padding-left: 20px; padding-top: 18px;">
+						<a
+						href="/webproject/main/member/qna/view.do?techQnaSeq=${dto.techQnaSeq}&column=${map.column}&search=${map.search}">${dto.title}</a>
+
+						<c:if test="${dto.isNew < (24 / 24)}">
+							<span class="label label-danger">New</span>
+						</c:if>
+					</td>
 					<td>
 						<div class="outline">
-							<span> <i class="bi bi-hand-thumbs-up-fill"></i> 0
-							</span> <span> <i class="bi bi-hand-thumbs-down-fill"></i> 0
-							</span> <span> <i class="bi bi-chat-dots-fill"></i> 0
-							</span> <span> <i class="bi bi-eye-fill"></i> 0
+							<span> <i class="bi bi-hand-thumbs-up-fill"></i> ${dto.recommendCount}
+							</span> <span> <i class="bi bi-hand-thumbs-down-fill"></i> ${dto.decommendCount}
+							</span> <span> <i class="bi bi-chat-dots-fill"></i> ${dto.ccnt}
+							</span> <span> <i class="bi bi-eye-fill"></i> ${dto.readCount}
 							</span>
 						</div>
 					</td>
@@ -95,9 +149,7 @@
 			</c:forEach>
 		</table>
 
-		<div class="pagebar">
-			${pagebar }
-		</div>
+		<div class="pagebar">${pagebar}</div>
 
 	</div>
 
@@ -105,7 +157,13 @@
 	<%@ include file="/inc/init.jsp"%>
 
 	<script>
-		
+		<c:if test="${map.isSearch == 'y'}">
+
+		//상태 복원
+		$('#column').val('${map.column}');
+		$('#search').val('${map.search}');
+
+		</c:if>
 	</script>
 </body>
 </html>

@@ -7,13 +7,43 @@ public class QnaDTO {
 	private String title;
 	private String content;
 	private String regdate;
-	private String readcount;
 	private String image;
-	
+	private String readCount;
 	private String nickName;
 	private String id;
 	private String ccnt;
 	private String isNew;
+	private String recommendCount;
+	private String decommendCount;
+	private String scrapCount;
+	
+
+
+
+	public String getRecommendCount() {
+		return recommendCount;
+	}
+	public void setRecommendCount(String recommendCount) {
+		this.recommendCount = recommendCount;
+	}
+	public String getDecommendCount() {
+		return decommendCount;
+	}
+	public void setDecommendCount(String decommendCount) {
+		this.decommendCount = decommendCount;
+	}
+	public String getScrapCount() {
+		return scrapCount;
+	}
+	public void setScrapCount(String scrapCount) {
+		this.scrapCount = scrapCount;
+	}
+	public String getReadCount() {
+		return readCount;
+	}
+	public void setReadCount(String readCount) {
+		this.readCount = readCount;
+	}
 
 	public String getIsNew() {
 		return isNew;
@@ -36,8 +66,9 @@ public class QnaDTO {
 	@Override
 	public String toString() {
 		return "QnaDTO [techQnaSeq=" + techQnaSeq + ", memberSeq=" + memberSeq + ", title=" + title + ", content="
-				+ content + ", regdate=" + regdate + ", readcount=" + readcount + ", image=" + image + ", nickName="
-				+ nickName + "]";
+				+ content + ", regdate=" + regdate + ", image=" + image + ", readCount=" + readCount + ", nickName="
+				+ nickName + ", id=" + id + ", ccnt=" + ccnt + ", isNew=" + isNew + ", recommendCount=" + recommendCount
+				+ ", decommendCount=" + decommendCount + ", scrapCount=" + scrapCount + "]";
 	}
 	public String getNickName() {
 		return nickName;
@@ -74,12 +105,6 @@ public class QnaDTO {
 	}
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
-	}
-	public String getReadcount() {
-		return readcount;
-	}
-	public void setReadcount(String readcount) {
-		this.readcount = readcount;
 	}
 	public String getImage() {
 		return image;

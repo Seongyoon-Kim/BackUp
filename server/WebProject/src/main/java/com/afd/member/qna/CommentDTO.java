@@ -8,7 +8,14 @@ public class CommentDTO {
 	private String regdate;
 	private String content;
 	private String nickName;
+	private String id;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getNickName() {
 		return nickName;
 	}
