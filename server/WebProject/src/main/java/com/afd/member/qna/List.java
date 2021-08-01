@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
+
 @WebServlet("/main/member/qna/list.do")
 public class List extends HttpServlet {
 	
@@ -39,14 +41,23 @@ public class List extends HttpServlet {
 		String search = req.getParameter("search");
 		String isSearch = "n";
 		
+		//System.out.println("isSearch BEFORE: " + isSearch);
+		
 		String orderRegdate = req.getParameter("orderRegdate");
 		String orderRecommendCount = req.getParameter("orderRecommendCount");
 		String orderComment = req.getParameter("orderComment");
 		String orderReadCount = req.getParameter("orderReadCount");
+		
+		//System.out.println("orderRegdate: " + orderRegdate);
+		//System.out.println("orderRecommendCount: " + orderRecommendCount);
+		//System.out.println("orderComment: " + orderComment);
+		//System.out.println("orderReadCount: " + orderReadCount);
 
 		if (column != null && search != null && !column.equals("") && !search.equals("")) {
 			isSearch = "y";
 		}
+		
+		//System.out.println("isSearch AFTER: " + isSearch);
 		
 		map.put("column", column);
 		map.put("search", search);
@@ -68,6 +79,10 @@ public class List extends HttpServlet {
 		
 		
 		String page = req.getParameter("page");
+		
+		//System.out.println("page: " + page);
+		
+		map.put("page", page);
 		
 		if (page == null || page.equals("")) {
 			nowPage = 1;
@@ -93,9 +108,39 @@ public class List extends HttpServlet {
 		
 		if (n == 1) {
 			pagebar += pagebar += String.format(" <li class='disabled'><a href='#!' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ");
-		} else {
-			pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
-		}
+		} else if (n != 1) {
+			
+			if (map.get("isSearch").equals("y") || !column.equals("") || !search.equals("")) 
+				
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&column=%s&search=%s&isSearch=%s' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1, column, search, isSearch);
+					
+			} else if (map.get("isSearch").equals("n")) {
+				
+				if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("regdate")) {
+					
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRegdate=regdate' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
+					
+				} else if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
+					
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRecommendCount=recommendCount' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
+					
+				} else if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
+					
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderComment=ccnt' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
+					
+				} else if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
+					
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderReadCount=readCount' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
+					
+				} else if (map.get("orderRegdate") == null && map.get("orderRecommendCount") == null && map.get("orderComment") == null && map.get("orderReadCount") == null) {
+					
+					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1);
+					
+				}
+				
+		
+			}
+
 		
 		if (totalPage == 0) {
 			pagebar += " <li class='active'><a href='#!'>1</a></li> ";
@@ -105,8 +150,38 @@ public class List extends HttpServlet {
 			
 			if (n == nowPage) {
 				pagebar += String.format(" <li class='active'><a href='#!'>%d</a></li> ", n);
-			} else {
-				pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d'>%d</a></li> ", n, n);
+			} else if (n != nowPage) {
+				
+				if (map.get("isSearch").equals("y")) {
+					
+					pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRegdate=regdate&column=%s&search=%s&isSearch=%s'>%d</a></li> ", n, column, search, isSearch, n);
+					
+			} else if (map.get("isSearch").equals("n")) {
+					
+					if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("regdate")) {
+						
+						pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRegdate=regdate'>%d</a></li> ", n, n);
+						
+					} else if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
+						
+						pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRecommendCount=recommendCount'>%d</a></li> ", n, n);
+						
+					} else if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
+						
+						pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderComment=ccnt'>%d</a></li> ", n, n);
+						
+					} else if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
+						
+						pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderReadCount=readCount'>%d</a></li> ", n, n);
+						
+					} else if (map.get("orderRegdate") == null && map.get("orderRecommendCount") == null && map.get("orderComment") == null && map.get("orderReadCount") == null) {
+						
+						pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d'>%d</a></li> ", n, n);
+						
+					}
+					
+				}
+				
 			}
 
 			loop++;
@@ -117,17 +192,54 @@ public class List extends HttpServlet {
 		if (n > totalPage) {
 			pagebar += String.format(
 					" <li class='disabled'><a href='#!' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ");
-		} else {
-			pagebar += String.format(
-					" <li><a href='/webproject/main/member/qna/list.do?page=%d' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+		} else if (!(n > totalPage)) {
+			
+			if (map.get("isSearch").equals("y")) {
+				
+				pagebar += String.format(
+						" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRegdate=regdate&column=%s&search=%s&isSearch=%s' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n, column, search, isSearch);
+				
+		} else if (map.get("isSearch").equals("n")) {
+				
+				if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("regdate")) {
+					
+					pagebar += String.format(
+							" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRegdate=regdate' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+					
+				} else if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
+					
+					pagebar += String.format(
+							" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderRecommendCount=recommendCount' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+					
+				} else if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
+					
+					pagebar += String.format(
+							" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderComment=ccnt' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+					
+				} else if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
+					
+					pagebar += String.format(
+							" <li><a href='/webproject/main/member/qna/list.do?page=%d&orderReadCount=readCount' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+					
+				} else if (map.get("orderRegdate") == null && map.get("orderRecommendCount") == null && map.get("orderComment") == null && map.get("orderReadCount") == null) {
+					
+					pagebar += String.format(
+							" <li><a href='/webproject/main/member/qna/list.do?page=%d' aria-label='Next'> <span aria-hidden='true'>&raquo;</span></a></li> ", n);
+					
+				}
+				
+			}
+			
 		}
 		
 		pagebar += "</ul>\r\n" + "		</nav>";
 		
-		
+		//System.out.println("pagebar: " + pagebar);
 		
 		
 		ArrayList<QnaDTO> list = dao.list(map);
+		
+		//System.out.println("list: " + list.toString());
 		
 		for (QnaDTO dto : list) {
 

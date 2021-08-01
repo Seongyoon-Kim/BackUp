@@ -141,6 +141,7 @@
    </section>   
    
    
+   <%@ include file="/inc/footer.jsp" %>
    <%@ include file="/inc/init.jsp" %>
    <script>
       

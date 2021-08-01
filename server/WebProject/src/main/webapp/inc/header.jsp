@@ -12,6 +12,9 @@
             <li>스터디/정기모임</li>
             <li>채용공고</li>
             <li>공간대여서비스</li>
+            <c:if test="${not empty id}">
+            <li onclick="location.href='/webproject/main/member/mypage/mypagemain.do'">마이페이지</li>
+            </c:if>
             
             <c:if test="${not empty id}">      
             <li>

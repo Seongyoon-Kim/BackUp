@@ -1,7 +1,6 @@
 package com.afd.admin.qna;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,22 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/main/admin/qna/edit.do")
-public class Edit extends HttpServlet {
+@WebServlet("/main/admin/qna/delscrap.do")
+public class DelScrap extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String techQnaSeq = req.getParameter("techQnaSeq");
+		String memberSeq = req.getParameter("memberSeq");
 		
 		QnaDAO dao = new QnaDAO();
+		QnaDTO dto = new QnaDTO();
 		
-		QnaDTO dto = dao.get(techQnaSeq);
+		dto.setTechQnaSeq(techQnaSeq);
+		dto.setMemberSeq(memberSeq);
 		
-		req.setAttribute("dto", dto);
+		int result = dao.delScrap(dto);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/member/qna/edit.jsp");
-		dispatcher.forward(req, resp);
+		if (result == 1) {
+			resp.sendRedirect("/webproject/main/member/qna/view.do?techQnaSeq=" + techQnaSeq);
+		}
 
 	}
 

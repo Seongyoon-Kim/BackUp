@@ -62,7 +62,7 @@
          </div>
       </div>
       <div class="container">
-         <div class="logo_img" onclick="location.href='/webproject/main/member/community/list.do';">
+         <div class="logo_img" onclick="location.href='/webproject/main/admin/community/list.do';">
             <div >
                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
                   fill="currentColor" class="bi bi-layout-text-window-reverse"
@@ -78,7 +78,7 @@
             </div>
          </div>
 
-         <div class="logo_img" onclick="location.href='/webproject/main/member/qna/list.do';">
+         <div class="logo_img" onclick="location.href='/webproject/main/admin/qna/list.do';">
             <div>
                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
                   fill="currentColor" class="bi bi-question-square"
@@ -94,7 +94,7 @@
             </div>
          </div>
 
-         <div class="logo_img" onclick="location.href='/webproject/main/member/study/list.do';">
+         <div class="logo_img" onclick="location.href='/webproject/main/admin/study/list.do';">
             <div>
                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
                   fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
@@ -108,7 +108,7 @@
             </div>
          </div>
 
-         <div class="logo_img" onclick="location.href='/webproject/main/member/job/joblist.do';">
+         <div class="logo_img" onclick="location.href='/webproject/main/admin/job/joblist.do';">
             <div >
                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
                   fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
@@ -122,7 +122,7 @@
             </div>
          </div>
 
-         <div class="logo_img" onclick="location.href='/webproject/main/member/space/list.do';">
+         <div class="logo_img" onclick="location.href='/webproject/main/admin/space/list.do';">
             <div >
                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70"
                   fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
@@ -141,7 +141,6 @@
    </section>   
    
    
-   <%@ include file="/inc/footer.jsp" %>
    <%@ include file="/inc/init.jsp" %>
    <script>
       

@@ -12,12 +12,17 @@
 </style>
 </head>
 <body>
-	<!--  -->
+
+	<%@ include file="/inc/header.jsp" %>
+
 	<div class="container">
       
 		<h1 class="page-header"></h1>
       
    </div>
+   
+   <%@ include file="/inc/footer.jsp" %>
+   <%@ include file="/inc/init.jsp" %>
 
    <script>
       

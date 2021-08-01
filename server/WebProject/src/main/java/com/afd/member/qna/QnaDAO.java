@@ -40,39 +40,65 @@ public class QnaDAO {
 			//2. 검색하기
 			
 			String where = "";
+			String sql = "";
 			
 			if (map.get("isSearch").equals("y")) {
 				
 				if (map.get("column").equals("all")) {
-					where = String.format(" and title like '%%%s%%' or content like '%%%s%%' "
+					where = String.format("title like '%%%s%%' or content like '%%%s%%'"
 											, map.get("search"), map.get("search"));
-				} else {
-					where = String.format(" and %s like '%%%s%%' "
+				} else if (map.get("column").equals("title") || map.get("column").equals("content") || map.get("column").equals("nickName")) {
+					where = String.format("%s like '%%%s%%'"
 											, map.get("column"), map.get("search"));				
 				}
 				
-			}
+				sql = String.format("select b.*, rownum as rnum from (select a.*, rownum from\r\n"
+						+ "                (select\r\n"
+						+ "                techQnaSeq,\r\n"
+						+ "                memberSeq,\r\n"
+						+ "                title,\r\n"
+						+ "                content,\r\n"
+						+ "                regdate,\r\n"
+						+ "                (sysdate - regdate) as isNew,\r\n"
+						+ "                readCount,\r\n"
+						+ "                image,\r\n"
+						+ "                (select nickName from tblMember where memberSeq = tblTechQna.memberSeq) as nickName,\r\n"
+						+ "                (select id from tblMember where memberSeq = tblTechQna.memberSeq) as id,\r\n"
+						+ "                (select count(*) from tblTechQnaComment where techQnaSeq = tblTechQna.techQnaSeq) as ccnt,\r\n"
+						+ "                (select count(*) from tblTechQnaRecommend where techQnaSeq = tblTechQna.techQnaSeq and recommend = 'y') as recommendCount,\r\n"
+						+ "                (select count(*) from tblTechQnaRecommend where techQnaSeq = tblTechQna.techQnaSeq and recommend = 'n') as decommendCount\r\n"
+						+ "from tblTechQna order by regdate desc) a where rownum between %s and %s and %s) b", map.get("begin"), map.get("end"), where);
+				
+			} else if (map.get("isSearch").equals("n")) {
+				
+				if (sql == null || sql.equals("")) {
+					
+					sql = String.format("select * from vwTechQnaOrderRegdate where rnum between %s and %s", map.get("begin"), map.get("end"));
+					
+				}
+				
+				if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("regdate")) {
+					
+					sql = String.format("select * from vwTechQnaOrderRegdate where rnum between %s and %s", map.get("begin"), map.get("end"));
+					
+				} else if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
+					
+					sql = String.format("select * from vwTechQnaOrderRecommendCount where rnum between %s and %s", map.get("begin"), map.get("end"));
+					
+				} else if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
+					
+					sql = String.format("select * from vwTechQnaOrderCcnt where rnum between %s and %s", map.get("begin"), map.get("end"));
+					
+				} else if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
+					
+					sql = String.format("select * from vwTechQnaOrderReadCount where rnum between %s and %s", map.get("begin"), map.get("end"));
+					
+				}
+				
+			} 
 			
-			String orderBy = "regdate";
-			
-			if (map.get("orderRegdate") != null && map.get("orderRegdate").equals("orderRegdate")) {
-				orderBy = map.get("orderRegdate");
-			}
-			
-			if (map.get("orderRecommendCount") != null && map.get("orderRecommendCount").equals("recommendCount")) {
-				orderBy = map.get("orderRecommendCount");
-			}
-			
-			if (map.get("orderComment") != null && map.get("orderComment").equals("ccnt")) {
-				orderBy = map.get("orderComment");
-			}
-			
-			if (map.get("orderReadCount") != null && map.get("orderReadCount").equals("readCount")) {
-				orderBy = map.get("orderReadCount");
-			}
-
-			String sql = String.format("select * from vwTechQna where rnum between %s and %s %s order by %s desc", map.get("begin"), map.get("end"), where, orderBy);
-			
+			System.out.println("SQL문: " + sql);
+				
 			pstat = conn.prepareStatement(sql);
 
 			rs = pstat.executeQuery();

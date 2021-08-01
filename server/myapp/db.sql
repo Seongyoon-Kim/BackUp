@@ -183,7 +183,7 @@ create sequence seqPlace;
 select * from tblPlace order by seq;
 
 
-
+select name, (select count(*) from tblBoards where id = tblUsers.id) as cnt from tblUsers;
 
 
 
