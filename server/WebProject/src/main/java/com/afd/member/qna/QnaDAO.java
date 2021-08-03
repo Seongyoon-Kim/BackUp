@@ -52,7 +52,8 @@ public class QnaDAO {
 											, map.get("column"), map.get("search"));				
 				}
 				
-				sql = String.format("select b.*, rownum as rnum from (select a.*, rownum from\r\n"
+				sql = String.format("select * from \r\n"
+						+ "(select b.*, rownum as rnum from (select a.* from\r\n"
 						+ "                (select\r\n"
 						+ "                techQnaSeq,\r\n"
 						+ "                memberSeq,\r\n"
@@ -67,7 +68,7 @@ public class QnaDAO {
 						+ "                (select count(*) from tblTechQnaComment where techQnaSeq = tblTechQna.techQnaSeq) as ccnt,\r\n"
 						+ "                (select count(*) from tblTechQnaRecommend where techQnaSeq = tblTechQna.techQnaSeq and recommend = 'y') as recommendCount,\r\n"
 						+ "                (select count(*) from tblTechQnaRecommend where techQnaSeq = tblTechQna.techQnaSeq and recommend = 'n') as decommendCount\r\n"
-						+ "from tblTechQna order by regdate desc) a where rownum between %s and %s and %s) b", map.get("begin"), map.get("end"), where);
+						+ "from tblTechQna order by regdate desc) a where %s) b) where rnum between %s and %s", where, map.get("begin"), map.get("end"));
 				
 			} else if (map.get("isSearch").equals("n")) {
 				

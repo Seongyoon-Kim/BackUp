@@ -260,6 +260,44 @@ public class MyPageDAO {
 		return 0;
 	}
 
+	public int accountSettingEdit(MyPageDTO dto) {
+		
+		try {
+			
+			String sql = "update tblMember set name = ?, pw = ?, nickName = ?, registrationNumber = ?, tel = ?, address = ?, email = ? where memberSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			System.out.println("name: " + dto.getName());
+			System.out.println("pw: " + dto.getPw());
+			System.out.println("nickName: " + dto.getNickName());
+			System.out.println("registrationNumber: " + dto.getRegistrationNumber());
+			System.out.println("tel: " + dto.getTel());
+			System.out.println("addresss: " + dto.getAddress());
+			System.out.println("email: " + dto.getEmail());
+			System.out.println("memberSeq: " + dto.getMemberSeq());
+			
+			pstat.setString(1, dto.getName());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getNickName());
+			pstat.setString(4, dto.getRegistrationNumber());
+			pstat.setString(5, dto.getTel());
+			pstat.setString(6, dto.getAddress());
+			pstat.setString(7, dto.getEmail());
+			pstat.setString(8, dto.getMemberSeq());
+			
+			System.out.println("DTO: " + dto.toString());
+			
+			return pstat.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
 	
 
 }

@@ -32,6 +32,7 @@
 
 .container2 {
 	float: left;
+	margin-bottom: 200px;
 }
 
 .table {

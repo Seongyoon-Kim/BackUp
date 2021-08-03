@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>webProject</title>
+<title></title>
 
-<%@ include file="/inc/asset.jsp" %>
 
 <style>
    
@@ -15,7 +14,6 @@
 </head>
 <body>
    <!-- template.jsp -->
-   <%@ include file="/inc/header.jsp" %>
    
    <section class="main-section">
       
@@ -23,8 +21,6 @@
       
    </section>   
    
-   <%@ include file="/inc/footer.jsp"%>
-   <%@ include file="/inc/init.jsp" %>
    <script>
       
    </script>

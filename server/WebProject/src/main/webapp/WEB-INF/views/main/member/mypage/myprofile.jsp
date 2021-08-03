@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 <%@ include file="/inc/asset.jsp"%>
 
@@ -23,14 +24,14 @@
 		<div class="container2">
 			<div class="a">
 				<div class="b">
-						<div>아이콘</div>
+						<div><i class="bi bi-person-circle" style="font-size: 40px;"></i></div>
 						<div>${myProfileList.name}</div>
 						<div>${myProfileList.email}</div>
 						<div>${myProfileList.tel}</div>
-					<input type="button" value="프로필" name="profile" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/';" />
+					<input type="button" value="프로필" name="profile" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/myprofile.do';" />
 				</div>
 				<div class="c">
-					<div class="myComment">내가 쓴 게시글</div>
+					<div class="myComment" onclick="location.href='/webproject/main/member/mypage/chart/chart.do'">내가 쓴 게시글</div>
 					<div>채용 공고</div>
 					<div>공간대여 내역</div>
 					<div>스터디 모임</div>
@@ -42,7 +43,7 @@
 						<span>${comScrapCount.comScrapCount}</span>
 					</div>
 					<div>
-						<span>Q&A</span>
+						<a href="/webproject/main/member/mypage/myscrap/qnalist.do"><span>Q&A</span></a>
 						<span>${qnaScrapCount.qnaScrapCount}</span>
 					</div>
 					<div>
@@ -147,7 +148,7 @@
 			</div>
 			<div class="btns">
 				<input type="submit" value="수정하기" class="btn btn-primary" />
-				<input type="button" value="돌아가기" class="btn btn-default" />
+				<input type="button" value="돌아가기" class="btn btn-default" onclick="location.href='/webproject/main/member/mypage/mypagemain.do'" />
 			</div>
 		</form>
    </div>

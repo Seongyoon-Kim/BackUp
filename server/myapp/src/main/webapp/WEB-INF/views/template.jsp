@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>myapp</title>
-
-<%@ include file="/inc/asset.jsp" %>
+<title></title>
 
 <style>
 	
@@ -15,8 +13,6 @@
 </head>
 <body>
 	<!-- template.jsp -->
-	<%@ include file="/inc/header.jsp" %>
-	
 	<section class="main-section">
 		
 		

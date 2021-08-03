@@ -31,7 +31,7 @@ public class MyProfileEdit extends HttpServlet {
 		System.out.println("academicBackground: " + academicBackground);
 		System.out.println("gender: " + gender);
 		System.out.println("interestOccupation: " + interestOccupation);
-		System.out.println("availableLanguage: " + availableLanguage);
+		System.out.println("availableLanguage: " + availableLanguage); 
 		System.out.println("major: " + major);
 		
 		MyPageDAO dao = new MyPageDAO();

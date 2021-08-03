@@ -25,6 +25,17 @@ public class MyPageDTO {
 	private String spaceScrapCount;
 	private String jobPostScrapCount;
 	
+	@Override
+	public String toString() {
+		return "MyPageDTO [memberSeq=" + memberSeq + ", name=" + name + ", id=" + id + ", pw=" + pw + ", nickName="
+				+ nickName + ", registrationNumber=" + registrationNumber + ", tel=" + tel + ", address=" + address
+				+ ", email=" + email + ", memberProfileSeq=" + memberProfileSeq + ", career=" + career
+				+ ", academicBackground=" + academicBackground + ", gender=" + gender + ", interestOccupation="
+				+ interestOccupation + ", availableLanguage=" + availableLanguage + ", major=" + major + ", score="
+				+ score + ", qnaScrapCount=" + qnaScrapCount + ", studyScrapCount=" + studyScrapCount
+				+ ", comScrapCount=" + comScrapCount + ", spaceScrapCount=" + spaceScrapCount + ", jobPostScrapCount="
+				+ jobPostScrapCount + "]";
+	}
 	public String getSpaceScrapCount() {
 		return spaceScrapCount;
 	}

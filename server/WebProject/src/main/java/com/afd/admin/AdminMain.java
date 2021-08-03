@@ -43,7 +43,7 @@ public class AdminMain extends HttpServlet {
 			System.out.println("null");
 		}
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/admin/qna/adminmain.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/admin/adminmain.jsp");
 		dispatcher.forward(req, resp);
 
 	}

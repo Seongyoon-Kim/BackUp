@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 <%@ include file="/inc/asset.jsp"%>
 
@@ -21,7 +22,7 @@
 		<div class="container2">
 			<div class="a">
 				<div class="b">
-						<div>아이콘</div>
+						<div><i class="bi bi-person-circle" style="font-size: 40px;"></i></div>
 						<div>${list.name}</div>
 						<div>${list.email}</div>
 						<div>${list.tel}</div>
@@ -40,7 +41,7 @@
 						<span>${comScrapCount.comScrapCount}</span>
 					</div>
 					<div>
-						<span>Q&A</span>
+						<a href="/webproject/main/member/mypage/myscrap/qnalist.do"><span>Q&A</span></a>
 						<span>${qnaScrapCount.qnaScrapCount}</span>
 					</div>
 					<div>
