@@ -118,7 +118,7 @@
 		 <div>이름: <%= map.get("job") %></div>
 		 <hr>
 		 
-		 <div>이름: ${pageContext.getAttribute("map") }</div>
+		 <%-- <div>이름: ${pageContext.getAttribute("map") }</div> --%>
 		 <div>이름: ${map }</div>
 		 
 		 <div>이름: ${map.get("name") }</div>

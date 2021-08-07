@@ -10,6 +10,53 @@
 <%@ include file="/inc/asset.jsp"%>
 
 <style>
+.l input {
+	margin-right: 85px;
+	margin-top: 15px;
+}
+
+.f {
+   height: 250px;
+}
+
+.f .g .h {
+   margin-top: 20px;
+   margin-left: 50px;
+   height: auto;
+}
+
+.f .g .h.i .img img{
+   width: 50px;
+   height: auto;
+   cursor: pointer;
+}
+
+ .f .g .view:hover {
+   text-decoration: underline;
+   color: darkblue;
+}
+ 
+.f .g .h .i .j{
+   margin: 0px;
+   padding: 0px;
+   text-align: center;
+}
+
+.f .g .h .i .companyName {
+   font-size: 18px;
+   margin-top: 5px;
+}
+
+.f .g .h .i .postName {
+   font-size: 15px;
+}
+
+.view {
+}
+
+.k {
+	height: 250px;
+}
 </style>
 </head>
 <body>
@@ -28,10 +75,11 @@
 						<div>${list.tel}</div>
 					<input type="button" value="프로필" name="profile" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/myprofile.do';" />
 				</div>
-				<div class="c">
+				<div class="c" style="cursor:pointer">
 					<div class="myComment">내가 쓴 게시글</div>
 					<div>채용 공고</div>
-					<div>공간대여 내역</div>
+					<div onclick="location.href='/webproject/main/member/mypage/myreservation/myreservation.do';">공간대여 내역</div>
+
 					<div>스터디 모임</div>
 				</div>
 				<div class="d">
@@ -63,121 +111,60 @@
 			</div>
 			
 			<div class="f">
-				<div class="g">
-					<div>지원 현황</div>
-					<div class="h">
-						<div class="i">
-							<div>
-								<img src="" alt="" />
-							</div>
-							<div class="j">미열람</div>
-						</div>
-						<div class="i">
-							<div>
-								<img src="" alt="" />
-							</div>
-							<div class="j">미열람</div>
-						</div>
-						<div class="i">
-							<div>
-								<img src="" alt="" />
-							</div>
-							<div class="j">미열람</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	            <div class="g">
+	               <div>지원 현황</div>
+	               <div class="h">
+	                  <c:forEach items="${joblist}" var="dto">
+	                     <div class="i"  >
+	                        <div class="img" onclick="location.href='/webproject/main/member/job/jobview.do?jobPostSeq=${dto.jobPostSeq}';" style="cursor: pointer;">
+	                           <img src="http://localhost:8090/webproject/files/${dto.attachedFile}" style="width: 200px;">
+	                        </div>
+	                        <div class="j companyName">${dto.companyName}</div>
+	                        <div class="j postName">${dto.postName}</div>
+	                     </div>
+	                  </c:forEach>
+	               </div>
+	               	<div style="text-align: right;" class="view"> >> 전체 보기 </div>
+            	</div>
+         	</div>
+
 			
 		</div>
 			<div class="k">
-				<div class="l">
+				<div class="l" style="padding: 20px;">
 					<div>공간대여 서비스</div>
-					<div class="m">
-						<div class="n">
+					<div class="m" style="margin-bottom: -5px; " >
+						<div class="n" style="margin-left: 50px;">
 							<div>
-								<img src="" alt="" />이미지
+								<img src="/webproject/asset/images/space.png" alt="" style="width: 180px; height: 120px;" />
 							</div>
+							<div style="text-align: center; margin-left: 40px;">
+								<input type="button" value="평가하러가기" class="btn btn-primary"/>
+							</div>
+						</div>
+						<div class="n" style="margin-right: 35px;">
 							<div>
+								<img src="/webproject/asset/images/space2.png" alt="" style="width: 180px; height: 120px;" />
+							</div>
+							<div style="margin-left: 40px;">
 								<input type="button" value="평가하러가기" class="btn btn-primary"/>
 							</div>
 						</div>
 						<div class="n">
 							<div>
-								<img src="" alt="" />이미지
+								<img src="/webproject/asset/images/space3.png" alt="" style="width: 180px; height: 120px;" />
 							</div>
-							<div>
-								<input type="button" value="평가하러가기" class="btn btn-primary"/>
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-							<div>
+							<div style="margin-left: 40px;">
 								<input type="button" value="평가하러가기" class="btn btn-primary"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="l">
-					<div>주최한 정기모임/스터디</div>
-					<div class="m">
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="l">
-					<div>지원한 정기모임/스터디</div>
-					<div class="m">
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="l">
-					<div>완료된 정기모임/스터디</div>
-					<div class="m">
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-						<div class="n">
-							<div>
-								<img src="" alt="" />이미지
-							</div>
-						</div>
-					</div>
+				<div class="l" style="position: relative; top: 50px; border: 2px solid #EEE;">
+					<div>스터디/정기모임</div>
+					<input type="button" value="내가 올린 스터디 공고 확인하기" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/poststudy.do'" />
+					<input type="button" value="내가 진행중인 스터디 공고 확인하기" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/ongoingstudy.do'" />
+					<input type="button" value="완료한 스터디 평가하기" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/evaluation.do'" />
 				</div>
 			</div>
       

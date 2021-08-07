@@ -59,7 +59,7 @@
       
 	   Highcharts.chart('boardChart', {
 		    chart: {
-		        plotBackgroundColor: null,
+		        plotBackgroundColor: '#F8F8FA',
 		        plotBorderWidth: null,
 		        plotShadow: false,
 		        type: 'pie'
@@ -109,7 +109,7 @@
 	   
 	   Highcharts.chart('boardCommentChart', {
 		    chart: {
-		        plotBackgroundColor: null,
+		        plotBackgroundColor: '#F8F8FA',
 		        plotBorderWidth: null,
 		        plotShadow: false,
 		        type: 'pie'

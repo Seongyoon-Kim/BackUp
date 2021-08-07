@@ -11,6 +11,11 @@ import javax.servlet.http.HttpSession;
 
 import com.afd.DBUtil;
 
+/**
+ * 게시글과 관련된 기능을 관리하는 클래스
+ * @author 3조
+ *
+ */
 public class QnaDAO {
 
 	private Connection conn;
@@ -18,6 +23,9 @@ public class QnaDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * 데이터베이스와 연결해주는 메소드
+	 */
 	public QnaDAO() {
 
 		try {
@@ -31,6 +39,11 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 게시글의 목록과 검색, 페이징을 위해 필요한 SQL문을 실행하는 메소드
+	 * @param map
+	 * @return list, null
+	 */
 	public ArrayList<QnaDTO> list(HashMap<String, String> map) {
 
 		try {
@@ -138,6 +151,11 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 게시글 상세보기 페이지를 실행하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return dto, null
+	 */
 	public QnaDTO get(String techQnaSeq) {
 
 		try {
@@ -178,6 +196,11 @@ public class QnaDAO {
 		return null;
 	}
 
+	/**
+	 * 새로운 게시글을 작성하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int add(QnaDTO dto) {
 
 		try {
@@ -199,6 +222,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 작성되어 있는 댓글의 목록을 보여주기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return clist, null
+	 */
 	public ArrayList<CommentDTO> commentList(String techQnaSeq) {
 
 		try {
@@ -237,6 +265,11 @@ public class QnaDAO {
 		return null;
 	}
 
+	/**
+	 * 게시글을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int del(String techQnaSeq) {
 
 		try {
@@ -256,6 +289,10 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 있는 모든 댓글을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 */
 	public void delAllComment(String techQnaSeq) {
 
 		try {
@@ -273,6 +310,10 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 게시글에 있는 모든 추천을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 */
 	public void delAllRecommend(String techQnaSeq) {
 
 		try {
@@ -290,6 +331,10 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 게시글에 있는 모든 스크랩을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 */
 	public void delAllScrap(String techQnaSeq) {
 
 		try {
@@ -307,6 +352,11 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 게시글을 수정하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int edit(QnaDTO dto) {
 
 		try {
@@ -327,6 +377,10 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글의 조회수를 올려주는 SQL문을 실행하기 위해 필요한 메소드
+	 * @param techQnaSeq
+	 */
 	public void updateReadCount(String techQnaSeq) {
 
 		try {
@@ -344,6 +398,11 @@ public class QnaDAO {
 
 	}
 
+	/**
+	 * 페이징 처리 할 때 필요한 총 페이지수를 구하는 메소드
+	 * @param map
+	 * @return rs.getInt("cnt"), 0
+	 */
 	public int getTotalCount(HashMap<String, String> map) {
 
 		try {
@@ -378,6 +437,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 댓글을 작성하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int addComment(CommentDTO dto) {
 
 		try {
@@ -399,6 +463,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 있는 댓글을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaCommentSeq
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int delComment(String techQnaCommentSeq) {
 
 		try {
@@ -417,6 +486,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 추천할 때 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int recommend(QnaDTO dto) {
 
 		try {
@@ -438,6 +512,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글에 비추천할 때 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int decommend(QnaDTO dto) {
 
 		try {
@@ -459,6 +538,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글의 스크랩 수를 확인하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return dto, null
+	 */
 	public QnaDTO scrap(String techQnaSeq) {
 		
 		try {
@@ -487,6 +571,11 @@ public class QnaDAO {
 		return null;
 	}
 
+	/**
+	 * 게시글을 스크랩할 때 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int addScrap(QnaDTO dto) {
 		
 		try {
@@ -506,6 +595,11 @@ public class QnaDAO {
 		return 0;
 	}
 
+	/**
+	 * 게시글의 추천수를 확인하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return recommendList, null
+	 */
 	public ArrayList<QnaDTO> recommendList(String techQnaSeq) {
 		
 		ArrayList<QnaDTO> recommendList = new ArrayList<QnaDTO>();
@@ -545,6 +639,11 @@ public class QnaDAO {
 		return null;
 	}
 
+	/**
+	 * 게시글의 스크랩 수를 확인하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param techQnaSeq
+	 * @return scrapList, null
+	 */
 	public ArrayList<QnaDTO> scrapList(String techQnaSeq) {
 		
 		try {
@@ -577,6 +676,11 @@ public class QnaDAO {
 		return null;
 	}
 
+	/**
+	 * 게시글의 스크랩을 삭제하기 위해 필요한 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int delScrap(QnaDTO dto) {
 		
 		try {

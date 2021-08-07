@@ -42,7 +42,7 @@
 	background-color: #EEE;
 }
 
-.btns {
+.btnss {
 	float: right;
 	margin-right: 130px;
 	margin-bottom: 20px;
@@ -50,7 +50,9 @@
 </style>
 </head>
 <body>
-	<!--  -->
+
+	<%@ include file="/inc/header.jsp"%>
+
 	<div class="container">
       
 		<h1 class="page-header">Q&A 수정하기</h1>
@@ -73,7 +75,7 @@
 				</tr>
 			</table>
 
-			<div class="btns">
+			<div class="btnss">
 				<button type="submit" class="btn btn-primary">수정하기</button>
 				<button type="submit" class="btn btn-default" onclick="history.back()">돌아가기</button>
 			</div>
@@ -82,6 +84,8 @@
       
    </div>
 
+	<%@ include file="/inc/footer.jsp"%>
+	<%@ include file="/inc/init.jsp"%>
    <script>
       
    </script>

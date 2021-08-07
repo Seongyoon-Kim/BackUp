@@ -10,6 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import com.afd.DBUtil;
 
+/**
+ * 회원의 마이페이지를 위해 필요한 DAO
+ * @author 3조
+ *
+ */
 public class MyPageDAO {
 	
 	private Connection conn;
@@ -17,6 +22,9 @@ public class MyPageDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * DAO 파일을 데이터베이스와 연결하는 메소드
+	 */
 	public MyPageDAO() {
 
 		try {
@@ -30,6 +38,11 @@ public class MyPageDAO {
 
 	}
 
+	/**
+	 * 마이페이지에서 필요한 회원 한명의 정보를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO list(MyPageDTO dto) {
 		
 		try {
@@ -63,6 +76,11 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 회원 한명의 프로필 정보를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO myProfileList(MyPageDTO dto) {
 		
 		try {
@@ -104,6 +122,11 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * Q&A에서 스크랩한 게시글의 수를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO qnaScrapCount(MyPageDTO dto) {
 		
 		try {
@@ -130,6 +153,11 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 스터디에서 스크랩한 게시글의 수를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO studyScrapCount(MyPageDTO dto) {
 		
 		try {
@@ -156,6 +184,11 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 커뮤니티에서 스크랩한 게시글의 수를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO comScrapCount(MyPageDTO dto) {
 		
 		try {
@@ -182,11 +215,16 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 채용공고에서 스크랩한 공고의 수를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO jobPostScrapCount(MyPageDTO dto) {
 		
 		try {
 			
-			String sql = "select count(*) as jobPostScrapCount from tblJobPostScrap where memberSeq = ?";
+			String sql = "select count(*) as cnt from tblJobPostScrap where memberSeq = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getMemberSeq());
@@ -195,7 +233,7 @@ public class MyPageDAO {
 			
 			if (rs.next()) {
 				
-				dto.setJobPostScrapCount(rs.getString("jobPostScrapCount"));
+				dto.setJobPostScrapCount(rs.getString("cnt"));
 				
 				return dto;
 				
@@ -208,11 +246,16 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 공간대여에서 스크랩한 게시글의 수를 출력하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyPageDTO spaceScrapCount(MyPageDTO dto) {
 		
 		try {
 			
-			String sql = "select count(*) as jobPostScrapCount from tblJobPostScrap where memberSeq = ?";
+			String sql = "select count(*) as cnt from tblSpaceScrap where memberSeq = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getMemberSeq());
@@ -221,7 +264,7 @@ public class MyPageDAO {
 			
 			if (rs.next()) {
 				
-				dto.setSpaceScrapCount(rs.getString("jobPostScrapCount"));
+				dto.setSpaceScrapCount(rs.getString("cnt"));
 				
 				return dto;
 				
@@ -234,6 +277,11 @@ public class MyPageDAO {
 		return null;
 	}
 
+	/**
+	 * 회원의 프로필 정보를 수정하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int myProfileEdit(MyPageDTO dto) {
 		
 		try {
@@ -260,6 +308,11 @@ public class MyPageDAO {
 		return 0;
 	}
 
+	/**
+	 * 회원의 계정 정보를 수정하는 메소드
+	 * @param dto
+	 * @return pstat.executeUpdate(), 0
+	 */
 	public int accountSettingEdit(MyPageDTO dto) {
 		
 		try {
@@ -296,6 +349,52 @@ public class MyPageDAO {
 		}
 		
 		return 0;
+	}
+
+	/**
+	 * 회원의 계정 정보를 관리자가 보게 해주는 메소드
+	 * @param memberSeq
+	 * @return dto, null
+	 */
+	public MyPageDTO accountView(String memberSeq) {
+		
+		try {
+			
+			MyPageDTO dto = new MyPageDTO();
+			
+			String sql = "select * from vwMember where memberSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, memberSeq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				dto.setNickName(rs.getString("nickName"));
+				dto.setName(rs.getString("name"));
+				dto.setRegistrationNumber(rs.getString("registrationNumber"));
+				dto.setTel(rs.getString("tel"));
+				dto.setAddress(rs.getString("address"));
+				dto.setEmail(rs.getString("email"));
+				
+				System.out.println("nickName: " + dto.getNickName());
+				System.out.println("name: " + dto.getName());
+				System.out.println("registrationNumber: " + dto.getRegistrationNumber());
+				System.out.println("tel: " + dto.getTel());
+				System.out.println("address: " + dto.getAddress());
+				System.out.println("email: " + dto.getEmail());
+				
+				return dto;
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("accountView");
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	

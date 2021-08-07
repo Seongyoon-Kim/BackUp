@@ -75,7 +75,7 @@
 				<input type="button" value="프로필" name="profile" class="btn btn-primary" onclick="location.href='/webproject/main/member/mypage/myprofile.do';" />
 			</div>
 			<div class="c">
-				<div class="myComment">내가 쓴 게시글</div>
+				<a href="/webproject/main/member/mypage/chart/chart.do"><div class="myComment">내가 쓴 게시글</div></a>
 				<div>채용 공고</div>
 				<div>공간대여 내역</div>
 				<div>스터디 모임</div>
@@ -87,7 +87,7 @@
 					<span>${comScrapCount.comScrapCount}</span>
 				</div>
 				<div>
-					<span>Q&A</span>
+					<a href="/webproject/main/member/mypage/myscrap/qnalist.do"><span>Q&A</span></a>
 					<span>${qnaScrapCount.qnaScrapCount}</span>
 				</div>
 				<div>
@@ -187,7 +187,7 @@
 						<div class="iii">
 							<input type="text" name="email" id="email" class="form form-control" />
 							<span style="margin-left: 15px; margin-right: 15px;">@</span>
-							<input type="text" name="domain" id="domain" class="form form-control" style="margin-right: 10px;" disabled />
+							<input type="text" name="domain" id="domain" class="form form-control" style="margin-right: 10px;" value="" disabled />
 							<select name="selectDomain" id="selectDomain" class="form form-control" onchange="email_change(this.form)">
 								<option value="naver.com">naver.com</option>
 								<option value="gmail.com">gmail.com</option>
@@ -221,6 +221,11 @@
    		$("#tel3").val("${fn:substring(list.tel, 9, 13)}")
    		$("#email").val("${fn:substring(list.email, 0, fn:indexOf(list.email, '@'))}")
    		$("#domain").val("${fn:substring(list.email, fn:indexOf(list.email, '@') + 1, fn:length(list.email))}")
+   		$("#selectDomain").val("${fn:substring(list.email, fn:indexOf(list.email, '@') + 1, fn:length(list.email))}")
+   		$("#sample6_postcode").val("${fn:substring(list.address, fn:length(list.address) - 5, fn:length(list.address))}")
+   		$("#sample6_address").val("${fn:substring(list.address, 0, fn:indexOf(list.address, ','))}");
+   		$("#sample6_detailAddress").val("${fn:substring(list.address, fn:indexOf(list.address, ',') + 2, fn:indexOf(list.address, '(') - 1)}");
+   		$("#sample6_extraAddress").val("${fn:substring(list.address, fn:indexOf(list.address, '('), fn:indexOf(list.address, ')') + 1)}");
    		
    		
    		function sample6_execDaumPostcode() {

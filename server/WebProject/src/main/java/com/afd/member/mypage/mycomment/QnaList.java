@@ -14,9 +14,18 @@ import javax.servlet.http.HttpSession;
 import com.afd.member.mypage.MyPageDAO;
 import com.afd.member.mypage.MyPageDTO;
 
+/**
+ * Q&A에 작성한 자신의 게시글을 보여주는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/mypage/mycomment/qnalist.do")
 public class QnaList extends HttpServlet {
 
+	/**
+	 * Q&A에 작성한 자신의 게시글을 보여주는 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -29,6 +38,9 @@ public class QnaList extends HttpServlet {
 		
 		//System.out.println("memberSeq: " + session.getAttribute("memberSeq").toString());
 		
+		/**
+		 * Q&A에 작성한 자신의 게시글을 보여주기 위해 필요한 SQL문을 실행하는 메소드
+		 */
 		ArrayList<MyCommentDTO> qnaList = dao.qnaList(dto);
 		
 		for (MyCommentDTO qlist : qnaList) {

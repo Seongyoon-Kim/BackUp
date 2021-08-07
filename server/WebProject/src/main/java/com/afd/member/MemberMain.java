@@ -10,9 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 회원으로 로그인할 때 보여주는 페이지를 실행하는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/membermain.do")
 public class MemberMain extends HttpServlet {
 
+	/**
+	 * 회원으로 로그인할 때 보여주는 페이지를 실행하는 메소드
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -35,6 +43,7 @@ public class MemberMain extends HttpServlet {
 			
 			//부가정보
 			session.setAttribute("name", result.getName());
+			session.setAttribute("nickname", result.getNickName());
 			session.setAttribute("memberSeq", result.getMemberSeq());
 			
 		

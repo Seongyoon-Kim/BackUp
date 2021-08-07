@@ -10,6 +10,9 @@
 <%@ include file="/inc/asset.jsp"%>
 
 <style>
+.bb, .cc, .dd, .ee, .ff, .gg {
+	display: flex;
+}
 </style>
 </head>
 <body>
@@ -52,15 +55,15 @@
 					</div>
 					<div>
 						<span>채용공고</span>
-						<span>${jobPostScrap.jobPostScrapCount}</span>
+						<span>${jobPostScrapCount.jobPostScrapCount}</span>
 					</div>
 					<div>
 						<span>공간대여</span>
-						<span>${spaceScrap.spaceScrapCount}</span>
+						<span>${spaceScrapCount.spaceScrapCount}</span>
 					</div>
 				</div>
 				<div class="e">
-					<span>계정설정</span>
+					<a href="/webproject/main/member/mypage/accountsetting.do"><span>계정설정</span></a>
 				</div>
 			</div>
 		</div>
@@ -70,7 +73,7 @@
 				<div class="aa">
 					<div class="bb">
 						<span>성별</span>
-						<select name="gender" id="gender">
+						<select name="gender" id="gender" class="form form-control" style="width: 100px; height: 35px;">
 							<option value="남자">남자</option>
 							<option value="여자">여자</option>
 						</select>
@@ -79,7 +82,7 @@
 				
 				<div class="cc">
 					<span>경력</span>
-					<select name="career" id="career">
+					<select name="career" id="career" class="form form-control" style="width: 200px; height: 35px;">
 						<option value="신입">신입</option>
 						<option value="경력(1년 미만)">경력(1년 미만)</option>
 						<option value="1년이상~3년 미만">1년이상~3년 미만</option>
@@ -91,7 +94,7 @@
 				
 				<div class="dd">
 					<span>학력</span>
-					<select name="academicBackground" id="academicBackground">
+					<select name="academicBackground" id="academicBackground" class="form form-control" style="width: 180px; height: 35px;">
 						<option value="고졸">고졸</option>
 						<option value="대졸(2~3년제)">대졸(2~3년제)</option>
 						<option value="대졸(4년제)">대졸(4년제)</option>
@@ -102,7 +105,7 @@
 				
 				<div class="ee">
 					<span>관심직종</span>
-					<select name="interestOccupation" id="interestOccupation">
+					<select name="interestOccupation" id="interestOccupation" class="form form-control" style="width: 200px; height: 35px;">
 						<option value="웹개발">웹개발</option>
 						<option value="응용프로그램개발">응용프로그램개발</option>
 						<option value="시스템개발">시스템개발</option>
@@ -121,7 +124,7 @@
 				
 				<div class="ff">
 					<span>사용가능언어</span>
-					<select name="availableLanguage" id="availableLanguage">
+					<select name="availableLanguage" id="availableLanguage" class="form form-control" style="width: 150px; height: 35px;">
 						<option value="c">c</option>
 						<option value="cplus">cplus</option>
 						<option value="Python">Python</option>
@@ -140,7 +143,7 @@
 				
 				<div class="gg">
 					<span>학과</span>
-					<select name="major" id="major">
+					<select name="major" id="major" class="form form-control" style="width: 100px; height: 35px;">
 						<option value="전공">전공</option>
 						<option value="비전공">비전공</option>
 					</select>

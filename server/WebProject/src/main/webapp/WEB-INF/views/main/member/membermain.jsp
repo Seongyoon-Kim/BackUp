@@ -51,13 +51,9 @@
    <%@ include file="/inc/header.jsp" %>
    
    <section class="main-section">
-      일반사용자 메인화면
-      ${name}님 반갑습니다.
-      ${id}
-      <h1>일반사용자메인페이지</h1>
 
       <div class="main_img_container">
-         <div id="main_img">
+         <div id="main_img" style="margin-top: 80px;">
             <img src="http://localhost:8090/webproject/asset/images/main.png" />
          </div>
       </div>

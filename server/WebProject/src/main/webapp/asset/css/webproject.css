@@ -197,10 +197,6 @@ h3 {
 	padding: 15px;
 }
 
-.g {
-	display: flex;
-}
-
 .g > div:nth-child(1) {
 	font-size: 20px;
 	font-weight: bold;
@@ -225,12 +221,11 @@ h3 {
 	height: auto;
 	margin-left: 230px;
 	position: relative;
-	top: -350px;
+	top: -300px;
 }
 
 .l {
-	border-bottom: 3px solid #EEE;
-	padding: 15px;
+	padding: 10px;
 }
 
 .l > div:nth-child(1) {

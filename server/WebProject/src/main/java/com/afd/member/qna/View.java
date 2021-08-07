@@ -11,12 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 게시글의 상세페이지를 보여주는 SQL문을 관리하는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/qna/view.do")
 public class View extends HttpServlet {
 
+	/**
+	 * 게시글의 상세페이지를 보여주는 SQL문을 관리하는 메소드
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		/**
+		 * list.jsp에서 받은 회원번호, 컬럼, 검색어, 회원번호를 String 변수에 저장
+		 */
 		String techQnaSeq = req.getParameter("techQnaSeq");
 		String column = req.getParameter("column");
 		String search = req.getParameter("search");

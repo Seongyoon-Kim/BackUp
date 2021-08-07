@@ -50,6 +50,13 @@
 	float: right;
 	margin-right: 130px;
 	margin-bottom: 20px;
+	position: relative;
+	top: 300px;
+}
+
+.addBoard {
+	margin-left: 950px;
+	margin-bottom: 50px;
 }
 </style>
 </head>
@@ -79,10 +86,9 @@
 				</tr>
 			</table>
 
-			<div class="btns">
-				<button type="submit" class="btn btn-primary">글쓰기</button>
+			<div class="addBoard">
+				<input type="submit" value="글쓰기" class="btn btn-primary" id="add" />
 			</div>
-
 		</form>
 
 	</div>

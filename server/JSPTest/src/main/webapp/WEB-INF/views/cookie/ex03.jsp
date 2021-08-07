@@ -31,9 +31,9 @@
 						txtpw"" class="form-control" /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="로그인"
-						class="btn btn-default" id="btn" /> <label for="cb"><input
-							type="checkbox" name="" id="cb" /> 아이디 저장하기</label></td>
+					<td colspan="2"><input type="button" value="로그인" class="btn btn-default" id="btn" />
+						<label for="cb"><input type="checkbox" name="" id="cb" /> 아이디 저장하기</label>
+					</td>
 				</tr>
 			</table>
 		</form>

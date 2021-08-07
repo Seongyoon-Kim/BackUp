@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 import com.afd.DBUtil;
 
+/**
+ * 내가 작성한 게시글을 보여주기 위해 필요한 클래스
+ * @author 3조
+ *
+ */
 public class MyCommentDAO {
 	
 	private Connection conn;
@@ -15,6 +20,9 @@ public class MyCommentDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * MyCommentDAO를 데이터베이스와 연결해주는 메소드
+	 */
 	public MyCommentDAO() {
 
 		try {
@@ -28,6 +36,11 @@ public class MyCommentDAO {
 
 	}
 
+	/**
+	 * Q&A에서 자신이 작성한 게시글을 보여주는 메소드
+	 * @param dto
+	 * @return qnaList, null
+	 */
 	public ArrayList<MyCommentDTO> qnaList(MyCommentDTO dto) {
 		
 		try {
@@ -46,21 +59,23 @@ public class MyCommentDAO {
 			
 			while (rs.next()) {
 				
-				dto.setTechQnaSeq(rs.getString("techQnaSeq"));
-				dto.setMemberSeq(rs.getString("memberSeq"));
-				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
-				dto.setRegdate(rs.getString("regdate"));
-				dto.setReadCount(rs.getString("readCount"));
-				dto.setImage(rs.getString("image"));
-				dto.setIsNew(rs.getString("isNew"));
-				dto.setNickName(rs.getString("nickName"));
-				dto.setId(rs.getString("id"));
-				dto.setCcnt(rs.getString("ccnt"));
-				dto.setRecommendCount(rs.getString("recommendCount"));
-				dto.setDecommendCount(rs.getString("decommendCount"));
+				MyCommentDTO result = new MyCommentDTO();
 				
-				qnaList.add(dto);
+				result.setTechQnaSeq(rs.getString("techQnaSeq"));
+				result.setMemberSeq(rs.getString("memberSeq"));
+				result.setTitle(rs.getString("title"));
+				result.setContent(rs.getString("content"));
+				result.setRegdate(rs.getString("regdate"));
+				result.setReadCount(rs.getString("readCount"));
+				result.setImage(rs.getString("image"));
+				result.setIsNew(rs.getString("isNew"));
+				result.setNickName(rs.getString("nickName"));
+				result.setId(rs.getString("id"));
+				result.setCcnt(rs.getString("ccnt"));
+				result.setRecommendCount(rs.getString("recommendCount"));
+				result.setDecommendCount(rs.getString("decommendCount"));
+				
+				qnaList.add(result);
 				
 			}
 			

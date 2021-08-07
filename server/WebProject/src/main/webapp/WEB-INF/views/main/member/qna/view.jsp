@@ -86,6 +86,15 @@
 .editDelete div:nth-child(1) {
 	margin-bottom: 15px;
 }
+
+.table .aaaa, .table .bbbb {
+	padding: 15px;
+}
+
+.table .aaaa {
+	text-align: justify;
+	line-height: 25px;
+}
 </style>
 </head>
 <body>
@@ -112,7 +121,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>${dto.title}</td>
+				<td class="bbbb">${dto.title}</td>
 				<td rowspan="2">
 					<div id="content-function" class="content-function">
 						<div class="content-function-group">
@@ -168,11 +177,11 @@
 								</c:forEach>
 								<c:if test="${scrapYes == 'n'}">
 									<a href="/webproject/main/member/qna/scrap.do?techQnaSeq=${dto.techQnaSeq}"><i class="bi bi-bookmark-star" title="스크랩하기"></i></a>
-									<div class="scrap-count">${scrapResult.scrapCount}</div>
+									<div class="scrap-count" title="스크랩수">${scrapResult.scrapCount}</div>
 								</c:if>
 								<c:if test="${scrapYes == 'y'}">
 									<a href="/webproject/main/member/qna/delscrap.do?techQnaSeq=${dto.techQnaSeq}&memberSeq=${memberSeq}"><i class="bi bi-bookmark-star-fill" title="스크랩 취소하기"></i></a>
-									<div class="scrap-count">${scrapResult.scrapCount}</div>
+									<div class="scrap-count" title="스크랩수">${scrapResult.scrapCount}</div>
 								</c:if>
 							</div>
 						</div>
@@ -180,7 +189,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>${dto.content}
+				<td class="aaaa">${dto.content}
 					<div class="editDelete">
 						<c:if test="${not empty id}">
 							<c:if test="${dto.id == id}">

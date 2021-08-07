@@ -10,9 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 회원의 프로필 정보를 보여주는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/mypage/myprofile.do")
 public class MyProfile extends HttpServlet {
 
+	
+	/**
+	 * 회원의 프로필 정보를 보여주는 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

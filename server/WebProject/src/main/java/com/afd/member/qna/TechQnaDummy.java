@@ -5,6 +5,11 @@ import java.sql.PreparedStatement;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * 게시글의 제목, 내용, 작성자 등의 더미를 관리하는 클래스
+ * @author 3조
+ *
+ */
 public class TechQnaDummy {
 	
 	public static void main(String[] args) {

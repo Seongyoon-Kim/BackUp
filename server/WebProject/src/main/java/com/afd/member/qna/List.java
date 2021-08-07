@@ -14,21 +14,40 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.If;
 
+/**
+ * 게시글의 목록을 보여주는 클래스
+ * 검색, 페이징, 게시글 목록 등 여러가지 기능이 담겨있다.
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/qna/list.do")
 public class List extends HttpServlet {
 	
+	/**
+	 * form 태그를 GET 방식과 POST 방식 모두 사용하기 위해 만든 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		doPostGet(req, resp);
 	}
 
+	/**
+	 * form 태그를 GET 방식과 POST 방식 모두 사용하기 위해 만든 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		doPostGet(req, resp);
 	}
 
+	/**
+	 * 게시글의 목록을 보여주는 메소드
+	 * 검색, 페이징, 게시글 목록 등 여러가지 기능이 담겨있다.
+	 * @param req, resp
+	 */
 	protected void doPostGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
@@ -37,12 +56,18 @@ public class List extends HttpServlet {
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		
+		/**
+		 * 게시글 목록에서 검색할 때 받은 컬럼값과 검색어를 String 변수에 저장한다.
+		 */
 		String column = req.getParameter("column");
 		String search = req.getParameter("search");
 		String isSearch = "n";
 		
 		//System.out.println("isSearch BEFORE: " + isSearch);
 		
+		/**
+		 * 게시글 목록에서 최신순, 댓글순, 추천순, 조회순을 누를 때 받은 값을 String 변수에 저장한다.
+		 */
 		String orderRegdate = req.getParameter("orderRegdate");
 		String orderRecommendCount = req.getParameter("orderRecommendCount");
 		String orderComment = req.getParameter("orderComment");
@@ -53,6 +78,9 @@ public class List extends HttpServlet {
 		//System.out.println("orderComment: " + orderComment);
 		//System.out.println("orderReadCount: " + orderReadCount);
 
+		/**
+		 * 만약 게시글 목록에서 검색중이라면 isSearch 변수를 y값으로 저장한다.
+		 */
 		if (column != null && search != null && !column.equals("") && !search.equals("")) {
 			isSearch = "y";
 		}
@@ -67,6 +95,9 @@ public class List extends HttpServlet {
 		map.put("orderComment", orderComment);
 		map.put("orderReadCount", orderReadCount);
 		
+		/**
+		 * 페이징 처리를 위해 필요한 소스
+		 */
 		int nowPage = 0; // 현재 페이지 번호
 		int totalCount = 0; // 총 게시물 수
 		int pageSize = 10; // 한 페이지당 출력할 게시물 수
@@ -110,9 +141,11 @@ public class List extends HttpServlet {
 			pagebar += pagebar += String.format(" <li class='disabled'><a href='#!' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ");
 		} else if (n != 1) {
 			
-			if (map.get("isSearch").equals("y") || !column.equals("") || !search.equals("")) 
+			if (map.get("isSearch").equals("y") || !column.equals("") || !search.equals("")) {
 				
-					pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&column=%s&search=%s&isSearch=%s' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1, column, search, isSearch);
+				pagebar += pagebar += String.format(" <li><a href='/webproject/main/member/qna/list.do?page=%d&column=%s&search=%s&isSearch=%s' aria-label='Previous'> <span aria-hidden='true'>&laquo;</span></a></li> ", n - 1, column, search, isSearch);
+				
+			}
 					
 			} else if (map.get("isSearch").equals("n")) {
 				

@@ -10,9 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 회원의 계정 정보를 수정하기 위해 데이터를 넘겨주는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/mypage/accountsetting.do")
 public class AccountSetting extends HttpServlet {
 
+	
+	/**
+	 * 회원의 계정 정보를 수정하기 위해 데이터를 넘겨주는 클래스
+	 * @param req, resp
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

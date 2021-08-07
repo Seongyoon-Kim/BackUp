@@ -10,9 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 회원의 프로필 정보를 수정하는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/mypage/myprofileedit.do")
 public class MyProfileEdit extends HttpServlet {
 
+	/**
+	 * 회원픠 프로필 정보를 수정하는 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -45,6 +54,10 @@ public class MyProfileEdit extends HttpServlet {
 		dto.setAvailableLanguage(availableLanguage);
 		dto.setMajor(major);
 		
+		/**
+		 * 회원의 프로필 정보를 수정하기 위해 필요한 SQL문을 실행해주는 메소드
+		 * 성공하면 마이페이지 메인화면으로 넘어가고 실패하면 '프로필 수정 실패' 알림창을 띄워준다.
+		 */
 		int result = dao.myProfileEdit(dto);
 		
 		System.out.println("result: " + result);

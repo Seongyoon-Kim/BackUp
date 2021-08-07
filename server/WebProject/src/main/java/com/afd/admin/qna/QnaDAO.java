@@ -49,7 +49,7 @@ public class QnaDAO {
 											, map.get("search"), map.get("search"));
 				} else if (map.get("column").equals("title") || map.get("column").equals("content") || map.get("column").equals("nickName")) {
 					where = String.format("%s like '%%%s%%'"
-											, map.get("column"), map.get("search"));				
+											, map.get("column"), map.get("search"));
 				}
 				
 				sql = String.format("select b.*, rownum as rnum from (select a.*, rownum from\r\n"
@@ -97,7 +97,7 @@ public class QnaDAO {
 				
 			} 
 			
-			System.out.println("SQL문: " + sql);
+//			System.out.println("SQL문: " + sql);
 				
 			pstat = conn.prepareStatement(sql);
 

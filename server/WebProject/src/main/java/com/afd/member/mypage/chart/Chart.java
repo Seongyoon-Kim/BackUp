@@ -11,9 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 자신이 작성한 게시글 내역을 차트로 보여주는 클래스
+ * @author 3조
+ *
+ */
 @WebServlet("/main/member/mypage/chart/chart.do")
 public class Chart extends HttpServlet {
 
+	/**
+	 * 자신이 작성한 게시글 내역을 차트로 보여주는 메소드
+	 * @param req, resp
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

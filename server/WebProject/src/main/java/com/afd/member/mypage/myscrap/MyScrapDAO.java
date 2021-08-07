@@ -10,6 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import com.afd.DBUtil;
 
+/**
+ * 자신의 스크랩 내역을 보여주기 위해 필요한 DAO
+ * @author 3조
+ *
+ */
 public class MyScrapDAO {
 	
 	private Connection conn;
@@ -17,6 +22,9 @@ public class MyScrapDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * MyScrapDAO를 데이터베이스와 연결하는 메소드
+	 */
 	public MyScrapDAO() {
 
 		try {
@@ -30,6 +38,11 @@ public class MyScrapDAO {
 
 	}
 
+	/**
+	 * 회원 한명의 정보를 보여주는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyScrapDTO list(MyScrapDTO dto) {
 		
 		try {
@@ -62,6 +75,11 @@ public class MyScrapDAO {
 		return null;
 	}
 
+	/**
+	 * 회원 한명의 스크랩 내역을 보여주는 메소드
+	 * @param dto
+	 * @return scrapList, null
+	 */
 	public ArrayList<MyScrapDTO> scrapList(MyScrapDTO dto) {
 		
 		try {
@@ -109,6 +127,11 @@ public class MyScrapDAO {
 		return null;
 	}
 
+	/**
+	 * 회원 한명의 스크랩 수를 보여주는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public MyScrapDTO scrapCount(MyScrapDTO dto) {
 		
 		try {

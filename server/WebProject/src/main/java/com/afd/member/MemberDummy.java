@@ -5,6 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 회원 더미를 만드는 클래스
+ * @author 3조
+ *
+ */
 public class MemberDummy {
 
 	public static void main(String[] args) {

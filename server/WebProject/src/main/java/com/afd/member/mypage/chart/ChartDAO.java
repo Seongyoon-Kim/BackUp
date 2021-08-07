@@ -10,6 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import com.afd.DBUtil;
 
+/**
+ * 자신이 작성한 게시글 내역을 차트로 보여주기 위해 필요한 DAO
+ * @author 3조
+ *
+ */
 public class ChartDAO {
 
 	private Connection conn;
@@ -17,6 +22,9 @@ public class ChartDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 
+	/**
+	 * 데이터베이스와 연결해주는 메소드
+	 */
 	public ChartDAO() {
 
 		try {
@@ -30,6 +38,11 @@ public class ChartDAO {
 
 	}
 
+	/**
+	 * 자신이 작성한 게시글의 개수를 보여주는 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public ChartDTO boardCount(ChartDTO dto) {
 		
 		try {
@@ -63,6 +76,11 @@ public class ChartDAO {
 		return null;
 	}
 
+	/**
+	 * 자신이 작성한 댓글수를 보여주는 SQL문을 실행하는 메소드
+	 * @param dto
+	 * @return dto, null
+	 */
 	public ChartDTO commentCount(ChartDTO dto) {
 		
 		try {
@@ -76,6 +94,9 @@ public class ChartDAO {
 			pstat.setString(3, dto.getMemberSeq());
 			pstat.setString(4, dto.getMemberSeq());
 			
+			/**
+			 * SQL문이 성공하면 DTO에 이름과, 커뮤니티 댓글수, Q&A 댓글수, 스터디 댓글수를 저장한다.
+			 */
 			rs = pstat.executeQuery();
 			
 			if (rs.next()) {
