@@ -57,6 +57,10 @@
 .k {
 	height: 250px;
 }
+
+.postName {
+	width: 200px;
+}
 </style>
 </head>
 <body>
