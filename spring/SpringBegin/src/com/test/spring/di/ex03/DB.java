@@ -4,7 +4,6 @@ import java.beans.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.sun.jdi.connect.spi.Connection;
 
 public class DB {
 
