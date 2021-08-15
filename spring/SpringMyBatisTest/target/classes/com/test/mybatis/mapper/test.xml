@@ -38,5 +38,22 @@
 	 		category = #{newcategory}
 	 	where category = #{category}
 	 </update>
+	 
+	 <select id="m5" resultType="Integer">
+	 	select count(*) from tblMemo
+	 </select>
+	 
+	 <select id="m6" resultType="String" parameterType="String" >
+	 	select memo from tblMemo where seq = #{seq}
+	 </select>
+	 
+	 <select id="m7" parameterType="String" resultType="dto">
+	 	select * from tblMemo where seq = #{seq}
+	 </select>
+	 
+	 <!-- 결과셋이 다중 레코드라도.. 1개의 레코드를 담을 수 있는 자료형만 resultType에 적는다. -->
+	 <select id="m8" resultType="dto">
+	 	select * from tblMemo order by seq desc
+	 </select>
 
 </mapper>

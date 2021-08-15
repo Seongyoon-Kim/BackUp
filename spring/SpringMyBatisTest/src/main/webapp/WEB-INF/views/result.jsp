@@ -22,6 +22,18 @@
 		<div>m1: ${result}</div>
 		
 		<div>m2: ${result}</div>
+		
+		<div>m3.count: ${count}</div>
+		
+		<div>m4.memo: ${memo}</div>
+		
+		<div>m5.dto: ${dto}</div>
+		
+		<div>m6.list</div>
+		
+		<c:forEach items="${list}" var="dto">
+			<div>${dto.seq}. ${dto.memo}</div>
+		</c:forEach>
       
 	</div>   
    
