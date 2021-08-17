@@ -14,14 +14,25 @@ public class MemberDummy {
 
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 30; i++) {
 
 			System.out.printf(
-					"INSERT INTO TBLMEMBER (memberSeq, name, id, pw, nickName, registrationNumber, tel, address, email) values (memberSeq.nextVal, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');\r\n",
-					fullName(), nId(), pw(), nNick(), ssn(), nPhone(), address(), Email());
+					"INSERT INTO TBLHOST (memberSeq, name, nickname, birth, gender, id, email, pw, tel, point, address, auth, image) values (seqUser.nextVal, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', default, '%s', default, default);\r\n",
+					fullName(), nNick(), ssn(), gender(), nId(), Email(), pw(), nPhone(), address());
 
 		}
 
+	}
+	
+	// 성별 생성하는 메소드
+	public static String gender() {
+		
+		List<String> gender = Arrays.asList("남자", "여자");
+		
+		Collections.shuffle(gender);
+		
+		return gender.get(0);
+		
 	}
 
 	// 이름 생성하는 메소드
