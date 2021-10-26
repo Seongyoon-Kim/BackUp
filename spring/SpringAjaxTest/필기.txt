@@ -1,0 +1,83 @@
+1. 새 프로젝트 생성
+- Spring Legacy Project > "SpringAjaxTest" + Spring MVC Project > "com.test.ajax"
+
+2. pom.xml
+- lombok
+- mybatis
+- log4j
+- jackson > 서버에서 JSON 데이터를 처리
+- json-simple > 서버에서 JSON 데이터를 처리
+
+3. web.xml
+- 인코딩 필터 추가
+
+4. root-context.xml
+- mybatis
+- log4j
+
+5. servlet-context.xml
+
+6. 파일 생성
+- 루트 > "db.sql"
+- com.test.ajax
+	- "AjaxController.java"
+	- "AjaxDAO.java"
+	- "UserDTO.java"
+- views
+	- "user"
+		- "user.jsp"	
+
+
+https://developer.mozilla.org/ko/docs/Web/Guide/AJAX/Getting_Started
+
+
+- views
+	- user
+		- "user3.jsp" 
+
+
+
+동기 vs 비동기
+- 동기: 사건이나 일의 처리가 직렬로 실행. 난이도 하
+- 비동기: 사건이나 일의 처리가 병렬로 실행. 난이도 상
+
+
+---------------------------------
+
+jQuery ajax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

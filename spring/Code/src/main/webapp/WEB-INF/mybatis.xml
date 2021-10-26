@@ -6,6 +6,12 @@
 	
 	<typeAliases>
 		
+		<!-- DTO 별칭 -->
+		<typeAlias type="com.test.code.CodeDTO" alias="dto" />
+		<typeAlias type="com.test.code.CodeCommentDTO" alias="cdto" />
+		<typeAlias type="com.test.code.CodeLanguageDTO" alias="ldto" />
+		<typeAlias type="com.test.code.CodeLanguageLinkDTO" alias="cldto" />
+		
 	</typeAliases>
 	
 </configuration>

@@ -10,5 +10,7 @@ public class CodeLanguageDTO {
 	private String langicon;
 	private String langclass;
 	private String color;
+	
+	private String cseq; //outer join용
 
 }

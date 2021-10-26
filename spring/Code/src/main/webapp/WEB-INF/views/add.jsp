@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        
+<form method="POST" action="/code/addok.action">        
 <table class="table table-bordered table-add">
     <tr>
         <td><input type="text" name="subject" class="form-control" required placeholder="Subject" autocomplete="off"></td>
@@ -12,13 +12,16 @@
     <tr>
         <td>
             <div class="language">
-                <i class="fas fa-keyboard java-icon icon off" title="Java" data-toggle="tooltip" data-placement="bottom" data-language="java"></i>
-                <i class="fas fa-database sql-icon icon off" title="SQL" data-toggle="tooltip" data-placement="bottom" data-language="sql"></i>
-                <i class="fab fa-html5 html-icon icon off" title="HTML" data-toggle="tooltip" data-placement="bottom" data-language="html"></i>
-                <i class="fab fa-css3-alt css-icon icon off" title="CSS" data-toggle="tooltip" data-placement="bottom" data-language="css"></i>
-                <i class="fab fa-js javascript-icon icon off" title="JavaScript" data-toggle="tooltip" data-placement="bottom" data-language="javascript"></i>                
-                <i class="fas fa-seedling spring-icon icon off" title="Spring" data-toggle="tooltip" data-placement="bottom" data-language="spring"></i>                
-                <i class="fas fa-code xml-icon icon off" title="XML" data-toggle="tooltip" data-placement="bottom" data-language="xml"></i>
+            
+            	<c:forEach items="${llist}" var="ldto">
+	            	<i class="${ldto.langclass} ${ldto.langicon} icon off"
+	    			   title="${ldto.name}" 
+	    			   data-toggle="tooltip" 
+	    			   data-placement="bottom" 
+	    			   data-language="${ldto.name.toLowerCase()}"
+	    			   data-lseq="${ldto.seq}"></i>
+                </c:forEach>
+                
             </div>
         </td>
     </tr>
@@ -34,6 +37,8 @@
       </div>
 
 <input type="hidden" name="lseq">
+
+</form>
 
 
 
